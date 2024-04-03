@@ -1,0 +1,56 @@
+.lightbox {
+    height: 100%;
+}
+
+.lightbox .lb-outerContainer {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent;
+}
+
+.lightbox .lb-container {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox .lb-outerContainer img {
+    transform-origin: initial !important;
+}
+.lightbox .lb-dataContainer {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100% !important;
+    padding: 20px 40px;
+    z-index: 99;
+}
+
+.lightbox .lb-nav a.lb-prev,
+.lightbox .lb-nav a.lb-next {
+    opacity: 1 !important;
+    width: 50% !important;
+}
+
+.lightbox .lb-nav {
+    padding: 0px 25px;
+}
+
+.lightbox .lb-data .lb-zoomOut,
+.lightbox .lb-data .lb-zoomIn,
+.lightbox .lb-data .lb-turnRight,
+.lightbox .lb-data .lb-turnLeft,
+.lightbox .lb-data .lb-close {
+    width: 20px !important;
+    height: 20px !important;
+    background-size: cover;
+}
+
+.lightbox .lb-data .lb-turnLeft,
+.lightbox .lb-data .lb-zoomOut,
+.lightbox .lb-turnContainer,
+.lightbox .lb-zoomContainer {
+    margin-right: 10px;
+}

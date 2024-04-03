@@ -1,0 +1,661 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Sweet Alerts</span>
+        </li>
+    </ul>
+    <div class="sweet-alerts space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/sweetalert2" target="_blank" class="block hover:underline">https://www.npmjs.com/package/sweetalert2</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic message</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-primary" (click)="showAlert(1)">Basic message</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- basic message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;showAlert()&quot;&gt;Basic message&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            title: 'Saved succesfully',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- message -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Success message</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-secondary" (click)="showAlert(2)">Success message!</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;showAlert()&quot;&gt;Success message!&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Good job!',
+            text: 'You clicked the!',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Dynamic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dynamic queue</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center"
+                            ><icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-success" (click)="showAlert(3)">Dynamic queue</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- dynamic queue --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; (click)=&quot;showAlert()&quot;&gt;Dynamic queue&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        const ipAPI = 'https://api.ipify.org?format=json';
+        Swal.fire({
+            title: 'Your public IP',
+            confirmButtonText: 'Show my public IP',
+            text: 'Your public IP will be received ' + 'via AJAX request',
+            showLoaderOnConfirm: true,
+            customClass: 'sweet-alerts',
+            preConfirm: () =&gt; {
+                return fetch(ipAPI)
+                    .then((response) =&gt; {
+                        return response.json();
+                    })
+                    .then((data) =&gt; {
+                        Swal.fire({
+                            title: data.ip,
+                            customClass: 'sweet-alerts',
+                        });
+                    })
+                    .catch(() =&gt; {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Unable to get your public IP',
+                            customClass: 'sweet-alerts',
+                        });
+                    });
+            },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- A title with text -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">A title with a text under</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center"
+                            ><icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-danger" (click)="showAlert(4)">Title & text</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; (click)=&quot;showAlert()&quot;&gt;Title &amp; text&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            icon: 'question',
+            title: 'The Internet?',
+            text: 'That thing is still around?',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Chaining modals -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Chaining modals (queue)</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-warning" (click)="showAlert(5)">Chaining modals (queue)</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot; (click)=&quot;showAlert()&quot;&gt;Chaining modals (queue)&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        const steps = ['1', '2', '3'];
+        const swalQueueStep = Swal.mixin({
+            confirmButtonText: 'Next &rarr;',
+            showCancelButton: true,
+            progressSteps: steps,
+            input: 'text',
+            inputAttributes: {
+                required: true,
+            },
+            validationMessage: 'This field is required',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+
+        const values = [];
+        let currentStep;
+
+        for (currentStep = 0; currentStep &lt; steps.length;) {
+            const result = await swalQueueStep.fire({
+                title: `Question ${steps[currentStep]}`,
+                text: currentStep == 0 ? 'Chaining swal modals is easy.' : '',
+                inputValue: values[currentStep],
+                showCancelButton: currentStep &gt; 0,
+                currentProgressStep: currentStep,
+                customClass: 'sweet-alerts',
+            });
+            if (result.value) {
+                values[currentStep] = result.value;
+                currentStep++;
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                currentStep--;
+            } else {
+                break;
+            }
+        }
+
+        if (currentStep === steps.length) {
+            Swal.fire({
+                title: 'All done!',
+                padding: '2em',
+                html: 'Your answers: &lt;pre&gt;' + JSON.stringify(values) + '&lt;/pre&gt;',
+                confirmButtonText: 'Lovely!',
+                customClass: 'sweet-alerts',
+            });
+        }
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Animation -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Custom animation</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-info" (click)="showAlert(6)">Custom animation</button>
+                    </div>
+                    <div class="fixed inset-0 z-[999] hidden bg-[black]/60 px-4 transition-all duration-300">
+                        <div class="panel absolute left-1/2 top-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center sm:w-[480px]">
+                            <h3 class="mb-5 text-2xl font-bold text-[#3b3f5c] dark:text-white-light">Custom animation with Animate.css</h3>
+                            <button type="button" class="btn btn-info">Ok</button>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code7')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; (click)=&quot;showAlert()&quot;&gt;Custom animation&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            title: 'Custom animation with Animate.css',
+            animation: false,
+            showClass: {
+                popup: 'animate__animated animate__flip'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            },
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Auto close timer -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Message with auto close timer</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-primary" (click)="showAlert(7)">Message timer</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code8')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;showAlert()&quot;&gt;Message timer&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        let timerInterval;
+
+        Swal.fire({
+            title: 'Auto close alert!',
+            html: 'I will close in &lt;b&gt;&lt;/b&gt; milliseconds.',
+            timer: 2000,
+            timerProgressBar: true,
+            customClass: 'sweet-alerts',
+            didOpen: () =&gt; {
+                Swal.showLoading();
+                const b = Swal.getHtmlContainer().querySelector('b');
+                timerInterval = setInterval(() =&gt; {
+                    b.textContent = Swal.getTimerLeft();
+                }, 100);
+            },
+            willClose: () =&gt; {
+                clearInterval(timerInterval);
+            },
+        }).then((result) =&gt; {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer');
+            }
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Custom image -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Message with custom image</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-secondary" (click)="showAlert(8)">Message with custom image</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code9')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;showAlert()&quot;&gt;Message with custom image&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            title: 'Sweet!',
+            text: 'Modal with a custom image.',
+            imageUrl: ('/assets/images/thumbs-up.jpg'),
+            imageWidth: 224,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            animation: false,
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Custom HTML -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Custom HTML description and buttons</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code10')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-danger" (click)="showAlert(9)">Custom Description & buttons</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code10')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; (click)=&quot;showAlert()&quot;&gt;Custom Description &amp; buttons&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            icon: 'info',
+            title: '&lt;i&gt;HTML&lt;/i&gt; &lt;u&gt;example&lt;/u&gt;',
+            html: 'You can use &lt;b&gt;bold text&lt;/b&gt;, ' + '&lt;a href=&quot;//github.com&quot;&gt;links&lt;/a&gt; ' + 'and other HTML tags',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '&lt;i class=&quot;flaticon-checked-1&quot;&gt;&lt;/i&gt; Great!',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText: '&lt;i class=&quot;flaticon-cancel-circle&quot;&gt;&lt;/i&gt; Cancel',
+            cancelButtonAriaLabel: 'Thumbs down',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Warning message -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Warning message, with "Confirm" button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code11')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-success" (click)="showAlert(10)">Confirm</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code11')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; (click)=&quot;showAlert()&quot;&gt;Confirm&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Are you sure?',
+            text: &quot;You won't be able to revert this!&quot;,
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        }).then((result) =&gt; {
+            if (result.value) {
+                Swal.fire({ title: 'Deleted!', text: 'Your file has been deleted.', icon: 'success', customClass: 'sweet-alerts' });
+            }
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Cancel -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Execute something else for "Cancel".</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code12')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-warning" (click)="showAlert(11)">Addition else for "Cancel".</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code12')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot; (click)=&quot;showAlert()&quot;&gt;Addition else for &quot;Cancel&quot;.&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                popup: 'sweet-alerts',
+                confirmButton: 'btn btn-secondary',
+                cancelButton: 'btn btn-dark ltr:mr-3 rtl:ml-3',
+            },
+            buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+        .fire({
+            title: 'Are you sure?',
+            text: &quot;You won't be able to revert this!&quot;,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            padding: '2em',
+        })
+        .then((result) =&gt; {
+            if (result.value) {
+                swalWithBootstrapButtons.fire('Deleted!', 'Your file has been deleted.', 'success');
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalWithBootstrapButtons.fire('Cancelled', 'Your imaginary file is safe :)', 'error');
+            }
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Custom Style -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">A message with custom width, padding and background</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code13')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-info" (click)="showAlert(12)">Custom Message</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code13')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; (click)=&quot;showAlert()&quot;&gt;Custom Message&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            title: 'Custom width, padding, background.',
+            width: 600,
+            padding: '7em',
+            customClass: 'background-modal sweet-alerts',
+            background: '#fff url(' + ('/assets/images/sweet-bg.jpg') + ') no-repeat 100% 100%',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Footer -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">With Footer</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code14')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-dark" (click)="showAlert(13)">With Footer</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code14')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot; (click)=&quot;showAlert()&quot;&gt;With Footer&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '&lt;a href=&quot;javascript:;&quot;&gt;Why do I have this issue?&lt;/a&gt;',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- RTL -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">RTL support</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code15')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center" id="rtl-container">
+                        <button type="button" class="btn btn-primary" (click)="showAlert(14)">RTL</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code15')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;showAlert()&quot;&gt;RTL&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        Swal.fire({
+            title: 'هل تريد الاستمرار؟',
+            confirmButtonText: 'نعم',
+            cancelButtonText: 'لا',
+            showCancelButton: true,
+            showCloseButton: true,
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Mixin -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Mixin</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code16')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-secondary" (click)="showAlert(15)">Mixin</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code16')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- success message --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;showAlert()&quot;&gt;Mixin&lt;/button&gt;
+
+&lt;!-- script --&gt;
+    async showAlert() {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+        toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

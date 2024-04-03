@@ -1,0 +1,58 @@
+<div>
+    <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+        <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+            <icon-bell />
+        </div>
+        <span class="ltr:mr-3 rtl:ml-3">Documentation: </span>
+        <a href="https://www.npmjs.com/package/@bhplugin/ng-datatable" target="_blank" class="block hover:underline">
+            https://www.npmjs.com/package/@bhplugin/ng-datatable
+        </a>
+    </div>
+
+    <div class="panel mt-6 pb-1.5">
+        <div class="mb-4.5 flex flex-col justify-between gap-5 md:flex-row md:items-center">
+            <div class="flex flex-wrap items-center">
+                <button type="button" class="btn btn-primary btn-sm m-1" (click)="exportTable('csv')">
+                    <icon-file class="h-5 w-5 ltr:mr-2 rtl:ml-2" />
+                    CSV
+                </button>
+                <button type="button" class="btn btn-primary btn-sm m-1" (click)="exportTable('txt')">
+                    <icon-txt-file class="h-5 w-5 ltr:mr-2 rtl:ml-2" />
+                    TXT
+                </button>
+                <div class="relative m-1">
+                    <ang-json2excel-btn [json]="jsonData" fileName="table" sheetName="tablesheet"></ang-json2excel-btn>
+                    <div class="btn btn-primary btn-sm absolute left-0 top-0">
+                        <icon-code-file class="ltr:mr-2 rtl:ml-2" />
+
+                        EXCEL
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm m-1" (click)="exportTable('print')">
+                    <icon-printer class="ltr:mr-2 rtl:ml-2" />
+                    PRINT
+                </button>
+            </div>
+
+            <div class="text-right">
+                <input [(ngModel)]="search" type="text" class="form-input w-auto" placeholder="Search..." />
+            </div>
+        </div>
+
+        <div class="datatable">
+            <ng-datatable
+                [rows]="rows"
+                [columns]="cols"
+                [sortable]="true"
+                [search]="search"
+                skin="whitespace-nowrap table-hover"
+                firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+                previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+            >
+                <ng-template slot="dob" let-value="data"> {{ formatDate(value.dob) }} </ng-template>
+            </ng-datatable>
+        </div>
+    </div>
+</div>

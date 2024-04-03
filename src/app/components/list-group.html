@@ -1,0 +1,381 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>List Group</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <!-- Basic -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]">
+                    <div class="border-b border-[#e0e6ed] px-4 py-2.5 dark:border-[#1b2e4b]">Cras justo odio</div>
+                    <div class="border-b border-[#e0e6ed] px-4 py-2.5 dark:border-[#1b2e4b]">Dapibus ac facilisis in</div>
+                    <div class="border-b border-[#e0e6ed] bg-primary px-4 py-2.5 text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)] dark:border-[#1b2e4b]">
+                        Morbi leo risus
+                    </div>
+                    <div class="border-b border-[#e0e6ed] px-4 py-2.5 dark:border-[#1b2e4b]">Porta ac consectetur ac</div>
+                    <div class="px-4 py-2.5">Vestibulum at eros</div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;div class=&quot;flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]&quot;&gt;
+  &lt;div class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5&quot;&gt;Cras justo odio&lt;/div&gt;
+  &lt;div class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5&quot;&gt;Dapibus ac facilisis in&lt;/div&gt;
+  &lt;div class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 bg-primary text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)]&quot;&gt;Morbi leo risus&lt;/div&gt;
+  &lt;div class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5&quot;&gt;Porta ac consectetur ac&lt;/div&gt;
+  &lt;div class=&quot;px-4 py-2.5&quot;&gt;Vestibulum at eros&lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Links -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Links</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]">
+                    <a href="javascript:;" class="border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10">
+                        Cras justo odio
+                    </a>
+                    <a href="javascript:;" class="border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10">
+                        Dapibus ac facilisis in
+                    </a>
+                    <a
+                        href="javascript:;"
+                        class="border-b border-[#e0e6ed] bg-primary px-4 py-2.5 text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)] hover:bg-[#eee] hover:text-black dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10 dark:hover:text-white"
+                    >
+                        Morbi leo risus
+                    </a>
+                    <a href="javascript:;" class="border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10">
+                        Porta ac consectetur ac
+                    </a>
+                    <a href="javascript:;" class="px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10">Vestibulum at eros</a>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- links --&gt;
+&lt;div class=&quot;flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]&quot;&gt;
+  &lt;a href=&quot;javascript:;&quot; class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;Cras justo odio&lt;/a&gt;
+  &lt;a href=&quot;javascript:;&quot; class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;Dapibus ac facilisis in&lt;/a&gt;
+  &lt;a
+    href=&quot;javascript:;&quot;
+    class=&quot;
+      border-b border-[#e0e6ed]
+      dark:border-[#1b2e4b]
+      px-4
+      py-2.5
+      bg-primary
+      text-white
+      shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)]
+      hover:bg-[#eee]
+      dark:hover:bg-[#eee]/10
+      hover:text-black
+      dark:hover:text-white
+    &quot;
+    &gt;Morbi leo risus&lt;/a
+  &gt;
+  &lt;a href=&quot;javascript:;&quot; class=&quot;border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;Porta ac consectetur ac&lt;/a&gt;
+  &lt;a href=&quot;javascript:;&quot; class=&quot;px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;Vestibulum at eros&lt;/a&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Icons -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Icons</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]">
+                    <div class="flex border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10">
+                        <div class="mt-0.5 text-primary ltr:mr-2 rtl:ml-2.5">
+                            <icon-mail class="h-5 w-5" />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Messages</h6>
+                            <p class="text-xs">4 New Messages</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex border-b border-[#e0e6ed] bg-primary px-4 py-2.5 text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)] hover:bg-[#eee] hover:text-black dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10 dark:hover:text-white"
+                    >
+                        <div class="mt-0.5 text-white group-hover:text-primary ltr:mr-2 rtl:ml-2.5">
+                            <icon-map-pin />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Locations</h6>
+                            <p class="text-xs">25 New Travel Locations</p>
+                        </div>
+                    </div>
+                    <div class="flex px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10">
+                        <div class="mt-0.5 text-primary ltr:mr-2 rtl:ml-2.5">
+                            <icon-droplet />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Flexible</h6>
+                            <p class="text-xs">Customization Flexibility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- icons --&gt;
+&lt;div class=&quot;flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]&quot;&gt;
+  &lt;div class=&quot;flex border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;div class=&quot;ltr:mr-2 rtl:ml-2.5 mt-0.5 text-primary&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Messages&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;4 New Messages&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&quot;
+      flex
+      border-b border-[#e0e6ed]
+      dark:border-[#1b2e4b]
+      px-4
+      py-2.5
+      bg-primary
+      text-white
+      shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)]
+      hover:bg-[#eee]
+      dark:hover:bg-[#eee]/10
+      hover:text-black
+      dark:hover:text-white
+      group
+    &quot;
+  &gt;
+    &lt;div class=&quot;ltr:mr-2 rtl:ml-2.5 mt-0.5 text-white group-hover:text-primary&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Locations&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;25 New Travel Locations&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;div class=&quot;ltr:mr-2 rtl:ml-2.5 mt-0.5 text-primary&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Flexible&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;Customization Flexibility&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Images -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Images</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]">
+                    <div class="flex border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10">
+                        <div class="ltr:mr-3 rtl:ml-3">
+                            <img src="/assets/images/profile-1.jpeg" alt="" class="h-12 w-12 rounded-full object-cover" />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Luke Ivory</h6>
+                            <p class="text-xs">Project Lead</p>
+                        </div>
+                    </div>
+                    <div
+                        class="group flex border-b border-[#e0e6ed] bg-primary px-4 py-2.5 text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)] hover:bg-[#eee] hover:text-black dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10 dark:hover:text-white"
+                    >
+                        <div class="ltr:mr-3 rtl:ml-3">
+                            <img src="/assets/images/profile-2.jpeg" alt="" class="h-12 w-12 rounded-full object-cover" />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Sonia Shaw</h6>
+                            <p class="text-xs">Web Designer</p>
+                        </div>
+                    </div>
+                    <div class="flex px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10">
+                        <div class="ltr:mr-3 rtl:ml-3">
+                            <img src="/assets/images/profile-3.jpeg" alt="" class="h-12 w-12 rounded-full object-cover" />
+                        </div>
+                        <div class="flex-1 font-semibold">
+                            <h6 class="mb-1 text-base">Dale Butler</h6>
+                            <p class="text-xs">Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- images --&gt;
+&lt;div class=&quot;flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]&quot;&gt;
+  &lt;div class=&quot;flex border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;div class=&quot;ltr:mr-3 rtl:ml-3&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-1.jpeg&quot; alt=&quot;&quot; class=&quot;rounded-full w-12 h-12 object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Luke Ivory&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;Project Lead&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&quot;
+      flex
+      border-b border-[#e0e6ed]
+      dark:border-[#1b2e4b]
+      px-4
+      py-2.5
+      bg-primary
+      text-white
+      shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)]
+      hover:bg-[#eee]
+      dark:hover:bg-[#eee]/10
+      hover:text-black
+      dark:hover:text-white
+      group
+    &quot;
+  &gt;
+    &lt;div class=&quot;ltr:mr-3 rtl:ml-3&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-2.jpeg&quot; alt=&quot;&quot; class=&quot;rounded-full w-12 h-12 object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Sonia Shaw&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;Web Designer&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;div class=&quot;ltr:mr-3 rtl:ml-3&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-3.jpeg&quot; alt=&quot;&quot; class=&quot;rounded-full w-12 h-12 object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 font-semibold&quot;&gt;
+      &lt;h6 class=&quot;mb-1 text-base&quot;&gt;Dale Butler&lt;/h6&gt;
+      &lt;p class=&quot;text-xs&quot;&gt;Developer&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Task -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Task</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]">
+                    <div
+                        class="flex space-x-4 border-b border-[#e0e6ed] px-4 py-2.5 hover:bg-[#eee] rtl:space-x-reverse dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10"
+                    >
+                        <input id="tack_checkbox1" type="checkbox" class="form-checkbox" />
+                        <label for="tack_checkbox1" class="mb-0 cursor-pointer"
+                            >List groups are a flexible and powerful component for displaying simple.
+                            <span class="badge my-auto bg-secondary hover:top-0 ltr:ml-3 rtl:mr-3">Project</span></label
+                        >
+                    </div>
+                    <div
+                        class="group flex space-x-4 border-b border-[#e0e6ed] bg-primary px-4 py-2.5 text-white shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)] hover:bg-[#eee] hover:text-black rtl:space-x-reverse dark:border-[#1b2e4b] dark:hover:bg-[#eee]/10 dark:hover:text-white"
+                    >
+                        <input id="tack_checkbox2" type="checkbox" class="form-checkbox checked:border-white-light dark:checked:border-[#253b5c]" />
+                        <label for="tack_checkbox2" class="mb-0 cursor-pointer"
+                            >List groups are a flexible and powerful component for displaying simple.
+                            <span class="badge my-auto bg-info hover:top-0 ltr:ml-3 rtl:mr-3">Urgent</span></label
+                        >
+                    </div>
+                    <div class="flex space-x-4 px-4 py-2.5 hover:bg-[#eee] rtl:space-x-reverse dark:hover:bg-[#eee]/10">
+                        <input id="tack_checkbox3" type="checkbox" class="form-checkbox" />
+                        <label for="tack_checkbox3" class="mb-0 cursor-pointer"
+                            >List groups are a flexible and powerful component for displaying simple.
+                            <span class="badge my-auto bg-success hover:top-0 ltr:ml-3 rtl:mr-3">Success</span></label
+                        >
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- task --&gt;
+&lt;div class=&quot;flex flex-col rounded-md border border-[#e0e6ed] dark:border-[#1b2e4b]&quot;&gt;
+  &lt;div class=&quot;flex space-x-4 rtl:space-x-reverse border-b border-[#e0e6ed] dark:border-[#1b2e4b] px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;input id=&quot;tack_checkbox1&quot; type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; /&gt;
+    &lt;label for=&quot;tack_checkbox1&quot; class=&quot;mb-0 cursor-pointer&quot;
+      &gt;List groups are a flexible and powerful component for displaying simple. &lt;span class=&quot;badge bg-secondary my-auto ltr:ml-3 rtl:mr-3 hover:top-0&quot;&gt;Project&lt;/span&gt;&lt;/label
+    &gt;
+  &lt;/div&gt;
+  &lt;div
+    class=&quot;
+      flex
+      space-x-4
+      rtl:space-x-reverse
+      border-b border-[#e0e6ed]
+      dark:border-[#1b2e4b]
+      px-4
+      py-2.5
+      bg-primary
+      text-white
+      shadow-[0_1px_15px_1px_rgba(67,97,238,0.15)]
+      hover:bg-[#eee]
+      dark:hover:bg-[#eee]/10
+      hover:text-black
+      dark:hover:text-white
+      group
+    &quot;
+  &gt;
+    &lt;input id=&quot;tack_checkbox2&quot; type=&quot;checkbox&quot; class=&quot;form-checkbox checked:border-white-light dark:checked:border-[#253b5c]&quot; /&gt;
+    &lt;label for=&quot;tack_checkbox2&quot; class=&quot;mb-0 cursor-pointer&quot;
+      &gt;List groups are a flexible and powerful component for displaying simple. &lt;span class=&quot;badge bg-info my-auto ltr:ml-3 rtl:mr-3 hover:top-0&quot;&gt;Urgent&lt;/span&gt;&lt;/label
+    &gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex space-x-4 rtl:space-x-reverse px-4 py-2.5 hover:bg-[#eee] dark:hover:bg-[#eee]/10&quot;&gt;
+    &lt;input id=&quot;tack_checkbox3&quot; type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; /&gt;
+    &lt;label for=&quot;tack_checkbox3&quot; class=&quot;mb-0 cursor-pointer&quot;
+      &gt;List groups are a flexible and powerful component for displaying simple. &lt;span class=&quot;badge bg-success my-auto ltr:ml-3 rtl:mr-3 hover:top-0&quot;&gt;Success&lt;/span&gt;&lt;/label
+    &gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

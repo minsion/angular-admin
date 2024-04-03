@@ -1,0 +1,55 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Lightbox</span>
+        </li>
+    </ul>
+    <div>
+        <div class="space-y-8 pt-5">
+            <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+                <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                    <icon-bell />
+                </div>
+                <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+                ><a href="https://www.npmjs.com/package/ngx-lightbox" target="_blank" class="block hover:underline"
+                    >https://www.npmjs.com/package/ngx-lightbox</a
+                >
+            </div>
+
+            <!-- Lightbox -->
+            <div class="panel">
+                <h5 class="mb-5 text-lg font-semibold dark:text-white-light">Lightbox</h5>
+                <div class="mb-5">
+                    <div class="mb-5 flex">
+                        <div class="ltr:mr-4 rtl:ml-4">
+                            <input [(ngModel)]="allcontrols" [value]="true" (ngModelChange)="bindFancybox()" type="radio" class="form-radio mt-1.5" />
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-primary">All controls</h4>
+                            <p class="media-text">Caption, slideshow, thumbnails and fullscreen buttons, tap to toggle controls</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="ltr:mr-4 rtl:ml-4">
+                            <input [(ngModel)]="allcontrols" [value]="false" (ngModelChange)="bindFancybox()" type="radio" class="form-radio mt-1.5" />
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-primary">Minimal</h4>
+                            <p class="media-text">No caption, no slideshow, no thumbnails, no fullscreen, tap to close</p>
+                        </div>
+                    </div>
+                    <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+                        <ng-container *ngFor="let item of items; index as i">
+                            <a href="javascript:;" [ngClass]="{ 'md:row-span-2 md:col-span-2': i == 3 }" (click)="open(i)">
+                                <img [src]="item.src" alt="image-gallery" class="h-full w-full rounded-md object-cover" />
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

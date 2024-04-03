@@ -1,0 +1,195 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>TouchSpin</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/vue3-number-spinner" target="_blank" class="block hover:underline"
+                >https://www.npmjs.com/package/vue3-number-spinner</a
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Button Spin</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="relative">
+                        <ngx-number-spinner [value]="value1" [min]="1" [max]="100" class="touchspin"> </ngx-number-spinner>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;ngx-number-spinner [value]=&quot;value1&quot; [min]=&quot;1&quot; [max]=&quot;100&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- step of 5 -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Spin button with step of 5</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="relative">
+                        <ngx-number-spinner [value]="value2" [min]="0" [max]="50" [step]="5" class="touchspin"> </ngx-number-spinner>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- step of 5 --&gt;
+&lt;ngx-number-spinner [value]=&quot;value2&quot; [min]=&quot;0&quot; [max]=&quot;50&quot; [step]=&quot;5&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Wrapping value -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Wrapping value spin button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="relative">
+                        <ngx-number-spinner [value]="value2" [min]="0" [max]="20" class="touchspin"> </ngx-number-spinner>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- wrapping value --&gt;
+&lt;ngx-number-spinner [value]=&quot;value2&quot; [min]=&quot;0&quot; [max]=&quot;20&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Size -->
+            <div class="panel lg:row-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Size</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <!-- large -->
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="sizeLarge">Large size</label>
+                        <ngx-number-spinner [value]="value4" [min]="0" [max]="25" class="touchspin touchspin-lg"> </ngx-number-spinner>
+                    </div>
+
+                    <!-- default -->
+                    <div class="mb-5">
+                        <label for="sizeDefault">Default size</label>
+                        <ngx-number-spinner [value]="value5" [min]="0" [max]="25" class="touchspin"> </ngx-number-spinner>
+                    </div>
+
+                    <!-- small -->
+                    <div>
+                        <label for="sizeSmall">Small size</label>
+                        <ngx-number-spinner [value]="value6" [min]="0" [max]="25" class="touchspin touchspin-sm"> </ngx-number-spinner>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- large --&gt;
+&lt;ngx-number-spinner [value]=&quot;value4&quot; [min]=&quot;0&quot; [max]=&quot;25&quot; class=&quot;touchspin touchspin-lg&quot;&gt; &lt;/ngx-number-spinner&gt;
+
+&lt;!-- default --&gt;
+&lt;ngx-number-spinner [value]=&quot;value5&quot; [min]=&quot;0&quot; [max]=&quot;25&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;
+
+&lt;!-- small --&gt;
+&lt;ngx-number-spinner [value]=&quot;value6&quot; [min]=&quot;0&quot; [max]=&quot;25&quot; class=&quot;touchspin touchspin-sm&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Inline Buttons -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Inline spin button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5 max-w-xs">
+                    <ngx-number-spinner [value]="value7" [min]="0" [max]="25" class="touchspin"> </ngx-number-spinner>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- inline buttons --&gt;
+&lt;ngx-number-spinner [value]=&quot;value7&quot; [min]=&quot;0&quot; [max]=&quot;25&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Vertical Buttons -->
+            <div class="panel lg:row-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Vertical spin button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="w-[50px]">
+                        <ngx-number-spinner [value]="value8" [min]="0" [max]="25" direction="vertical" class="touchspin"> </ngx-number-spinner>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- vertical buttons --&gt;
+&lt;div class=&quot;w-[50px]&quot;&gt;
+    &lt;ngx-number-spinner [value]=&quot;value8&quot; [min]=&quot;0&quot; [max]=&quot;25&quot; direction=&quot;vertical&quot; class=&quot;touchspin&quot;&gt; &lt;/ngx-number-spinner&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Change Button Class -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Change button class</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <ngx-number-spinner [value]="value10" [min]="0" [max]="6" class="touchspin custom-buttons"> </ngx-number-spinner>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code8')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;ngx-number-spinner [value]=&quot;value10&quot; [min]=&quot;0&quot; [max]=&quot;6&quot; class=&quot;touchspin custom-buttons&quot;&gt; &lt;/ngx-number-spinner&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

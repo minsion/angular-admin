@@ -1,0 +1,268 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Clipboard</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/ngx-clipboard" target="_blank" class="block hover:underline">https://www.npmjs.com/package/ngx-clipboard</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Copy from input -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Copy from input</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="rounded bg-[#f1f2f3] p-5 dark:bg-[#060818]">
+                        <form>
+                            <input type="text" class="form-input" [(ngModel)]="message1" name="message1" />
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    ngxClipboard
+                                    [cbContent]="message1"
+                                    (cbOnSuccess)="showMessage('Copied successfully.')"
+                                >
+                                    <icon-copy class="ltr:mr-2 rtl:ml-2" />
+                                    Copy from Input
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark"
+                                    ngxClipboard
+                                    [cbContent]="message1"
+                                    (cbOnSuccess)="showMessage('Cut successfully.');message1 = ''"
+                                >
+                                    <icon-pencil class="ltr:mr-2 rtl:ml-2" />
+                                    Cut from Input
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- copy from input --&gt;
+&lt;form&gt;
+    &lt;input type=&quot;text&quot; class=&quot;form-input&quot; [(ngModel)]=&quot;message1&quot; name=&quot;message1&quot; /&gt;
+    &lt;div class=&quot;mt-5 flex flex-wrap gap-2&quot;&gt;
+        &lt;button
+            type=&quot;button&quot;
+            class=&quot;btn btn-primary&quot;
+            ngxClipboard
+            [cbContent]=&quot;message1&quot;
+            (cbOnSuccess)=&quot;showMessage('Copied successfully.')&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Copy from Input
+        &lt;/button&gt;
+        &lt;button
+            type=&quot;button&quot;
+            class=&quot;btn btn-dark&quot;
+            ngxClipboard
+            [cbContent]=&quot;message1&quot;
+            (cbOnSuccess)=&quot;showMessage('Cut successfully.');message1 = ''&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Cut from Input
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+message1 = 'http://www.admin-dashboard.com';
+message2 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...';"></code> </pre>
+                </ng-container>
+            </div>
+            <!-- Copy form Textarea -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Copy form Textarea</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="rounded bg-[#f1f2f3] p-5 dark:bg-[#060818]">
+                        <form>
+                            <textarea rows="3" wrap="soft" class="form-textarea" [(ngModel)]="message2" name="message2"></textarea>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    ngxClipboard
+                                    [cbContent]="message2"
+                                    (cbOnSuccess)="showMessage('Copied successfully.')"
+                                >
+                                    <icon-copy class="ltr:mr-2 rtl:ml-2" />
+                                    Copy from Input
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark"
+                                    ngxClipboard
+                                    [cbContent]="message2"
+                                    (cbOnSuccess)="showMessage('Cut successfully.');message2 = ''"
+                                >
+                                    <icon-pencil class="ltr:mr-2 rtl:ml-2" />
+                                    Cut from Input
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- copy from textare --&gt;
+&lt;form&gt;
+    &lt;textarea rows=&quot;3&quot; wrap=&quot;soft&quot; class=&quot;form-textarea&quot; [(ngModel)]=&quot;message2&quot; name=&quot;message2&quot;&gt;&lt;/textarea&gt;
+    &lt;div class=&quot;mt-5 flex flex-wrap gap-2&quot;&gt;
+        &lt;button
+            type=&quot;button&quot;
+            class=&quot;btn btn-primary&quot;
+            ngxClipboard
+            [cbContent]=&quot;message2&quot;
+            (cbOnSuccess)=&quot;showMessage('Copied successfully.')&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Copy from Input
+        &lt;/button&gt;
+        &lt;button
+            type=&quot;button&quot;
+            class=&quot;btn btn-dark&quot;
+            ngxClipboard
+            [cbContent]=&quot;message2&quot;
+            (cbOnSuccess)=&quot;showMessage('Cut successfully.');message2 = ''&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Cut from Input
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+            <!-- Copy Text from Paragraph -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Copy Text from Paragraph</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="rounded bg-[#f1f2f3] p-5 dark:bg-[#060818]">
+                        <form>
+                            <p class="mb-3 font-semibold">Here is your OTP <span class="text-2xl" id="copyOTP">22991</span>.</p>
+                            <p class="font-semibold">Please do not share it to anyone</p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    ngxClipboard
+                                    [cbContent]="'22991'"
+                                    (cbOnSuccess)="showMessage('Copied successfully.')"
+                                >
+                                    <icon-copy class="ltr:mr-2 rtl:ml-2" />
+                                    Copy from Paragraph
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- copy from paragraph --&gt;
+&lt;form&gt;
+    &lt;p class=&quot;mb-3 font-semibold&quot;&gt;Here is your OTP &lt;span class=&quot;text-2xl&quot; id=&quot;copyOTP&quot;&gt;22991&lt;/span&gt;.&lt;/p&gt;
+    &lt;p class=&quot;font-semibold&quot;&gt;Please do not share it to anyone&lt;/p&gt;
+    &lt;div class=&quot;mt-5 flex flex-wrap gap-2&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ngxClipboard [cbContent]=&quot;'22991'&quot; (cbOnSuccess)=&quot;showMessage('Copied successfully.')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Copy from Paragraph
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+            <!-- Advanced -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Copy Hidden Text (Advanced)</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="rounded bg-[#f1f2f3] p-5 dark:bg-[#060818]">
+                        <form>
+                            <p class="mb-3 font-semibold"><span> Link -> </span> <span id="copyLink"> http://www.admin-dashboard.com/code</span></p>
+                            <span class="absolute opacity-0" id="copyHiddenCode">2291</span>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <button
+                                    type="button"
+                                    class="btn btn-primary"
+                                    ngxClipboard
+                                    [cbContent]="'http://www.admin-dashboard.com/code'"
+                                    (cbOnSuccess)="showMessage('Copied successfully.')"
+                                >
+                                    <icon-copy class="ltr:mr-2 rtl:ml-2" />
+                                    Copy Link
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-dark"
+                                    ngxClipboard
+                                    [cbContent]="'2291'"
+                                    (cbOnSuccess)="showMessage('Copied successfully.')"
+                                >
+                                    <icon-copy class="ltr:mr-2 rtl:ml-2" />
+                                    Copy Hidden Code
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- advanced --&gt;
+&lt;form&gt;
+    &lt;p class=&quot;mb-3 font-semibold&quot;&gt;&lt;span&gt; Link -&gt; &lt;/span&gt; &lt;span id=&quot;copyLink&quot;&gt; http://www.admin-dashboard.com/code&lt;/span&gt;&lt;/p&gt;
+    &lt;span class=&quot;absolute opacity-0&quot; id=&quot;copyHiddenCode&quot;&gt;2291&lt;/span&gt;
+    &lt;div class=&quot;mt-5 flex flex-wrap gap-2&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ngxClipboard [cbContent]=&quot;'http://www.admin-dashboard.com/code'&quot; (cbOnSuccess)=&quot;showMessage('Copied successfully.')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Copy Link
+        &lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot; ngxClipboard [cbContent]=&quot;'2291'&quot; (cbOnSuccess)=&quot;showMessage('Copied successfully.')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Copy Hidden Code
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.touchspin .wrapper button {
+    @apply !bg-primary text-white !px-3 disabled:opacity-90 ;
+}
+
+.touchspin .horizontal-wrapper button:first-child {
+    @apply rtl:!rounded-l-none rtl:rounded-r-[7px];
+}
+
+.touchspin .horizontal-wrapper button:last-child {
+    @apply rtl:!rounded-r-none rtl:rounded-l-[7px];
+}
+
+.touchspin .wrapper button svg {
+    @apply !fill-current w-[22px] h-[22px];
+}
+
+.touchspin .wrapper {
+    @apply !rounded-md !border-0;
+}
+
+.touchspin .wrapper div {
+    @apply border-y border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#121e32];
+}
+
+.touchspin.touchspin-lg .wrapper div {
+    @apply !py-2.5 text-base;
+}
+
+.touchspin.touchspin-sm .wrapper div {
+    @apply text-xs;
+}
+
+.touchspin.touchspin-sm .wrapper button {
+    @apply !py-1;
+}
+
+.touchspin.custom-buttons .wrapper button {
+    @apply first:!bg-danger last:!bg-warning;
+}

@@ -1,0 +1,546 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Cards</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <!-- Card 1 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 1</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[19rem] rounded border border-[#e0e6ed] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="px-6 py-7">
+                        <div class="mb-5 inline-block rounded-full bg-[#3b3f5c] p-3 text-[#f1f2f3]">
+                            <icon-droplet />
+                        </div>
+                        <h5 class="mb-4 text-xl font-semibold text-[#3b3f5c] dark:text-white-light">Simple</h5>
+                        <p class="text-white-dark">Mauris nisi felis, placerat in volutpat id, varius et sapien.</p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','css']" highlight="&lt;!-- card 1 --&gt;
+&lt;div class=&quot;max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none&quot;&gt;
+  &lt;div class=&quot;py-7 px-6&quot;&gt;
+    &lt;div class=&quot;bg-[#3b3f5c] mb-5 inline-block p-3 text-[#f1f2f3] rounded-full&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light&quot;&gt;Simple&lt;/h5&gt;
+    &lt;p class=&quot;text-white-dark&quot;&gt;Mauris nisi felis, placerat in volutpat id, varius et sapien.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Card 2 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 2</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[19rem] rounded border border-[#e0e6ed] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="px-6 py-7">
+                        <div class="-mx-6 -mt-7 mb-7 h-[215px] overflow-hidden rounded-tl rounded-tr">
+                            <img src="/assets/images/profile-28.jpeg" alt="" class="h-full w-full object-cover" />
+                        </div>
+                        <h5 class="mb-4 text-xl font-semibold text-[#3b3f5c] dark:text-white-light">CLI Based</h5>
+                        <p class="text-white-dark">Etiam sed augue ac justo tincidunt posuere. Vivamus euismod eros, nec risus malesuada.</p>
+                        <button type="button" class="btn btn-primary mt-6">Explore More</button>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 2 --&gt;
+&lt;div class=&quot;max-w-[19rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none&quot;&gt;
+  &lt;div class=&quot;py-7 px-6&quot;&gt;
+    &lt;div class=&quot;-mt-7 mb-7 -mx-6 rounded-tl rounded-tr h-[215px] overflow-hidden&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-28.jpeg&quot; alt=&quot;&quot; class=&quot;w-full h-full object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-[#3b3f5c] text-xl font-semibold mb-4 dark:text-white-light&quot;&gt;CLI Based&lt;/h5&gt;
+    &lt;p class=&quot;text-white-dark&quot;&gt;Etiam sed augue ac justo tincidunt posuere. Vivamus euismod eros, nec risus malesuada.&lt;/p&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary mt-6&quot;&gt;Explore More&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 3 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 3</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[18rem] rounded border border-[#e0e6ed] bg-[#3b3f5c] p-5 shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="text-center text-black-light">
+                        <div class="mx-auto mb-5 h-20 w-20 overflow-hidden rounded-full">
+                            <img src="/assets/images/profile-34.jpeg" alt="" class="h-full w-full object-cover" />
+                        </div>
+                        <h5 class="mb-2 text-[15px] font-semibold text-white">Luke Ivory</h5>
+                        <p>Manager</p>
+                        <div class="my-4 flex items-center justify-center text-[#e2a03f]">
+                            <icon-star class="fill-warning" />
+                            <icon-star class="fill-warning" />
+                            <icon-star class="fill-warning" />
+                            <icon-star class="fill-warning" />
+                            <icon-star />
+                        </div>
+                        <p class="font-semibold italic">
+                            Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 3 --&gt;
+&lt;div class=&quot;max-w-[18rem] w-full bg-[#3b3f5c] shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none p-5&quot;&gt;
+  &lt;div class=&quot;text-center text-black-light&quot;&gt;
+    &lt;div class=&quot;mb-5 w-20 h-20 rounded-full overflow-hidden mx-auto&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-34.jpeg&quot; alt=&quot;&quot; class=&quot;w-full h-full object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-white text-[15px] font-semibold mb-2&quot;&gt;Luke Ivory&lt;/h5&gt;
+    &lt;p&gt;Manager&lt;/p&gt;
+    &lt;div class=&quot;flex justify-center items-center text-[#e2a03f] my-4&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;font-semibold italic&quot;&gt;Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 4 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 4</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[30rem] rounded border border-[#e0e6ed] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="flex flex-col items-center p-5 sm:flex-row">
+                        <div class="mb-5 h-20 w-20 overflow-hidden rounded-full">
+                            <img src="/assets/images/profile-34.jpeg" alt="" class="h-full w-full object-cover" />
+                        </div>
+                        <div class="flex-1 text-center sm:text-left ltr:sm:pl-5 rtl:sm:pr-5">
+                            <h5 class="mb-2 text-[15px] font-semibold text-[#3b3f5c] dark:text-white-light">Luke Ivory</h5>
+                            <p class="mb-2 text-white-dark">Manager</p>
+                            <span class="badge rounded-full bg-primary">4.5</span>
+                            <p class="mt-4 font-semibold text-white-dark sm:mt-8">
+                                Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 4 --&gt;
+&lt;div class=&quot;max-w-[30rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none&quot;&gt;
+  &lt;div class=&quot;p-5 flex items-center flex-col sm:flex-row&quot;&gt;
+    &lt;div class=&quot;mb-5 w-20 h-20 rounded-full overflow-hidden&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-34.jpeg&quot; alt=&quot;&quot; class=&quot;w-full h-full object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;flex-1 ltr:sm:pl-5 rtl:sm:pr-5 text-center sm:text-left&quot;&gt;
+      &lt;h5 class=&quot;text-[#3b3f5c] text-[15px] font-semibold mb-2 dark:text-white-light&quot;&gt;Luke Ivory&lt;/h5&gt;
+      &lt;p class=&quot;mb-2 text-white-dark&quot;&gt;Manager&lt;/p&gt;
+      &lt;span class=&quot;badge bg-primary rounded-full&quot;&gt;4.5&lt;/span&gt;
+      &lt;p class=&quot;font-semibold text-white-dark mt-4 sm:mt-8&quot;&gt;Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 5 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 5</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[20rem] rounded border border-[#e0e6ed] bg-secondary p-5 shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-0 dark:bg-secondary-dark-light dark:shadow-none"
+                >
+                    <div class="text-black-light">
+                        <p class="mb-5 font-semibold">
+                            Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.
+                        </p>
+                        <div class="flex">
+                            <div class="mx-auto mb-5 h-14 w-14 overflow-hidden rounded-full">
+                                <img src="/assets/images/profile-34.jpeg" alt="" class="h-full w-full object-cover" />
+                            </div>
+                            <div class="flex-1 ltr:pl-4 rtl:pr-4">
+                                <h5 class="mb-1 text-[15px] font-semibold text-white">Luke Ivory</h5>
+                                <p>Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 5 --&gt;
+&lt;div class=&quot;max-w-[20rem] w-full bg-secondary shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-0 dark:bg-secondary-dark-light dark:shadow-none p-5&quot;&gt;
+  &lt;div class=&quot;text-black-light&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-5&quot;&gt;Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.&lt;/p&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div class=&quot;mb-5 w-14 h-14 rounded-full overflow-hidden mx-auto&quot;&gt;
+        &lt;img src=&quot;/assets/images/profile-34.jpeg&quot; alt=&quot;&quot; class=&quot;w-full h-full object-cover&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flex-1 ltr:pl-4 rtl:pr-4&quot;&gt;
+        &lt;h5 class=&quot;text-white text-[15px] font-semibold mb-1&quot;&gt;Luke Ivory&lt;/h5&gt;
+        &lt;p&gt;Manager&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 6</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[20rem] rounded border border-[#e0e6ed] bg-white p-5 shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="text-[#515365] dark:text-white-light">
+                        <p class="mb-5 font-semibold italic">
+                            Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.
+                        </p>
+                        <div class="flex">
+                            <div class="flex-1">
+                                <h5 class="mb-1.5 text-[15px] font-bold text-[#3b3f5c] dark:text-white-light">Luke Ivory</h5>
+                                <p class="mb-1.5 text-white-dark">Manager</p>
+                                <div class="flex items-center justify-start text-[#e2a03f]">
+                                    <icon-star class="h-3 w-3 fill-warning" />
+                                    <icon-star class="h-3 w-3 fill-warning" />
+                                    <icon-star class="h-3 w-3 fill-warning" />
+                                    <icon-star class="h-3 w-3 fill-warning" />
+                                    <icon-star class="h-3 w-3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code6')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 6 --&gt;
+&lt;div class=&quot;max-w-[20rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none p-5&quot;&gt;
+  &lt;div class=&quot;text-[#515365] dark:text-white-light&quot;&gt;
+    &lt;p class=&quot;font-semibold italic mb-5&quot;&gt;Maecenas nec mi vel lacus condimentum rhoncus dignissim egestas orci. Integer blandit porta placerat. Vestibulum in ultricies.&lt;/p&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div class=&quot;flex-1&quot;&gt;
+        &lt;h5 class=&quot;text-[#3b3f5c] text-[15px] font-bold mb-1.5 dark:text-white-light&quot;&gt;Luke Ivory&lt;/h5&gt;
+        &lt;p class=&quot;text-white-dark mb-1.5&quot;&gt;Manager&lt;/p&gt;
+        &lt;div class=&quot;flex justify-start items-center text-[#e2a03f]&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 7 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 7</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[20rem] rounded border border-[#e0e6ed] bg-primary p-5 shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-0 dark:bg-primary-dark-light dark:shadow-none"
+                >
+                    <div class="text-center font-semibold">
+                        <h5 class="mb-5 text-xl font-bold text-white dark:text-white-light">Rating</h5>
+                        <p class="mb-5 text-base text-white">(4.3)</p>
+                        <div class="flex items-center justify-center gap-1 text-[#e2a03f]">
+                            <icon-star class="h-4.5 w-4.5 fill-warning" />
+                            <icon-star class="h-4.5 w-4.5 fill-warning" />
+                            <icon-star class="h-4.5 w-4.5 fill-warning" />
+                            <icon-star class="h-4.5 w-4.5 fill-warning" />
+                            <icon-star class="h-4.5 w-4.5" />
+                            <span class="text-white ltr:ml-1 rtl:mr-1">(94)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code7')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 7 --&gt;
+&lt;div class=&quot;max-w-[20rem] w-full bg-primary shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-0 dark:bg-primary-dark-light dark:shadow-none p-5&quot;&gt;
+  &lt;div class=&quot;text-center font-semibold&quot;&gt;
+    &lt;h5 class=&quot;text-white text-xl font-bold mb-5 dark:text-white-light&quot;&gt;Rating&lt;/h5&gt;
+    &lt;p class=&quot;text-white mb-5 text-base&quot;&gt;(4.3)&lt;/p&gt;
+    &lt;div class=&quot;flex justify-center items-center gap-1 text-[#e2a03f]&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      &lt;span class=&quot;text-white ltr:ml-1 rtl:mr-1&quot;&gt;(94)&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 8 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 8</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[24rem] rounded border border-[#e0e6ed] bg-white p-5 shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="mb-5 flex justify-between">
+                        <h6 class="text-base font-semibold text-[#0e1726] dark:text-white-light">Placed Order</h6>
+                        <span class="badge bg-primary/10 py-1.5 text-primary dark:bg-primary dark:text-white">IN PROGRESS</span>
+                    </div>
+                    <div class="mb-5 flex items-center justify-start -space-x-3 rtl:space-x-reverse">
+                        <img
+                            class="h-9 w-9 overflow-hidden rounded-full object-cover shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] ring-2 ring-white dark:shadow-none dark:ring-[#515365]"
+                            src="/assets/images/profile-34.jpeg"
+                            alt=""
+                        />
+                        <img
+                            class="h-9 w-9 overflow-hidden rounded-full object-cover shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] ring-2 ring-white dark:shadow-none dark:ring-[#515365]"
+                            src="/assets/images/profile-34.jpeg"
+                            alt=""
+                        />
+                        <img
+                            class="h-9 w-9 overflow-hidden rounded-full object-cover shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] ring-2 ring-white dark:shadow-none dark:ring-[#515365]"
+                            src="/assets/images/profile-34.jpeg"
+                            alt=""
+                        />
+                        <span
+                            class="rounded-full bg-white px-2 py-1 text-xs text-primary shadow-[0_0_20px_0_#d0d0d0] dark:bg-[#0e1726] dark:text-white dark:shadow-none"
+                            >+5 more</span
+                        >
+                    </div>
+                    <div class="text-right">
+                        <span class="font-semibold text-primary">60%</span>
+                        <div class="mt-1.5 h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-[#0e1726]">
+                            <div class="h-full rounded-full bg-primary" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code8')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 8 --&gt;
+&lt;div class=&quot;max-w-[24rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none p-5&quot;&gt;
+  &lt;div class=&quot;flex justify-between mb-5&quot;&gt;
+    &lt;h6 class=&quot;text-[#0e1726] font-semibold text-base dark:text-white-light&quot;&gt;Placed Order&lt;/h6&gt;
+    &lt;span class=&quot;badge bg-primary/10 text-primary py-1.5 dark:bg-primary dark:text-white&quot;&gt;IN PROGRESS&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex items-center justify-start -space-x-3 rtl:space-x-reverse mb-5&quot;&gt;
+    &lt;img
+      class=&quot;w-9 h-9 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-[#515365] shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] dark:shadow-none&quot;
+      src=&quot;/assets/images/profile-34.jpeg&quot;
+      alt=&quot;&quot;
+    /&gt;
+    &lt;img
+      class=&quot;w-9 h-9 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-[#515365] shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] dark:shadow-none&quot;
+      src=&quot;/assets/images/profile-34.jpeg&quot;
+      alt=&quot;&quot;
+    /&gt;
+    &lt;img
+      class=&quot;w-9 h-9 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-[#515365] shadow-[0_0_15px_1px_rgba(113,106,202,0.30)] dark:shadow-none&quot;
+      src=&quot;/assets/images/profile-34.jpeg&quot;
+      alt=&quot;&quot;
+    /&gt;
+    &lt;span class=&quot;bg-white rounded-full px-2 py-1 text-primary text-xs shadow-[0_0_20px_0_#d0d0d0] dark:shadow-none dark:bg-[#0e1726] dark:text-white&quot;&gt;+5 more&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;text-right&quot;&gt;
+    &lt;span class=&quot;text-primary font-semibold&quot;&gt;60%&lt;/span&gt;
+    &lt;div class=&quot;bg-[#ebedf2] dark:bg-[#0e1726] rounded-full w-full h-1.5 mt-1.5&quot;&gt;
+      &lt;div class=&quot;rounded-full bg-primary h-full&quot; style=&quot;width: 60%&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+        <!-- Card 9 -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Card 9</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex items-center justify-center">
+                <div
+                    class="w-full max-w-[22rem] rounded border border-[#e0e6ed] bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none"
+                >
+                    <div class="px-6 py-7">
+                        <div class="-mx-6 -mt-7 mb-7 h-[260px] overflow-hidden rounded-tl rounded-tr">
+                            <img src="/assets/images/profile-28.jpeg" alt="" class="h-full w-full object-cover" />
+                        </div>
+                        <p class="mb-1.5 text-xs font-bold text-primary">25 Sep 2020</p>
+                        <h5 class="mb-4 text-[15px] font-bold text-[#3b3f5c] dark:text-white-light">How to Start a Blog in 5 Easy Steps.</h5>
+                        <p class="text-white-dark">Vestibulum vestibulum tortor ut eros tincidunt, ut rutrum elit volutpat.</p>
+                        <div
+                            class="relative mt-6 flex justify-between pt-4 before:absolute before:inset-x-0 before:top-0 before:mx-auto before:h-[1px] before:w-[250px] before:bg-[#e0e6ed] dark:before:bg-[#1b2e4b]"
+                        >
+                            <div class="flex items-center font-semibold">
+                                <div class="inline-block h-9 w-9 shrink-0 overflow-hidden rounded-full ltr:mr-2 rtl:ml-2.5">
+                                    <span class="flex h-full w-full items-center justify-center bg-[#515365] text-[#e0e6ed]">AG</span>
+                                </div>
+                                <div class="text-[#515365] dark:text-white-dark">Luke Ivory</div>
+                            </div>
+                            <div class="flex font-semibold">
+                                <div class="flex items-center text-primary ltr:mr-3 rtl:ml-3">
+                                    <icon-heart class="h-4 w-4 ltr:mr-1 rtl:ml-1" />
+                                    51
+                                </div>
+                                <div class="flex items-center text-primary">
+                                    <icon-eye class="h-4 w-4 ltr:mr-1 rtl:ml-1" />
+                                    250
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code9')">
+                <pre>
+                    <code [languages]="['xml','css']"
+highlight="&lt;!-- card 9 --&gt;
+&lt;div class=&quot;max-w-[22rem] w-full bg-white shadow-[4px_6px_10px_-3px_#bfc9d4] rounded border border-[#e0e6ed] dark:border-[#1b2e4b] dark:bg-[#191e3a] dark:shadow-none&quot;&gt;
+  &lt;div class=&quot;py-7 px-6&quot;&gt;
+    &lt;div class=&quot;-mt-7 mb-7 -mx-6 rounded-tl rounded-tr h-[260px] overflow-hidden&quot;&gt;
+      &lt;img src=&quot;/assets/images/profile-28.jpeg&quot; alt=&quot;&quot; class=&quot;w-full h-full object-cover&quot; /&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;text-primary text-xs mb-1.5 font-bold&quot;&gt;25 Sep 2020&lt;/p&gt;
+    &lt;h5 class=&quot;text-[#3b3f5c] text-[15px] font-bold mb-4 dark:text-white-light&quot;&gt;How to Start a Blog in 5 Easy Steps.&lt;/h5&gt;
+    &lt;p class=&quot;text-white-dark&quot;&gt;Vestibulum vestibulum tortor ut eros tincidunt, ut rutrum elit volutpat.&lt;/p&gt;
+    &lt;div
+      class=&quot;
+        relative
+        flex
+        justify-between
+        mt-6
+        pt-4
+        before:w-[250px] before:h-[1px] before:bg-[#e0e6ed] before:inset-x-0 before:top-0 before:absolute before:mx-auto
+        dark:before:bg-[#1b2e4b]
+      &quot;
+    &gt;
+      &lt;div class=&quot;flex items-center font-semibold&quot;&gt;
+        &lt;div class=&quot;w-9 h-9 rounded-full overflow-hidden inline-block ltr:mr-2 rtl:ml-2.5&quot;&gt;
+          &lt;span class=&quot;flex w-full h-full items-center justify-center bg-[#515365] text-[#e0e6ed]&quot;&gt;AG&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;text-[#515365] dark:text-white-dark&quot;&gt;Luke Ivory&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flex font-semibold&quot;&gt;
+        &lt;div class=&quot;text-primary flex items-center ltr:mr-3 rtl:ml-3&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          51
+        &lt;/div&gt;
+        &lt;div class=&quot;text-primary flex items-center&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          250
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+</pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,970 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Validation</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+            <!-- Basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" [formGroup]="form1" (ngSubmit)="submitForm1()" novalidate>
+                        <div [ngClass]="isSubmitForm1 ? form1.controls['fullname'].errors ? 'has-error' : 'has-success' : ''">
+                            <!-- <div> -->
+                            <label for="fullName">Full Name</label>
+                            <input id="fullName" type="text" placeholder="Enter Full Name" class="form-input" formControlName="fullname" />
+                            <ng-container *ngIf="isSubmitForm1 && !form1.controls['fullname'].errors">
+                                <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                            </ng-container>
+                            <ng-container *ngIf="isSubmitForm1 && form1.controls['fullname'].errors">
+                                <p class="mt-1 text-danger">Please fill the Name</p>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; [formGroup]=&quot;form1&quot; (ngSubmit)=&quot;submitForm1()&quot; novalidate&gt;
+    &lt;div [ngClass]=&quot;isSubmitForm1 ? form1.controls['fullname'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+        &lt;!-- &lt;div&gt; --&gt;
+        &lt;label for=&quot;fullName&quot;&gt;Full Name&lt;/label&gt;
+        &lt;input id=&quot;fullName&quot; type=&quot;text&quot; placeholder=&quot;Enter Full Name&quot; class=&quot;form-input&quot; formControlName=&quot;fullname&quot; /&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm1 &amp;&amp; !form1.controls['fullname'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm1 &amp;&amp; form1.controls['fullname'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please fill the Name&lt;/p&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+constructor(public fb: FormBuilder) {
+    this.initForm();
+}
+initForm() {
+    this.form1 = this.fb.group({
+        fullname: ['', Validators.required],
+    });
+}
+
+form1!: FormGroup;
+isSubmitForm1 = false;
+submitForm1() {
+    this.isSubmitForm1 = true;
+    if (this.form1.valid) {
+        //form validated success
+        this.showMessage('Form submitted successfully.');
+    }
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Email -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Email</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" [formGroup]="form2" (ngSubmit)="submitForm2()" novalidate>
+                        <div [ngClass]="isSubmitForm2 ? form2.controls['email'].errors ? 'has-error' : 'has-success' : ''">
+                            <label for="Email">Email</label>
+                            <input id="Email" type="text" placeholder="Enter Email" class="form-input" formControlName="email" />
+                            <ng-container *ngIf="isSubmitForm2 && !form2.controls['email'].errors">
+                                <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                            </ng-container>
+                            <ng-container *ngIf="isSubmitForm2 && form2.controls['email'].errors">
+                                <p class="mt-1 text-danger">Please fill the Email</p>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; [formGroup]=&quot;form2&quot; (ngSubmit)=&quot;submitForm2()&quot; novalidate&gt;
+    &lt;div [ngClass]=&quot;isSubmitForm2 ? form2.controls['email'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+        &lt;label for=&quot;Email&quot;&gt;Email&lt;/label&gt;
+        &lt;input id=&quot;Email&quot; type=&quot;text&quot; placeholder=&quot;Enter Email&quot; class=&quot;form-input&quot; formControlName=&quot;email&quot; /&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm2 &amp;&amp; !form2.controls['email'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm2 &amp;&amp; form2.controls['email'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please fill the Email&lt;/p&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+constructor(public fb: FormBuilder) {
+    this.initForm();
+}
+initForm() {
+    this.form2 = this.fb.group({
+        email: ['', Validators.compose([Validators.required, Validators.email])],
+    });
+}
+
+form2!: FormGroup;
+isSubmitForm2 = false;
+submitForm2() {
+    this.isSubmitForm2 = true;
+    if (this.form2.valid) {
+        //form validated success
+        this.showMessage('Form submitted successfully.');
+    }
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Select -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Select</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" [formGroup]="form3" (ngSubmit)="submitForm3()" novalidate>
+                        <div [ngClass]="isSubmitForm3 ? form3.controls['select'].errors ? 'has-error' : 'has-success' : ''">
+                            <select class="form-select text-white-dark" formControlName="select">
+                                <option value="">Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <ng-container *ngIf="isSubmitForm3 && !form3.controls['select'].errors">
+                                <p class="mt-1 text-[#1abc9c]">Example valid custom select feedback</p>
+                            </ng-container>
+                            <ng-container *ngIf="isSubmitForm3 && form3.controls['select'].errors">
+                                <p class="mt-1 text-danger">Please Select the field</p>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; [formGroup]=&quot;form3&quot; (ngSubmit)=&quot;submitForm3()&quot; novalidate&gt;
+    &lt;div [ngClass]=&quot;isSubmitForm3 ? form3.controls['select'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+        &lt;select class=&quot;form-select text-white-dark&quot; formControlName=&quot;select&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;Open this select menu&lt;/option&gt;
+            &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+            &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm3 &amp;&amp; !form3.controls['select'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Example valid custom select feedback&lt;/p&gt;
+        &lt;/ng-container&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm3 &amp;&amp; form3.controls['select'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please Select the field&lt;/p&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+constructor(public fb: FormBuilder) {
+    this.initForm();
+}
+initForm() {
+    this.form3 = this.fb.group({
+        select: ['', Validators.required],
+    });
+}
+
+form3!: FormGroup;
+isSubmitForm3 = false;
+submitForm3() {
+    this.isSubmitForm3 = true;
+    if (this.form3.valid) {
+        //form validated success
+        this.showMessage('Form submitted successfully.');
+    }
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Custom Styles -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Custom Styles</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" [formGroup]="form4" (ngSubmit)="submitForm4()" novalidate>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+                            <div [ngClass]="isSubmitForm4 ? form4.controls['firstName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customFname">First Name</label>
+                                <input id="customFname" type="text" placeholder="Enter First Name" class="form-input" formControlName="firstName" />
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['firstName'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['firstName'].errors">
+                                    <p class="mt-1 text-danger">Please fill the first name</p>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm4 ? form4.controls['lastName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customLname">Last name</label>
+                                <input id="customLname" type="text" placeholder="Enter Last Name" class="form-input" formControlName="lastName" />
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['lastName'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['lastName'].errors">
+                                    <p class="mt-1 text-danger">Please fill the last name</p>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm4 ? form4.controls['userName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customeEmail">Username</label>
+                                <div class="flex">
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        @
+                                    </div>
+                                    <input
+                                        id="customeEmail"
+                                        type="text"
+                                        placeholder="Enter Username"
+                                        class="form-input ltr:rounded-l-none rtl:rounded-r-none"
+                                        formControlName="userName"
+                                    />
+                                </div>
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['userName'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['userName'].errors">
+                                    <p class="mt-1 text-danger">Please choose a userName</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+                            <div class="md:col-span-2" [ngClass]="isSubmitForm4 ? form4.controls['city'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customeCity">City</label>
+                                <input id="customeCity" type="text" placeholder="Enter City" class="form-input" formControlName="city" />
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['city'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['city'].errors">
+                                    <p class="mt-1 text-danger">Please provide a valid city</p>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm4 ? form4.controls['state'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customeState">State</label>
+                                <input id="customeState" type="text" placeholder="Enter State" class="form-input" formControlName="state" />
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['state'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['state'].errors">
+                                    <p class="mt-1 text-danger">Please provide a valid state</p>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm4 ? form4.controls['zip'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="customeZip">Zip</label>
+                                <input id="customeZip" type="text" placeholder="Enter Zip" class="form-input" formControlName="zip" />
+                                <ng-container *ngIf="isSubmitForm4 && !form4.controls['zip'].errors">
+                                    <p class="mt-1 text-[#1abc9c]">Looks Good!</p>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm4 && form4.controls['zip'].errors">
+                                    <p class="mt-1 text-danger">Please provide a valid zip</p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div [ngClass]="isSubmitForm4 ? form4.controls['isTerms'].errors ? 'has-error' : 'has-success' : ''">
+                            <label class="mt-1 inline-flex cursor-pointer">
+                                <input type="checkbox" class="form-checkbox" formControlName="isTerms" />
+                                <span class="text-white-dark">Agree to terms and conditions</span>
+                            </label>
+                            <ng-container *ngIf="isSubmitForm4 && form4.controls['isTerms'].errors">
+                                <p class="mt-1 text-danger">You must agree before submitting.</p>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; [formGroup]=&quot;form4&quot; (ngSubmit)=&quot;submitForm4()&quot; novalidate&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-3&quot;&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['firstName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customFname&quot;&gt;First Name&lt;/label&gt;
+            &lt;input id=&quot;customFname&quot; type=&quot;text&quot; placeholder=&quot;Enter First Name&quot; class=&quot;form-input&quot; formControlName=&quot;firstName&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['firstName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['firstName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please fill the first name&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['lastName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customLname&quot;&gt;Last name&lt;/label&gt;
+            &lt;input id=&quot;customLname&quot; type=&quot;text&quot; placeholder=&quot;Enter Last Name&quot; class=&quot;form-input&quot; formControlName=&quot;lastName&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['lastName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['lastName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please fill the last name&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['userName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customeEmail&quot;&gt;Username&lt;/label&gt;
+            &lt;div class=&quot;flex&quot;&gt;
+                &lt;div
+                    class=&quot;flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+                &gt;
+                    @
+                &lt;/div&gt;
+                &lt;input
+                    id=&quot;customeEmail&quot;
+                    type=&quot;text&quot;
+                    placeholder=&quot;Enter Username&quot;
+                    class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot;
+                    formControlName=&quot;userName&quot;
+                /&gt;
+            &lt;/div&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['userName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['userName'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please choose a userName&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-4&quot;&gt;
+        &lt;div class=&quot;md:col-span-2&quot; [ngClass]=&quot;isSubmitForm4 ? form4.controls['city'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customeCity&quot;&gt;City&lt;/label&gt;
+            &lt;input id=&quot;customeCity&quot; type=&quot;text&quot; placeholder=&quot;Enter City&quot; class=&quot;form-input&quot; formControlName=&quot;city&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['city'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['city'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please provide a valid city&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['state'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customeState&quot;&gt;State&lt;/label&gt;
+            &lt;input id=&quot;customeState&quot; type=&quot;text&quot; placeholder=&quot;Enter State&quot; class=&quot;form-input&quot; formControlName=&quot;state&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['state'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['state'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please provide a valid state&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['zip'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;customeZip&quot;&gt;Zip&lt;/label&gt;
+            &lt;input id=&quot;customeZip&quot; type=&quot;text&quot; placeholder=&quot;Enter Zip&quot; class=&quot;form-input&quot; formControlName=&quot;zip&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; !form4.controls['zip'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-[#1abc9c]&quot;&gt;Looks Good!&lt;/p&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['zip'].errors&quot;&gt;
+                &lt;p class=&quot;mt-1 text-danger&quot;&gt;Please provide a valid zip&lt;/p&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div [ngClass]=&quot;isSubmitForm4 ? form4.controls['isTerms'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+        &lt;label class=&quot;mt-1 inline-flex cursor-pointer&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; formControlName=&quot;isTerms&quot; /&gt;
+            &lt;span class=&quot;text-white-dark&quot;&gt;Agree to terms and conditions&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm4 &amp;&amp; form4.controls['isTerms'].errors&quot;&gt;
+            &lt;p class=&quot;mt-1 text-danger&quot;&gt;You must agree before submitting.&lt;/p&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+constructor(public fb: FormBuilder) {
+    this.initForm();
+}
+initForm() {
+    this.form4 = this.fb.group({
+        firstName: ['Shaun', Validators.required],
+        lastName: ['Park', Validators.required],
+        userName: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+        zip: ['', Validators.required],
+        isTerms: [false, Validators.requiredTrue],
+    });
+}
+
+form4!: FormGroup;
+isSubmitForm4 = false;
+submitForm4() {
+    this.isSubmitForm4 = true;
+    if (this.form4.valid) {
+        //form validated success
+        this.showMessage('Form submitted successfully.');
+    }
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Browser Default -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Browser Default</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" (ngSubmit)="submitForm5()" ngNativeValidate>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+                            <div>
+                                <label for="browserFname">First Name</label>
+                                <input
+                                    id="browserFname"
+                                    name="browserFname"
+                                    type="text"
+                                    placeholder="Enter First Name"
+                                    [ngModel]="form5.firstName"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="browserLname">Last name</label>
+                                <input
+                                    id="browserLname"
+                                    name="browserLname"
+                                    type="text"
+                                    placeholder="Enter Last name"
+                                    [ngModel]="form5.lastName"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="browserEmail">Username</label>
+                                <div class="flex">
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        @
+                                    </div>
+                                    <input
+                                        id="browserEmail"
+                                        name="browserEmail"
+                                        type="text"
+                                        placeholder="Enter Username"
+                                        [ngModel]="form5.userName"
+                                        class="form-input ltr:rounded-l-none rtl:rounded-r-none"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+                            <div class="md:col-span-2">
+                                <label for="browserCity">City</label>
+                                <input
+                                    id="browserCity"
+                                    name="browserCity"
+                                    type="text"
+                                    placeholder="Enter City"
+                                    [ngModel]="form5.city"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="browserState">State</label>
+                                <input
+                                    id="browserState"
+                                    name="browserState"
+                                    type="text"
+                                    placeholder="Enter State"
+                                    [ngModel]="form5.state"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label for="browserZip">Zip</label>
+                                <input
+                                    id="browserZip"
+                                    name="browserZip"
+                                    type="text"
+                                    placeholder="Enter Zip"
+                                    [ngModel]="form5.zip"
+                                    class="form-input"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="mt-1 flex cursor-pointer items-center">
+                                <input type="checkbox" name="chkterms" class="form-checkbox" [ngModel]="form5.isTerms" required />
+
+                                <span class="text-white-dark">Agree to terms and conditions</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; (ngSubmit)=&quot;submitForm5()&quot; ngNativeValidate&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-3&quot;&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;browserFname&quot;&gt;First Name&lt;/label&gt;
+            &lt;input
+                id=&quot;browserFname&quot;
+                name=&quot;browserFname&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Enter First Name&quot;
+                [ngModel]=&quot;form5.firstName&quot;
+                class=&quot;form-input&quot;
+                required
+            /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;browserLname&quot;&gt;Last name&lt;/label&gt;
+            &lt;input
+                id=&quot;browserLname&quot;
+                name=&quot;browserLname&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Enter Last name&quot;
+                [ngModel]=&quot;form5.lastName&quot;
+                class=&quot;form-input&quot;
+                required
+            /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;browserEmail&quot;&gt;Username&lt;/label&gt;
+            &lt;div class=&quot;flex&quot;&gt;
+                &lt;div
+                    class=&quot;flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+                &gt;
+                    @
+                &lt;/div&gt;
+                &lt;input
+                    id=&quot;browserEmail&quot;
+                    name=&quot;browserEmail&quot;
+                    type=&quot;text&quot;
+                    placeholder=&quot;Enter Username&quot;
+                    [ngModel]=&quot;form5.userName&quot;
+                    class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot;
+                    required
+                /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-4&quot;&gt;
+        &lt;div class=&quot;md:col-span-2&quot;&gt;
+            &lt;label for=&quot;browserCity&quot;&gt;City&lt;/label&gt;
+            &lt;input
+                id=&quot;browserCity&quot;
+                name=&quot;browserCity&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Enter City&quot;
+                [ngModel]=&quot;form5.city&quot;
+                class=&quot;form-input&quot;
+                required
+            /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;browserState&quot;&gt;State&lt;/label&gt;
+            &lt;input
+                id=&quot;browserState&quot;
+                name=&quot;browserState&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Enter State&quot;
+                [ngModel]=&quot;form5.state&quot;
+                class=&quot;form-input&quot;
+                required
+            /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;browserZip&quot;&gt;Zip&lt;/label&gt;
+            &lt;input
+                id=&quot;browserZip&quot;
+                name=&quot;browserZip&quot;
+                type=&quot;text&quot;
+                placeholder=&quot;Enter Zip&quot;
+                [ngModel]=&quot;form5.zip&quot;
+                class=&quot;form-input&quot;
+                required
+            /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class=&quot;mt-1 flex cursor-pointer items-center&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;chkterms&quot; class=&quot;form-checkbox&quot; [ngModel]=&quot;form5.isTerms&quot; required /&gt;
+
+            &lt;span class=&quot;text-white-dark&quot;&gt;Agree to terms and conditions&lt;/span&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+form5 = {
+    firstName: 'Shaun',
+    lastName: 'Park',
+    userName: '',
+    city: '',
+    state: '',
+    zip: '',
+    isTerms: false,
+};
+submitForm5() {
+    //form validated success
+    this.showMessage('Form submitted successfully.');
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Tooltips -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Tooltips</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form class="space-y-5" [formGroup]="form6" (ngSubmit)="submitForm6()" novalidate>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+                            <div [ngClass]="isSubmitForm6 ? form6.controls['firstName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpFname">First Name</label>
+                                <input id="tlpFname" type="text" placeholder="Enter First Name" class="form-input mb-2" formControlName="firstName" />
+                                <ng-container *ngIf="isSubmitForm6 && !form6.controls['firstName'].errors">
+                                    <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm6 && form6.controls['firstName'].errors">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">Please fill the first Name</span>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm6 ? form6.controls['lastName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpLname">Last name</label>
+                                <input id="tlpLname" type="text" placeholder="Enter Last Name" class="form-input mb-2" formControlName="lastName" />
+                                <ng-container *ngIf="isSubmitForm6 && !form6.controls['lastName'].errors">
+                                    <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm6 && form6.controls['lastName'].errors">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">Please fill the last Name</span>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm6 ? form6.controls['userName'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpEmail">Username</label>
+                                <div class="flex">
+                                    <div
+                                        class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                    >
+                                        @
+                                    </div>
+                                    <input
+                                        id="tlpEmail"
+                                        type="text"
+                                        placeholder="Enter Username"
+                                        class="form-input ltr:rounded-l-none rtl:rounded-r-none"
+                                        formControlName="userName"
+                                    />
+                                </div>
+                                <div class="mt-2">
+                                    <ng-container *ngIf="isSubmitForm6 && !form6.controls['userName'].errors">
+                                        <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                    </ng-container>
+                                    <ng-container *ngIf="isSubmitForm6 && form6.controls['userName'].errors">
+                                        <span class="rounded bg-danger px-2 py-1 text-white">Please choose a userName.</span>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+                            <div class="md:col-span-2" [ngClass]="isSubmitForm6 ? form6.controls['city'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpCity">City</label>
+                                <input id="tlpCity" type="text" placeholder="Enter City" class="form-input mb-2" formControlName="city" />
+                                <ng-container *ngIf="isSubmitForm6 && !form6.controls['city'].errors">
+                                    <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm6 && form6.controls['city'].errors">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">Please provide a valid city.</span>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm6 ? form6.controls['state'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpState">State</label>
+                                <input id="tlpState" type="text" placeholder="Enter State" class="form-input mb-2" formControlName="state" />
+                                <ng-container *ngIf="isSubmitForm6 && !form6.controls['state'].errors">
+                                    <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm6 && form6.controls['state'].errors">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">Please provide a valid state.</span>
+                                </ng-container>
+                            </div>
+                            <div [ngClass]="isSubmitForm6 ? form6.controls['zip'].errors ? 'has-error' : 'has-success' : ''">
+                                <label for="tlpZip">Zip</label>
+                                <input id="tlpZip" type="text" placeholder="Enter Zip" class="form-input mb-2" formControlName="zip" />
+                                <ng-container *ngIf="isSubmitForm6 && !form6.controls['zip'].errors">
+                                    <span class="rounded bg-[#1abc9c] px-2 py-1 text-white">Looks Good!</span>
+                                </ng-container>
+                                <ng-container *ngIf="isSubmitForm6 && form6.controls['zip'].errors">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">Please provide a valid Zip.</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div [ngClass]="isSubmitForm6 ? form6.controls['isTerms'].errors ? 'has-error' : 'has-success' : ''">
+                            <label class="flex cursor-pointer items-center">
+                                <input type="checkbox" class="form-checkbox" formControlName="isTerms" />
+                                <span class="text-white-dark">Agree to terms and conditions</span>
+                            </label>
+                            <ng-container *ngIf="isSubmitForm6 && form6.controls['isTerms'].errors">
+                                <div class="mt-2">
+                                    <span class="rounded bg-danger px-2 py-1 text-white">You must agree before submitting.</span>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <button type="submit" class="btn btn-primary !mt-6">Submit Form</button>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;form class=&quot;space-y-5&quot; [formGroup]=&quot;form6&quot; (ngSubmit)=&quot;submitForm6()&quot; novalidate&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-3&quot;&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['firstName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpFname&quot;&gt;First Name&lt;/label&gt;
+            &lt;input id=&quot;tlpFname&quot; type=&quot;text&quot; placeholder=&quot;Enter First Name&quot; class=&quot;form-input mb-2&quot; formControlName=&quot;firstName&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['firstName'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['firstName'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please fill the first Name&lt;/span&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['lastName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpLname&quot;&gt;Last name&lt;/label&gt;
+            &lt;input id=&quot;tlpLname&quot; type=&quot;text&quot; placeholder=&quot;Enter Last Name&quot; class=&quot;form-input mb-2&quot; formControlName=&quot;lastName&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['lastName'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['lastName'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please fill the last Name&lt;/span&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['userName'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpEmail&quot;&gt;Username&lt;/label&gt;
+            &lt;div class=&quot;flex&quot;&gt;
+                &lt;div
+                    class=&quot;flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+                &gt;
+                    @
+                &lt;/div&gt;
+                &lt;input
+                    id=&quot;tlpEmail&quot;
+                    type=&quot;text&quot;
+                    placeholder=&quot;Enter Username&quot;
+                    class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot;
+                    formControlName=&quot;userName&quot;
+                /&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;mt-2&quot;&gt;
+                &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['userName'].errors&quot;&gt;
+                    &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+                &lt;/ng-container&gt;
+                &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['userName'].errors&quot;&gt;
+                    &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please choose a userName.&lt;/span&gt;
+                &lt;/ng-container&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid grid-cols-1 gap-5 md:grid-cols-4&quot;&gt;
+        &lt;div class=&quot;md:col-span-2&quot; [ngClass]=&quot;isSubmitForm6 ? form6.controls['city'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpCity&quot;&gt;City&lt;/label&gt;
+            &lt;input id=&quot;tlpCity&quot; type=&quot;text&quot; placeholder=&quot;Enter City&quot; class=&quot;form-input mb-2&quot; formControlName=&quot;city&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['city'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['city'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please provide a valid city.&lt;/span&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['state'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpState&quot;&gt;State&lt;/label&gt;
+            &lt;input id=&quot;tlpState&quot; type=&quot;text&quot; placeholder=&quot;Enter State&quot; class=&quot;form-input mb-2&quot; formControlName=&quot;state&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['state'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['state'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please provide a valid state.&lt;/span&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+        &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['zip'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+            &lt;label for=&quot;tlpZip&quot;&gt;Zip&lt;/label&gt;
+            &lt;input id=&quot;tlpZip&quot; type=&quot;text&quot; placeholder=&quot;Enter Zip&quot; class=&quot;form-input mb-2&quot; formControlName=&quot;zip&quot; /&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; !form6.controls['zip'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-[#1abc9c] py-1 px-2 text-white&quot;&gt;Looks Good!&lt;/span&gt;
+            &lt;/ng-container&gt;
+            &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['zip'].errors&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;Please provide a valid Zip.&lt;/span&gt;
+            &lt;/ng-container&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div [ngClass]=&quot;isSubmitForm6 ? form6.controls['isTerms'].errors ? 'has-error' : 'has-success' : ''&quot;&gt;
+        &lt;label class=&quot;flex cursor-pointer items-center&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; formControlName=&quot;isTerms&quot; /&gt;
+            &lt;span class=&quot;text-white-dark&quot;&gt;Agree to terms and conditions&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;ng-container *ngIf=&quot;isSubmitForm6 &amp;&amp; form6.controls['isTerms'].errors&quot;&gt;
+            &lt;div class=&quot;mt-2&quot;&gt;
+                &lt;span class=&quot;rounded bg-danger py-1 px-2 text-white&quot;&gt;You must agree before submitting.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary !mt-6&quot;&gt;Submit Form&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+constructor(public fb: FormBuilder) {
+    this.initForm();
+}
+initForm() {
+    this.form6 = this.fb.group({
+        firstName: ['Shaun', Validators.required],
+        lastName: ['Park', Validators.required],
+        userName: ['', Validators.required],
+        city: ['', Validators.required],
+        state: ['', Validators.required],
+        zip: ['', Validators.required],
+        isTerms: [false, Validators.requiredTrue],
+    });
+}
+
+form6!: FormGroup;
+isSubmitForm6 = false;
+submitForm6() {
+    this.isSubmitForm6 = true;
+    if (this.form6.valid) {
+        //form validated success
+        this.showMessage('Form submitted successfully.');
+    }
+}
+
+showMessage(msg = '', type = 'success') {
+    const toast: any = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        customClass: { container: 'toast' },
+    });
+    toast.fire({
+        icon: type,
+        title: msg,
+        padding: '10px 20px',
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

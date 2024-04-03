@@ -1,0 +1,345 @@
+<div>
+    <div class="relative flex h-full gap-5 sm:h-[calc(100vh_-_150px)]">
+        <div
+            class="absolute z-10 hidden h-full w-full rounded-md bg-black/60"
+            [ngClass]="{ '!block xl:!hidden': isShowNoteMenu }"
+            (click)="isShowNoteMenu = !isShowNoteMenu"
+        ></div>
+        <div
+            class="panel absolute z-10 hidden h-full w-[240px] flex-none space-y-4 overflow-hidden p-4 ltr:rounded-r-none rtl:rounded-l-none ltr:lg:rounded-r-md rtl:lg:rounded-l-md xl:relative xl:block xl:h-auto"
+            [ngClass]="{ 'hidden shadow': !isShowNoteMenu, '!block h-full ltr:left-0 rtl:right-0': isShowNoteMenu }"
+        >
+            <div class="flex h-full flex-col pb-16">
+                <div class="flex items-center text-center">
+                    <div class="shrink-0">
+                        <icon-notes />
+                    </div>
+                    <h3 class="text-lg font-semibold ltr:ml-3 rtl:mr-3">Notes</h3>
+                </div>
+                <div class="my-4 h-px w-full border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                <ng-scrollbar class="relative h-full grow ltr:pr-3.5 rtl:pl-3.5" appearance="compact">
+                    <div class="space-y-1">
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': selectedTab === 'all' }"
+                            (click)="tabChanged('all')"
+                        >
+                            <div class="flex items-center">
+                                <icon-notes-edit class="shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">All Notes</div>
+                            </div>
+                        </button>
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': selectedTab === 'fav' }"
+                            (click)="tabChanged('fav')"
+                        >
+                            <div class="flex items-center">
+                                <icon-star class="shrink-0" />
+                                <div class="ltr:ml-3 rtl:mr-3">Favourites</div>
+                            </div>
+                        </button>
+                        <div class="h-px w-full border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                        <div class="px-1 py-3 text-white-dark">Tags</div>
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center rounded-md p-1 font-medium text-primary duration-300 hover:bg-white-dark/10 ltr:hover:pl-3 rtl:hover:pr-3 dark:hover:bg-[#181F32]"
+                            [ngClass]="{'ltr:pl-3 rtl:pr-3 bg-gray-100 dark:bg-[#181F32]': selectedTab === 'personal' }"
+                            (click)="tabChanged('personal')"
+                        >
+                            <icon-square-rotated class="shrink-0 fill-primary" />
+                            <div class="ltr:ml-3 rtl:mr-3">Personal</div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center rounded-md p-1 font-medium text-warning duration-300 hover:bg-white-dark/10 ltr:hover:pl-3 rtl:hover:pr-3 dark:hover:bg-[#181F32]"
+                            [ngClass]="{ 'ltr:pl-3 rtl:pr-3 bg-gray-100 dark:bg-[#181F32]': selectedTab === 'work' }"
+                            (click)="tabChanged('work')"
+                        >
+                            <icon-square-rotated class="shrink-0 fill-warning" />
+                            <div class="ltr:ml-3 rtl:mr-3">Work</div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center rounded-md p-1 font-medium text-info duration-300 hover:bg-white-dark/10 ltr:hover:pl-3 rtl:hover:pr-3 dark:hover:bg-[#181F32]"
+                            [ngClass]="{ 'ltr:pl-3 rtl:pr-3 bg-gray-100 dark:bg-[#181F32]': selectedTab === 'social' }"
+                            (click)="tabChanged('social')"
+                        >
+                            <icon-square-rotated class="shrink-0 fill-info" />
+                            <div class="ltr:ml-3 rtl:mr-3">Social</div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center rounded-md p-1 font-medium text-danger duration-300 hover:bg-white-dark/10 ltr:hover:pl-3 rtl:hover:pr-3 dark:hover:bg-[#181F32]"
+                            [ngClass]="{ 'ltr:pl-3 rtl:pr-3 bg-gray-100 dark:bg-[#181F32]': selectedTab === 'important' }"
+                            (click)="tabChanged('important')"
+                        >
+                            <icon-square-rotated class="shrink-0 fill-danger" />
+                            <div class="ltr:ml-3 rtl:mr-3">Important</div>
+                        </button>
+                    </div>
+                </ng-scrollbar>
+            </div>
+            <div class="absolute bottom-0 w-full p-4 ltr:left-0 rtl:right-0">
+                <button class="btn btn-primary w-full" type="button" (click)="editNote()">
+                    <icon-plus class="h-5 w-5 shrink-0 ltr:mr-2 rtl:ml-2" />
+                    Add New Note
+                </button>
+            </div>
+        </div>
+
+        <div class="panel h-full flex-1 overflow-auto">
+            <div class="pb-5">
+                <button type="button" class="hover:text-primary xl:hidden" (click)="isShowNoteMenu = !isShowNoteMenu">
+                    <icon-menu />
+                </button>
+            </div>
+            <ng-container *ngIf="!filterdNotesList.length">
+                <div class="flex h-full min-h-[400px] items-center justify-center text-lg font-semibold sm:min-h-[300px]">No data available</div>
+            </ng-container>
+            <ng-container *ngIf="filterdNotesList.length">
+                <div class="min-h-[400px] sm:min-h-[300px]">
+                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+                        <ng-container *ngFor="let note of filterdNotesList">
+                            <div
+                                class="panel pb-12"
+                                [ngClass]="{'bg-primary-light shadow-primary': note.tag === 'personal',
+                                        'bg-warning-light shadow-warning': note.tag === 'work',
+                                        'bg-info-light shadow-info': note.tag === 'social',
+                                        'bg-danger-light shadow-danger': note.tag === 'important',
+                                        'dark:shadow-dark': !note.tag}"
+                            >
+                                <div class="min-h-[142px]">
+                                    <div class="flex justify-between">
+                                        <div class="flex w-max items-center">
+                                            <div class="flex-none">
+                                                <div *ngIf="note.thumb" class="rounded-full bg-gray-300 p-0.5 dark:bg-gray-700">
+                                                    <img class="h-8 w-8 rounded-full object-cover" [src]="'/assets/images/' + note.thumb" />
+                                                </div>
+                                                <div
+                                                    *ngIf="!note.thumb && note.user"
+                                                    class="grid h-8 w-8 place-content-center rounded-full bg-gray-300 text-sm font-semibold dark:bg-gray-700"
+                                                >
+                                                    {{ note.user.charAt(0) + note.user.charAt(note.user.indexOf(' ') + 1) }}
+                                                </div>
+                                                <div
+                                                    *ngIf="!note.thumb && !note.user"
+                                                    class="grid h-8 w-8 place-content-center rounded-full bg-gray-300 dark:bg-gray-700"
+                                                >
+                                                    <icon-user class="h-4.5 w-4.5" />
+                                                </div>
+                                            </div>
+                                            <div class="ltr:ml-2 rtl:mr-2">
+                                                <div class="font-semibold">{{ note.user }}</div>
+                                                <div class="text-sx text-white-dark">{{ note.date }}</div>
+                                            </div>
+                                        </div>
+                                        <div hlMenu class="dropdown">
+                                            <button hlMenuButton type="button" class="text-primary">
+                                                <icon-horizontal-dots class="rotate-90 opacity-70 hover:opacity-100" />
+                                            </button>
+                                            <ul *hlMenuItems @toggleAnimation class="text-sm font-medium ltr:right-0 rtl:left-0">
+                                                <li>
+                                                    <a href="javascript:;" class="w-full" *hlMenuItem="let menuItem" (click)="editNote(note)">
+                                                        <icon-pencil class="h-4 w-4 shrink-0 ltr:mr-3 rtl:ml-3" />
+
+                                                        Edit
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="w-full" *hlMenuItem="let menuItem" (click)="deleteNoteConfirm(note)">
+                                                        <icon-trash-lines class="h-4.5 w-4.5 shrink-0 ltr:mr-3 rtl:ml-3" />
+                                                        Delete
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" class="w-full" *hlMenuItem="let menuItem" (click)="viewNote(note)">
+                                                        <icon-eye class="h-4.5 w-4.5 shrink-0 ltr:mr-3 rtl:ml-3" />
+
+                                                        View
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="mt-4 font-semibold">{{ note.title }}</h4>
+                                        <p class="mt-2 text-white-dark">{{ note.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-5 left-0 w-full px-5">
+                                    <div class="mt-2 flex items-center justify-between">
+                                        <div hlMenu class="dropdown">
+                                            <button
+                                                hlMenuButton
+                                                type="button"
+                                                [ngClass]="{
+                                                        'text-primary': note.tag === 'personal',
+                                                        'text-warning': note.tag === 'work',
+                                                        'text-info': note.tag === 'social',
+                                                        'text-danger': note.tag === 'important'}"
+                                            >
+                                                <icon-square-rotated
+                                                    [class]="{'fill-primary': note.tag === 'personal','fill-warning': note.tag === 'work','fill-info': note.tag === 'social','fill-danger': note.tag === 'important'}"
+                                                />
+                                            </button>
+                                            <ul *hlMenuItems @toggleAnimation class="ltr:left-0 rtl:right-0">
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setTag(note, 'personal')">
+                                                        <icon-square-rotated class="fill-primary text-primary ltr:mr-2 rtl:ml-2" />
+                                                        Personal
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setTag(note, 'work')">
+                                                        <icon-square-rotated class="fill-warning text-warning ltr:mr-2 rtl:ml-2" />
+                                                        Work
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setTag(note, 'social')">
+                                                        <icon-square-rotated class="fill-info text-info ltr:mr-2 rtl:ml-2" />
+                                                        Social
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setTag(note, 'important')">
+                                                        <icon-square-rotated class="fill-danger text-danger ltr:mr-2 rtl:ml-2" />
+                                                        Important
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <button type="button" class="text-danger" (click)="deleteNoteConfirm(note)">
+                                                <icon-trash-lines />
+                                            </button>
+                                            <button type="button" class="group text-warning ltr:ml-2 rtl:mr-2" (click)="setFav(note)">
+                                                <icon-star [class]="'h-4.5 w-4.5 group-hover:fill-warning ' + [note.isFav ? 'fill-warning' : ''  ]" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+
+            <modal #isAddNoteModal class="no-footer">
+                <ng-template #modalHeader>
+                    <div class="!font-medium">{{ params.value.id ? 'Edit Note' : 'Add Note' }}</div>
+                </ng-template>
+                <ng-template #modalBody>
+                    <form [formGroup]="params" (submit)="saveNote()" class="text-sm">
+                        <div class="mb-5">
+                            <label for="title">Title</label>
+                            <input id="title" type="text" placeholder="Enter Title" class="form-input" formControlName="title" />
+                        </div>
+                        <div class="mb-5">
+                            <label for="name">User Name</label>
+                            <select id="name" class="form-select" formControlName="user">
+                                <option value="">Select User</option>
+                                <option value="Max Smith">Max Smith</option>
+                                <option value="John Doe">John Doe</option>
+                                <option value="Kia Jain">Kia Jain</option>
+                                <option value="Karena Courtliff">Karena Courtliff</option>
+                                <option value="Vladamir Koschek">Vladamir Koschek</option>
+                                <option value="Robert Garcia">Robert Garcia</option>
+                                <option value="Marie Hamilton">Marie Hamilton</option>
+                                <option value="Megan Meyers">Megan Meyers</option>
+                                <option value="Angela Hull">Angela Hull</option>
+                                <option value="Karen Wolf">Karen Wolf</option>
+                                <option value="Jasmine Barnes">Jasmine Barnes</option>
+                                <option value="Thomas Cox">Thomas Cox</option>
+                                <option value="Marcus Jones">Marcus Jones</option>
+                                <option value="Matthew Gray">Matthew Gray</option>
+                                <option value="Chad Davis">Chad Davis</option>
+                                <option value="Linda Drake">Linda Drake</option>
+                                <option value="Kathleen Flores">Kathleen Flores</option>
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <label for="tag">Tag</label>
+                            <select id="tag" class="form-select" formControlName="tag">
+                                <option value="">None</option>
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                                <option value="social">Social</option>
+                                <option value="important">Important</option>
+                            </select>
+                        </div>
+                        <div class="mb-5">
+                            <label for="desc">Description</label>
+                            <textarea
+                                id="desc"
+                                rows="3"
+                                class="form-textarea min-h-[130px] resize-none"
+                                placeholder="Enter Description"
+                                formControlName="description"
+                            ></textarea>
+                        </div>
+                        <div class="mt-8 flex items-center justify-end">
+                            <button type="button" class="btn btn-outline-danger gap-2" (click)="isAddNoteModal.close()">Cancel</button>
+                            <button type="submit" class="btn btn-primary ltr:ml-4 rtl:mr-4">{{ params.value.id ? 'Update Note' : 'Add Note' }}</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </modal>
+
+            <modal #isDeleteNoteModal class="no-footer">
+                <ng-template #modalHeader>
+                    <div class="!font-medium">Delete Notes</div>
+                </ng-template>
+                <ng-template #modalBody>
+                    <div class="text-center text-sm">
+                        <div class="mx-auto w-fit rounded-full bg-danger p-4 text-white ring-4 ring-danger/30">
+                            <icon-trash-lines class="mx-auto h-7 w-7" />
+                        </div>
+                        <div class="mx-auto mt-5 sm:w-3/4">Are you sure you want to delete Notes?</div>
+
+                        <div class="mt-8 flex items-center justify-center">
+                            <button type="button" class="btn btn-outline-danger" (click)="isDeleteNoteModal.close()">Cancel</button>
+                            <button type="button" class="btn btn-primary ltr:ml-4 rtl:mr-4" (click)="deleteNote()">Delete</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </modal>
+
+            <modal #isViewNoteModal class="no-footer">
+                <ng-template #modalHeader>
+                    <div class="flex flex-wrap items-center gap-3 !font-medium">
+                        <div>{{ selectedNote.title }}</div>
+                        <button
+                            *ngIf="selectedNote.tag"
+                            type="button"
+                            class="badge badge-outline-primary rounded-3xl capitalize"
+                            [ngClass]="{'shadow-primary': selectedNote.tag === 'personal',
+                                                    'shadow-warning': selectedNote.tag === 'work',
+                                                    'shadow-info': selectedNote.tag === 'social',
+                                                    'shadow-danger': selectedNote.tag === 'important'}"
+                        >
+                            {{ selectedNote.tag }}
+                        </button>
+                        <button *ngIf="selectedNote.isFav" type="button" class="text-warning">
+                            <icon-star class="fill-warning" />
+                        </button>
+                    </div>
+                </ng-template>
+                <ng-template #modalBody>
+                    <div class="text-base">{{ selectedNote.description }}</div>
+
+                    <div class="mt-8 ltr:text-right rtl:text-left">
+                        <button type="button" class="btn btn-outline-danger" (click)="isViewNoteModal.close()">Close</button>
+                    </div>
+                </ng-template>
+            </modal>
+        </div>
+    </div>
+</div>

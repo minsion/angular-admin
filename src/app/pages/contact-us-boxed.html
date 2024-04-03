@@ -1,0 +1,110 @@
+<div>
+    <div class="absolute inset-0">
+        <img src="/assets/images/auth/bg-gradient.png" alt="image" class="h-full w-full object-cover" />
+    </div>
+    <div
+        class="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/map.png)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16"
+    >
+        <img src="/assets/images/auth/coming-soon-object1.png" alt="image" class="absolute left-0 top-1/2 h-full max-h-[893px] -translate-y-1/2" />
+        <img src="/assets/images/auth/coming-soon-object2.png" alt="image" class="absolute left-24 top-0 h-40 md:left-[30%]" />
+        <img src="/assets/images/auth/coming-soon-object3.png" alt="image" class="absolute right-0 top-0 h-[300px]" />
+        <img src="/assets/images/auth/polygon-object.svg" alt="image" class="absolute bottom-0 end-[28%]" />
+        <div
+            class="relative w-full max-w-[870px] rounded-md bg-[linear-gradient(45deg,#fff9f9_0%,rgba(255,255,255,0)_25%,rgba(255,255,255,0)_75%,_#fff9f9_100%)] p-2 dark:bg-[linear-gradient(52.22deg,#0E1726_0%,rgba(14,23,38,0)_18.66%,rgba(14,23,38,0)_51.04%,rgba(14,23,38,0)_80.07%,#0E1726_100%)]"
+        >
+            <div class="relative flex flex-col justify-center rounded-md bg-white/60 px-6 py-20 backdrop-blur-lg dark:bg-black/50 lg:min-h-[758px]">
+                <div class="absolute end-6 top-6">
+                    <div class="dropdown">
+                        <div hlMenu>
+                            <button
+                                type="button"
+                                hlMenuButton
+                                class="flex items-center gap-2.5 rounded-lg border border-white-dark/30 bg-white px-2 py-1.5 text-white-dark hover:border-primary hover:text-primary dark:bg-black"
+                            >
+                                <div>
+                                    <img
+                                        [src]="'/assets/images/flags/'+ store.locale.toUpperCase() + '.svg'"
+                                        alt="image"
+                                        class="h-5 w-5 rounded-full object-cover"
+                                    />
+                                </div>
+                                <div class="text-base font-bold uppercase">{{ store.locale }}</div>
+                                <span class="shrink-0">
+                                    <icon-caret-down />
+                                </span>
+                            </button>
+                            <ul
+                                *hlMenuItems
+                                @toggleAnimation
+                                class="top-11 grid w-[280px] grid-cols-2 gap-2 !px-2 font-semibold text-dark ltr:-right-14 rtl:-left-14 dark:text-white-dark dark:text-white-light/90 sm:ltr:-right-2 sm:rtl:-left-2"
+                            >
+                                <li *ngFor="let item of store.languageList;">
+                                    <button
+                                        *hlMenuItem="let menuItem"
+                                        type="button"
+                                        class="w-full hover:text-primary"
+                                        [ngClass]="{ 'bg-primary/10 text-primary': translate.currentLang === item.code }"
+                                        (click)="changeLanguage(item)"
+                                    >
+                                        <img
+                                            class="h-5 w-5 rounded-full object-cover"
+                                            [src]="'/assets/images/flags/'+ item.code.toUpperCase() + '.svg'"
+                                            alt=""
+                                        />
+                                        <span class="ltr:ml-3 rtl:mr-3">{{ item.name }}</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto w-full max-w-[440px]">
+                    <div class="mb-10">
+                        <h1 class="text-3xl font-extrabold uppercase !leading-snug text-primary md:text-4xl">Contact us</h1>
+                        <p class="text-base font-bold leading-normal text-white-dark">Submit your queries and we will get back to you as soon as possible.</p>
+                    </div>
+                    <form class="space-y-5" (submit)="router.navigate(['/'])">
+                        <div class="relative text-white-dark">
+                            <input id="Name" type="text" placeholder="Name" class="form-input ps-10 placeholder:text-white-dark" />
+                            <span class="absolute start-4 top-1/2 -translate-y-1/2">
+                                <icon-user [fill]="true" />
+                            </span>
+                        </div>
+                        <div class="relative text-white-dark">
+                            <input id="Email" type="email" placeholder="Email" class="form-input ps-10 placeholder:text-white-dark" />
+                            <span class="absolute start-4 top-1/2 -translate-y-1/2">
+                                <icon-mail [fill]="true" />
+                            </span>
+                        </div>
+                        <div class="relative text-white-dark">
+                            <input id="Phone" type="text" placeholder="Phone" class="form-input ps-10 placeholder:text-white-dark" />
+                            <span class="absolute start-4 top-1/2 -translate-y-1/2">
+                                <icon-phone-call [fill]="true" />
+                            </span>
+                        </div>
+                        <div class="relative text-white-dark">
+                            <input id="Subject" type="text" placeholder="Subject" class="form-input ps-10 placeholder:text-white-dark" />
+                            <span class="absolute start-4 top-1/2 -translate-y-1/2">
+                                <icon-pencil [fill]="true" />
+                            </span>
+                        </div>
+                        <div class="relative text-white-dark">
+                            <textarea
+                                id="Textarea"
+                                rows="4"
+                                class="form-textarea resize-none ps-10 placeholder:text-white-dark"
+                                placeholder="Message"
+                            ></textarea>
+                            <span class="absolute start-4 top-2.5">
+                                <icon-message-dots [fill]="true" />
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-gradient !mt-6 w-full border-0 uppercase shadow-[0_10px_20px_-10px_rgba(67,97,238,0.44)]">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

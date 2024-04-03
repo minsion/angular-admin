@@ -1,0 +1,803 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Dropdowns</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span>
+            <a href="https://www.npmjs.com/package/headlessui-angular" target="_blank" class="block hover:underline"
+                >https://www.npmjs.com/package/headlessui-angular</a
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-primary dropdown-toggle">
+                                Action
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-outline-primary dropdown-toggle">
+                                Action
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-primary dropdown-toggle&quot;&gt;
+        Action
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-outline-primary dropdown-toggle&quot;&gt;
+        Action
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dropup</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-info dropdown-toggle inline-flex">
+                                Up
+                                <icon-caret-down class="inline-block rotate-180 ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-outline-info dropdown-toggle inline-flex">
+                                Up
+                                <icon-caret-down class="inline-block rotate-180 ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-info dropdown-toggle inline-flex&quot;&gt;
+        Up
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-outline-info dropdown-toggle inline-flex&quot;&gt;
+        Up
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dropright</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-warning dropdown-toggle">
+                                Right
+                                <icon-caret-down class="inline-block -rotate-90 ltr:ml-1 rtl:mr-1 rtl:rotate-90" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="top-0 !mt-0 whitespace-nowrap ltr:left-full ltr:ml-1 rtl:right-full rtl:mr-1">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn btn-outline-warning dropdown-toggle">
+                                Right
+                                <icon-caret-down class="inline-block -rotate-90 ltr:ml-1 rtl:mr-1 rtl:rotate-90" />
+                            </button>
+                            <ul
+                                *hlMenuItems
+                                @toggleAnimation
+                                class="top-0 !mt-0 w-max whitespace-nowrap ltr:right-full ltr:mr-1 rtl:left-full rtl:ml-1 ltr:md:left-full ltr:md:ml-1 rtl:md:right-full rtl:md:mr-1"
+                            >
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-warning dropdown-toggle&quot;&gt;
+        Right
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;top-0 !mt-0 whitespace-nowrap ltr:left-full ltr:ml-1 rtl:right-full rtl:mr-1&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn btn-outline-warning dropdown-toggle&quot;&gt;
+        Right
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul
+        *hlMenuItems
+        @toggleAnimation
+        class=&quot;top-0 !mt-0 w-max whitespace-nowrap ltr:right-full ltr:mr-1 rtl:left-full rtl:ml-1 ltr:md:left-full ltr:md:ml-1 rtl:md:right-full rtl:md:mr-1&quot;
+    &gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dropleft</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-danger dropdown-toggle">
+                                <icon-caret-down class="inline-block rotate-90 ltr:mr-1 rtl:ml-1 rtl:-rotate-90" />
+                                Left
+                            </button>
+                            <ul
+                                *hlMenuItems
+                                @toggleAnimation
+                                class="top-0 !mt-0 w-max whitespace-nowrap ltr:left-full ltr:ml-1 rtl:right-full rtl:mr-1 ltr:md:left-auto ltr:md:right-full ltr:md:mr-1 rtl:md:left-full rtl:md:right-auto rtl:md:ml-1"
+                            >
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-outline-danger dropdown-toggle">
+                                <icon-caret-down class="inline-block rotate-90 ltr:mr-1 rtl:ml-1 rtl:-rotate-90" />
+                                Left
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="top-0 !mt-0 whitespace-nowrap ltr:right-full ltr:mr-1 rtl:left-full rtl:ml-1">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-danger dropdown-toggle&quot;&gt;
+        &lt;svg&gt;&lt;/svg&gt;
+        Left
+    &lt;/button&gt;
+    &lt;ul
+        *hlMenuItems
+        @toggleAnimation
+        class=&quot;top-0 !mt-0 w-max whitespace-nowrap ltr:left-full ltr:ml-1 rtl:right-full rtl:mr-1 ltr:md:right-full ltr:md:left-auto ltr:md:mr-1 rtl:md:left-full rtl:md:right-auto rtl:md:ml-1&quot;
+    &gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-outline-danger dropdown-toggle&quot;&gt;
+        &lt;svg&gt;&lt;/svg&gt;
+        Left
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;top-0 !mt-0 whitespace-nowrap ltr:right-full ltr:mr-1 rtl:left-full rtl:ml-1&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Small Button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-dark btn-sm dropdown-toggle">
+                                Small Button
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-outline-dark btn-sm dropdown-toggle">
+                                Small Button
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-dark btn-sm dropdown-toggle&quot;&gt;
+        Small Button
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-outline-dark btn-sm dropdown-toggle&quot;&gt;
+        Small Button
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Large Button</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-success btn-lg dropdown-toggle">
+                                Large Button
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button type="button" hlMenuButton class="btn btn-outline-success btn-lg dropdown-toggle">
+                                Large Button
+                                <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-success btn-lg dropdown-toggle&quot;&gt;
+        Large Button
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn btn-outline-success btn-lg dropdown-toggle&quot;&gt;
+        Large Button
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Grouped Dropdown Buttons</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div class="relative inline-flex align-middle">
+                            <button type="button" class="btn btn-secondary ltr:rounded-r-none rtl:rounded-l-none">1</button>
+                            <button type="button" class="btn btn-secondary rounded-none">2</button>
+                            <div hlMenu class="dropdown">
+                                <button type="button" hlMenuButton class="btn dropdown-toggle btn-secondary flex ltr:rounded-l-none rtl:rounded-r-none">
+                                    Dropdown
+                                    <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                                </button>
+                                <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="relative inline-flex align-middle">
+                            <button type="button" class="btn btn-outline-secondary ltr:rounded-r-none ltr:border-r-0 rtl:rounded-l-none rtl:border-l-0">
+                                1
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary rounded-none ltr:border-r-0 rtl:border-l-0">2</button>
+                            <div hlMenu class="dropdown">
+                                <button type="button" hlMenuButton class="btn dropdown-toggle btn-outline-secondary flex ltr:rounded-l-none rtl:rounded-r-none">
+                                    Dropdown
+                                    <icon-caret-down class="inline-block ltr:ml-1 rtl:mr-1" />
+                                </button>
+                                <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code7')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div class=&quot;relative inline-flex align-middle&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary ltr:rounded-r-none rtl:rounded-l-none&quot;&gt;1&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary rounded-none&quot;&gt;2&lt;/button&gt;
+    &lt;div hlMenu class=&quot;dropdown&quot;&gt;
+        &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn dropdown-toggle btn-secondary flex ltr:rounded-l-none rtl:rounded-r-none&quot;&gt;
+            Dropdown
+            &lt;svg&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div class=&quot;relative inline-flex align-middle&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary ltr:rounded-r-none ltr:border-r-0 rtl:rounded-l-none rtl:border-l-0&quot;&gt;
+        1
+    &lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary rounded-none ltr:border-r-0 rtl:border-l-0&quot;&gt;2&lt;/button&gt;
+    &lt;div hlMenu class=&quot;dropdown&quot;&gt;
+        &lt;button type=&quot;button&quot; hlMenuButton class=&quot;btn dropdown-toggle btn-outline-secondary flex ltr:rounded-l-none rtl:rounded-r-none&quot;&gt;
+            Dropdown
+            &lt;svg&gt;&lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Split</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-around gap-7">
+                        <div class="dropdown inline-flex">
+                            <button type="button" class="btn btn-primary ltr:rounded-r-none rtl:rounded-l-none">Action</button>
+                            <div hlMenu class="!flex">
+                                <button
+                                    type="button"
+                                    hlMenuButton
+                                    class="btn dropdown-toggle btn-primary h-full border-l-[#4468fd] before:inline-block before:border-[5px] before:border-b-0 before:border-l-transparent before:border-r-transparent before:border-t-inherit before:border-t-white-light ltr:rounded-l-none rtl:rounded-r-none"
+                                >
+                                    <span class="sr-only">Toggle dropdown</span>
+                                </button>
+                                <ul *hlMenuItems @toggleAnimation class="top-full whitespace-nowrap ltr:right-0 rtl:left-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropdown inline-flex">
+                            <button type="button" class="btn btn-outline-primary ltr:rounded-r-none rtl:rounded-l-none">Action</button>
+                            <div hlMenu class="!flex">
+                                <button
+                                    type="button"
+                                    hlMenuButton
+                                    class="btn btn-outline-primary dropdown-toggle h-full before:inline-block before:border-[5px] before:border-b-0 before:border-l-transparent before:border-r-transparent before:border-t-inherit hover:before:border-t-white-light ltr:rounded-l-none rtl:rounded-r-none"
+                                >
+                                    <span class="sr-only">Toggle dropdown</span>
+                                </button>
+                                <ul *hlMenuItems @toggleAnimation class="top-full whitespace-nowrap ltr:right-0 rtl:left-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code8')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;div class=&quot;dropdown inline-flex&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary ltr:rounded-r-none rtl:rounded-l-none&quot;&gt;Action&lt;/button&gt;
+    &lt;div hlMenu class=&quot;!flex&quot;&gt;
+        &lt;button
+            type=&quot;button&quot;
+            hlMenuButton
+            class=&quot;btn dropdown-toggle btn-primary h-full border-l-[#4468fd] before:inline-block before:border-[5px] before:border-b-0 before:border-l-transparent before:border-r-transparent before:border-t-inherit before:border-t-white-light ltr:rounded-l-none rtl:rounded-r-none&quot;
+        &gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Toggle dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;top-full whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- outline --&gt;
+&lt;div class=&quot;dropdown inline-flex&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary ltr:rounded-r-none rtl:rounded-l-none&quot;&gt;Action&lt;/button&gt;
+    &lt;div hlMenu class=&quot;!flex&quot;&gt;
+        &lt;button
+            type=&quot;button&quot;
+            hlMenuButton
+            class=&quot;btn btn-outline-primary dropdown-toggle h-full before:inline-block before:border-[5px] before:border-b-0 before:border-l-transparent before:border-r-transparent before:border-t-inherit hover:before:border-t-white-light ltr:rounded-l-none rtl:rounded-r-none&quot;
+        &gt;
+            &lt;span class=&quot;sr-only&quot;&gt;Toggle dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;top-full whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Custom Dropdown</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full items-center justify-around">
+                        <div hlMenu class="dropdown">
+                            <button
+                                type="button"
+                                hlMenuButton
+                                class="btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary"
+                            >
+                                <icon-horizontal-dots class="h-6 w-6 rotate-90 opacity-70" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button
+                                type="button"
+                                hlMenuButton
+                                class="btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary"
+                            >
+                                <icon-horizontal-dots class="h-6 w-6 opacity-70" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button
+                                type="button"
+                                hlMenuButton
+                                class="btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary"
+                            >
+                                <icon-horizontal-dots class="h-6 w-6 rotate-90 opacity-70" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                        <div hlMenu class="dropdown">
+                            <button
+                                type="button"
+                                hlMenuButton
+                                class="btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary"
+                            >
+                                <icon-horizontal-dots class="h-6 w-6 opacity-70" />
+                            </button>
+                            <ul *hlMenuItems @toggleAnimation class="bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0">
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code9')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- custom --&gt;
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button
+        type=&quot;button&quot;
+        hlMenuButton
+        class=&quot;btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary&quot;
+    &gt;
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button
+        type=&quot;button&quot;
+        hlMenuButton
+        class=&quot;btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary&quot;
+    &gt;
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button
+        type=&quot;button&quot;
+        hlMenuButton
+        class=&quot;btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary&quot;
+    &gt;
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:left-0 rtl:right-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div hlMenu class=&quot;dropdown&quot;&gt;
+    &lt;button
+        type=&quot;button&quot;
+        hlMenuButton
+        class=&quot;btn dropdown-toggle rounded-none border-0 p-0 text-black shadow-none hover:text-primary dark:text-white-dark dark:hover:text-primary&quot;
+    &gt;
+        &lt;svg&gt;&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;bottom-full !mt-0 mb-1 whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

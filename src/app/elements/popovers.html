@@ -1,0 +1,262 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Popovers</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/ngx-tippy-wrapper" target="_blank" class="block hover:underline"
+                >https://www.npmjs.com/package/ngx-tippy-wrapper</a
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Default</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full justify-center gap-4">
+                        <a href="javascript:;" ngxTippy="Popover using ANCHOR tag" [tippyProps]="{trigger: 'click'}" class="btn btn-primary bg-primary">Link</a>
+
+                        <button type="button" ngxTippy="Popover using BUTTON tag" [tippyProps]="{trigger: 'click'}" class="btn btn-success">Button</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- link --&gt;
+&lt;a href=&quot;javascript:;&quot; ngxTippy=&quot;Popover using ANCHOR tag&quot; [tippyProps]=&quot;{trigger: 'click'}&quot; class=&quot;btn btn-primary bg-primary&quot;&gt;Link&lt;/a&gt;
+
+&lt;!-- button --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Popover using BUTTON tag&quot; [tippyProps]=&quot;{trigger: 'click'}&quot; class=&quot;btn btn-success&quot;&gt;Button&lt;/button&gt;
+"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Placement</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-center gap-4">
+                        <button type="button" ngxTippy="Popover on top" [tippyProps]="{trigger: 'click', placement: 'top'}" class="btn btn-info">
+                            Popover on top
+                        </button>
+
+                        <button
+                            type="button"
+                            ngxTippy="Popover on left"
+                            [tippyProps]="{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'right' : 'left'}"
+                            class="btn btn-secondary"
+                        >
+                            Popover on left
+                        </button>
+
+                        <button
+                            type="button"
+                            ngxTippy="Popover on right"
+                            [tippyProps]="{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'left' : 'right'}"
+                            class="btn btn-danger"
+                        >
+                            Popover on right
+                        </button>
+
+                        <button type="button" ngxTippy="Popover on bottom" [tippyProps]="{trigger: 'click', placement: 'bottom'}" class="btn btn-warning">
+                            Popover on bottom
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- top --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Popover on top&quot; [tippyProps]=&quot;{trigger: 'click', placement: 'top'}&quot; class=&quot;btn btn-info&quot;&gt;
+    Popover on top
+&lt;/button&gt;
+
+&lt;!-- left --&gt;
+&lt;button
+    type=&quot;button&quot;
+    ngxTippy=&quot;Popover on left&quot;
+    [tippyProps]=&quot;{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'right' : 'left'}&quot;
+    class=&quot;btn btn-secondary&quot;
+&gt;
+    Popover on left
+&lt;/button&gt;
+
+&lt;!-- right --&gt;
+&lt;button
+    type=&quot;button&quot;
+    ngxTippy=&quot;Popover on right&quot;
+    [tippyProps]=&quot;{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'left' : 'right'}&quot;
+    class=&quot;btn btn-danger&quot;
+&gt;
+    Popover on right
+&lt;/button&gt;
+
+&lt;!-- bottom --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Popover on bottom&quot; [tippyProps]=&quot;{trigger: 'click', placement: 'bottom'}&quot; class=&quot;btn btn-warning&quot;&gt;
+    Popover on bottom
+&lt;/button&gt;"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel lg:col-start-2 lg:row-start-1">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dismissible popover</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full justify-center gap-4">
+                        <button
+                            type="button"
+                            ngxTippy="Popover on left"
+                            [tippyProps]="{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'right' : 'left'}"
+                            class="btn btn-dark"
+                        >
+                            Popover on left
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- dismissible --&gt;
+&lt;button
+    type=&quot;button&quot;
+    ngxTippy=&quot;Popover on left&quot;
+    [tippyProps]=&quot;{trigger: 'click', placement: store.rtlClass === 'rtl' ? 'right' : 'left'}&quot;
+    class=&quot;btn btn-dark&quot;
+&gt;
+    Popover on left
+&lt;/button&gt;"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Options</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-center gap-4">
+                        <button type="button" ngxTippy="On hover" [tippyProps]="{trigger: 'mouseenter'}" class="btn btn-primary">On Hover</button>
+
+                        <button type="button" ngxTippy="On focus" [tippyProps]="{trigger: 'focus'}" class="btn btn-secondary">On Focus</button>
+
+                        <button type="button" ngxTippy="Delay 1s" [tippyProps]="{trigger: 'click', delay:1000}" class="btn btn-info">Delay</button>
+
+                        <button type="button" ngxTippy="Disabled animation" [tippyProps]="{trigger: 'click', animation: false}" class="btn btn-dark">
+                            Disabled Animation
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- hover --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;On hover&quot; [tippyProps]=&quot;{trigger: 'mouseenter'}&quot; class=&quot;btn btn-primary&quot;&gt;On Hover&lt;/button&gt;
+
+&lt;!-- focus --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;On focus&quot; [tippyProps]=&quot;{trigger: 'focus'}&quot; class=&quot;btn btn-secondary&quot;&gt;On Focus&lt;/button&gt;
+
+&lt;!-- delay --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Delay 1s&quot; [tippyProps]=&quot;{trigger: 'click', delay:1000}&quot; class=&quot;btn btn-info&quot;&gt;Delay&lt;/button&gt;
+
+&lt;!-- no animation --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Disabled animation&quot; [tippyProps]=&quot;{trigger: 'click', animation: false}&quot; class=&quot;btn btn-dark&quot;&gt;
+    Disabled Animation
+&lt;/button&gt;"></code>
+                    </pre>
+                </ng-container>
+            </div>
+
+            <div class="panel lg:col-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Colors</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')"
+                        ><span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span></a
+                    >
+                </div>
+                <div class="mb-5">
+                    <div class="flex w-full flex-wrap justify-center gap-4">
+                        <button type="button" ngxTippy="Primary" [tippyProps]="{trigger: 'click',theme: 'primary'}" class="btn btn-primary">Primary</button>
+
+                        <button type="button" ngxTippy="Success" [tippyProps]="{trigger: 'click',theme: 'success'}" class="btn btn-success">Success</button>
+
+                        <button type="button" ngxTippy="Info" [tippyProps]="{trigger: 'click',theme: 'info'}" class="btn btn-info">Info</button>
+
+                        <button type="button" ngxTippy="Danger" [tippyProps]="{trigger: 'click',theme: 'danger'}" class="btn btn-danger">Danger</button>
+
+                        <button type="button" ngxTippy="Warning" [tippyProps]="{trigger: 'click',theme: 'warning'}" class="btn btn-warning">Warning</button>
+
+                        <button type="button" ngxTippy="Secondary" [tippyProps]="{trigger: 'click',theme: 'secondary'}" class="btn btn-secondary">
+                            Secondary
+                        </button>
+
+                        <button type="button" ngxTippy="Dark" [tippyProps]="{trigger: 'click',theme: 'dark'}" class="btn btn-dark">Dark</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- primary --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Primary&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'primary'}&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+
+&lt;!-- success --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Success&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'success'}&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+
+&lt;!-- info --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Info&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'info'}&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+
+&lt;!-- danger --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Danger&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'danger'}&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
+
+&lt;!-- warning --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Warning&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'warning'}&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+
+&lt;!-- secondary --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Secondary&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'secondary'}&quot; class=&quot;btn btn-secondary&quot;&gt;
+    Secondary
+&lt;/button&gt;
+
+&lt;!-- dark --&gt;
+&lt;button type=&quot;button&quot; ngxTippy=&quot;Dark&quot; [tippyProps]=&quot;{trigger: 'click',theme: 'dark'}&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;"></code>
+                    </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

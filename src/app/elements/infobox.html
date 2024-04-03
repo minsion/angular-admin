@@ -1,0 +1,164 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Infobox</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Infobox 1</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-wrap justify-center">
+                    <div
+                        class="rounded-md border border-gray-500/20 p-6 shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)]"
+                    >
+                        <div class="mb-5 text-primary">
+                            <icon-box class="h-12 w-12" />
+                        </div>
+                        <h5 class="mb-3.5 text-lg font-semibold dark:text-white-light">Layout Package</h5>
+                        <p class="mb-3.5 text-[15px] text-white-dark">Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                        <a href="javascript:;" class="group align-middle font-semibold text-primary hover:underline"
+                            >Discover
+                            <icon-arrow-left
+                                class="relative inline-block transition-all duration-300 group-hover:translate-x-2 ltr:ml-1 rtl:mr-1 rtl:rotate-180 rtl:group-hover:-translate-x-2"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- infobox --&gt;
+&lt;div class=&quot;flex flex-wrap w-full justify-center&quot;&gt;
+  &lt;div class=&quot;border border-gray-500/20 rounded-md shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)] p-6&quot;&gt;
+    &lt;div class=&quot;text-primary mb-5&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-lg font-semibold mb-3.5 dark:text-white-light&quot;&gt;Layout Package&lt;/h5&gt;
+    &lt;p class=&quot;text-white-dark text-[15px] mb-3.5&quot;&gt;Lorem ipsum dolor sit amet, labore et dolore magna aliqua.&lt;/p&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;text-primary font-semibold hover:underline group&quot;
+      &gt;Discover
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Infobox 2</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-wrap justify-center">
+                    <div
+                        class="rounded-md border border-gray-500/20 bg-dark p-6 text-center shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)]"
+                    >
+                        <div class="bg1-white-dark mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full text-white-light">
+                            <icon-box class="h-12 w-12" />
+                        </div>
+                        <h5 class="mb-3.5 text-lg font-semibold text-white-light">Layout Package</h5>
+                        <p class="mb-3.5 text-[15px] text-white-light">Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                        <a href="javascript:;" class="group align-middle font-semibold text-info hover:underline"
+                            >Discover
+                            <icon-arrow-left
+                                class="relative inline-block transition-all duration-300 group-hover:translate-x-2 ltr:ml-1 rtl:mr-1 rtl:rotate-180 rtl:group-hover:-translate-x-2"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- infobox --&gt;
+&lt;div class=&quot;flex flex-wrap w-full justify-center&quot;&gt;
+  &lt;div class=&quot;bg-dark border border-gray-500/20 rounded-md shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)] p-6 text-center&quot;&gt;
+    &lt;div class=&quot;text-white-light bg1-white-dark w-20 h-20 rounded-full flex items-center justify-center mb-5 mx-auto&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-lg font-semibold mb-3.5 text-white-light&quot;&gt;Layout Package&lt;/h5&gt;
+    &lt;p class=&quot;text-white-light text-[15px] mb-3.5&quot;&gt;Lorem ipsum dolor sit amet, labore et dolore magna aliqua.&lt;/p&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;text-info font-semibold hover:underline group&quot;
+      &gt;Discover
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Infobox 3</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-wrap justify-center">
+                    <div
+                        class="relative mt-8 rounded-md border border-gray-500/20 p-6 pt-12 shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)]"
+                    >
+                        <div
+                            class="absolute -top-8 mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-md bg-primary text-white-light ltr:left-6 rtl:right-6"
+                        >
+                            <icon-box class="h-12 w-12" />
+                        </div>
+                        <h5 class="mb-3.5 text-lg font-semibold text-dark dark:text-white-light">Layout Package</h5>
+                        <p class="mb-3.5 text-[15px] text-white-dark">Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                        <a href="javascript:;" class="group align-middle font-semibold text-primary hover:underline"
+                            >Discover
+                            <icon-arrow-left
+                                class="relative inline-block transition-all duration-300 group-hover:translate-x-2 ltr:ml-1 rtl:mr-1 rtl:rotate-180 rtl:group-hover:-translate-x-2"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- infobox --&gt;
+&lt;div class=&quot;flex flex-wrap w-full justify-center&quot;&gt;
+  &lt;div class=&quot;border border-gray-500/20 rounded-md shadow-[rgb(31_45_61_/_10%)_0px_2px_10px_1px] dark:shadow-[0_2px_11px_0_rgb(6_8_24_/_39%)] p-6 pt-12 mt-8 relative&quot;&gt;
+    &lt;div class=&quot;bg-primary absolute text-white-light ltr:left-6 rtl:right-6 -top-8 w-16 h-16 rounded-md flex items-center justify-center mb-5 mx-auto&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;h5 class=&quot;text-dark text-lg font-semibold mb-3.5 dark:text-white-light&quot;&gt;Layout Package&lt;/h5&gt;
+    &lt;p class=&quot;text-white-dark text-[15px] mb-3.5&quot;&gt;Lorem ipsum dolor sit amet, labore et dolore magna aliqua.&lt;/p&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;text-primary font-semibold hover:underline group&quot;
+      &gt;Discover
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

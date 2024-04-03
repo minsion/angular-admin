@@ -1,0 +1,353 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Treeview</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Animated</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ul class="font-semibold">
+                    <li class="py-[5px]">
+                        <button type="button" (click)="toggleTreeview1('css')">
+                            <icon-caret-down
+                                [class]="'w-5 h-5 text-primary inline relative -top-1 ltr:mr-2 rtl:ml-2 ' + [treeview1.includes('css') ? 'rotate-180': '' ]"
+                            />
+                            <icon-folder class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                            CSS
+                        </button>
+                        <div [@slideDownUp]="!treeview1.includes('css')" class="accordion-content">
+                            <ul class="ltr:pl-14 rtl:pr-14">
+                                <li class="py-[5px]">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    style.css
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="py-[5px]">
+                        <button type="button" (click)="toggleTreeview1('images')" class="active">
+                            <icon-caret-down
+                                [class]="'w-5 h-5 text-primary inline relative -top-1 ltr:mr-2 rtl:ml-2 ' + [treeview1.includes('images') ? 'rotate-180': '' ]"
+                            />
+                            <icon-folder class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                            Images
+                        </button>
+                        <div [@slideDownUp]="!treeview1.includes('images')" class="accordion-content">
+                            <ul class="ltr:pl-14 rtl:pr-14">
+                                <li class="py-[5px]">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    profile-16.jpeg
+                                </li>
+                                <li class="py-[5px]">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    background.png
+                                </li>
+                                <li class="py-[5px]">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    gallery.jpg
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="py-[5px]">
+                        <button type="button" (click)="toggleTreeview1('html')">
+                            <icon-caret-down
+                                [class]="'w-5 h-5 text-primary inline relative -top-1 ltr:mr-2 rtl:ml-2 ' + [treeview1.includes('html') ? 'rotate-180': '' ]"
+                            />
+                            <icon-folder class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                            HTML
+                        </button>
+                        <div [@slideDownUp]="!treeview1.includes('html')" class="accordion-content">
+                            <ul class="ltr:pl-14 rtl:pr-14">
+                                <li class="py-[5px]">
+                                    <button type="button" (click)="toggleTreeview1('pages')">
+                                        <icon-caret-down
+                                            [class]="'w-5 h-5 text-primary inline relative -top-1 ltr:mr-2 rtl:ml-2 ' + [treeview1.includes('pages') ? 'rotate-180': '' ]"
+                                        />
+                                        <icon-folder class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        PAGES
+                                    </button>
+                                    <div [@slideDownUp]="!treeview1.includes('pages')" class="accordion-content">
+                                        <ul class="ltr:pl-14 rtl:pr-14">
+                                            <li class="py-[5px]">
+                                                <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                                file name
+                                            </li>
+                                            <li class="py-[5px]">
+                                                <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                                file name
+                                            </li>
+                                            <li class="py-[5px]">
+                                                <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                                file name
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="py-[5px] ltr:pl-8 rtl:pr-8">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    file name
+                                </li>
+                                <li class="py-[5px] ltr:pl-8 rtl:pr-8">
+                                    <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                                    file name
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="py-[5px] ltr:pl-7 rtl:pr-7">
+                        <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                        index.html
+                    </li>
+                    <li class="py-[5px] ltr:pl-7 rtl:pr-7">
+                        <icon-txt-file class="inline h-4.5 w-4.5 text-primary ltr:mr-2 rtl:ml-2" />
+                        components.html
+                    </li>
+                </ul>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;ul class=&quot;font-semibold&quot;&gt;
+    &lt;li class=&quot;py-[5px]&quot;&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview1('css')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            CSS
+        &lt;/button&gt;
+        &lt;div [@slideDownUp]=&quot;!treeview1.includes('css')&quot; class=&quot;accordion-content&quot;&gt;
+            &lt;ul class=&quot;ltr:pl-14 rtl:pr-14&quot;&gt;
+                &lt;li class=&quot;py-[5px]&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    style.css
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;py-[5px]&quot;&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview1('images')&quot; class=&quot;active&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Images
+        &lt;/button&gt;
+        &lt;div [@slideDownUp]=&quot;!treeview1.includes('images')&quot; class=&quot;accordion-content&quot;&gt;
+            &lt;ul class=&quot;ltr:pl-14 rtl:pr-14&quot;&gt;
+                &lt;li class=&quot;py-[5px]&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    profile-16.jpeg
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px]&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    background.png
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px]&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    gallery.jpg
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;py-[5px]&quot;&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview1('html')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            HTML
+        &lt;/button&gt;
+        &lt;div [@slideDownUp]=&quot;!treeview1.includes('html')&quot; class=&quot;accordion-content&quot;&gt;
+            &lt;ul class=&quot;ltr:pl-14 rtl:pr-14&quot;&gt;
+                &lt;li class=&quot;py-[5px]&quot;&gt;
+                    &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview1('pages')&quot;&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        PAGES
+                    &lt;/button&gt;
+                    &lt;div [@slideDownUp]=&quot;!treeview1.includes('pages')&quot; class=&quot;accordion-content&quot;&gt;
+                        &lt;ul class=&quot;ltr:pl-14 rtl:pr-14&quot;&gt;
+                            &lt;li class=&quot;py-[5px]&quot;&gt;
+                                &lt;svg&gt; &lt;/svg&gt;
+                                file name
+                            &lt;/li&gt;
+                            &lt;li class=&quot;py-[5px]&quot;&gt;
+                                &lt;svg&gt; &lt;/svg&gt;
+                                file name
+                            &lt;/li&gt;
+                            &lt;li class=&quot;py-[5px]&quot;&gt;
+                                &lt;svg&gt; &lt;/svg&gt;
+                                file name
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px] ltr:pl-8 rtl:pr-8&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    file name
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px] ltr:pl-8 rtl:pr-8&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                    file name
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;py-[5px] ltr:pl-7 rtl:pr-7&quot;&gt;
+        &lt;svg&gt; &lt;/svg&gt;
+        index.html
+    &lt;/li&gt;
+    &lt;li class=&quot;py-[5px] ltr:pl-7 rtl:pr-7&quot;&gt;
+        &lt;svg&gt; &lt;/svg&gt;
+        components.html
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- script --&gt;
+treeview1: any = ['images','html'];
+
+toggleTreeview1(name: string) {
+    if (this.treeview1.includes(name)) {
+        this.treeview1 = this.treeview1.filter((d: string) =&gt; d !== name);
+    } else {
+        this.treeview1.push(name);
+    }
+}"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ul class="no-animtion font-semibold">
+                    <li>
+                        <button type="button" (click)="toggleTreeview2('parent-node')">
+                            <icon-folder-plus *ngIf="treeview2.includes('parent-node')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                            <icon-folder-minus *ngIf="!treeview2.includes('parent-node')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                            Parent Node
+                        </button>
+                        <ng-container *ngIf="treeview2.includes('parent-node')">
+                            <ul>
+                                <li class="py-[5px] ltr:pl-7 rtl:pr-7">
+                                    <button type="button" (click)="toggleTreeview2('img')">
+                                        <icon-folder-plus *ngIf="treeview2.includes('img')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        <icon-folder-minus *ngIf="!treeview2.includes('img')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        img
+                                    </button>
+                                    <ng-container *ngIf="treeview2.includes('img')">
+                                        <ul></ul>
+                                    </ng-container>
+                                </li>
+                                <li class="py-[5px] ltr:pl-7 rtl:pr-7">
+                                    <button type="button" (click)="toggleTreeview2('css')">
+                                        <icon-folder-plus *ngIf="treeview2.includes('css')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        <icon-folder-minus *ngIf="!treeview2.includes('css')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        css
+                                    </button>
+                                    <ng-container *ngIf="treeview2.includes('css')">
+                                        <ul>
+                                            <li class="py-[5px] text-secondary ltr:pl-7 rtl:pr-7">style.css</li>
+                                        </ul>
+                                    </ng-container>
+                                </li>
+                                <li class="py-[5px] ltr:pl-7 rtl:pr-7">
+                                    <button type="button" (click)="toggleTreeview2('js')">
+                                        <icon-folder-plus *ngIf="treeview2.includes('js')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        <icon-folder-minus *ngIf="!treeview2.includes('js')" class="relative -top-1 inline text-primary ltr:mr-2 rtl:ml-2" />
+                                        js
+                                    </button>
+                                    <ng-container *ngIf="treeview2.includes('js')">
+                                        <ul>
+                                            <li class="py-[5px] text-secondary ltr:pl-7 rtl:pr-7">script.js</li>
+                                        </ul>
+                                    </ng-container>
+                                </li>
+                                <li class="py-[5px] text-secondary ltr:pl-7 rtl:pr-7">index.html</li>
+                            </ul>
+                        </ng-container>
+                    </li>
+                </ul>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;ul class=&quot;no-animtion font-semibold&quot;&gt;
+    &lt;li&gt;
+        &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview2('parent-node')&quot;&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            &lt;svg&gt; &lt;/svg&gt;
+            Parent Node
+        &lt;/button&gt;
+        &lt;ng-container *ngIf=&quot;treeview2.includes('parent-node')&quot;&gt;
+            &lt;ul&gt;
+                &lt;li class=&quot;py-[5px] ltr:pl-7 rtl:pr-7&quot;&gt;
+                    &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview2('img')&quot;&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        img
+                    &lt;/button&gt;
+                    &lt;ng-container *ngIf=&quot;treeview2.includes('img')&quot;&gt;
+                        &lt;ul&gt;&lt;/ul&gt;
+                    &lt;/ng-container&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px] ltr:pl-7 rtl:pr-7&quot;&gt;
+                    &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview2('css')&quot;&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        css
+                    &lt;/button&gt;
+                    &lt;ng-container *ngIf=&quot;treeview2.includes('css')&quot;&gt;
+                        &lt;ul&gt;
+                            &lt;li class=&quot;py-[5px] text-secondary ltr:pl-7 rtl:pr-7&quot;&gt;style.css&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/ng-container&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px] ltr:pl-7 rtl:pr-7&quot;&gt;
+                    &lt;button type=&quot;button&quot; (click)=&quot;toggleTreeview2('js')&quot;&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        &lt;svg&gt; &lt;/svg&gt;
+                        js
+                    &lt;/button&gt;
+                    &lt;ng-container *ngIf=&quot;treeview2.includes('js')&quot;&gt;
+                        &lt;ul&gt;
+                            &lt;li class=&quot;py-[5px] text-secondary ltr:pl-7 rtl:pr-7&quot;&gt;script.js&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/ng-container&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;py-[5px] text-secondary ltr:pl-7 rtl:pr-7&quot;&gt;index.html&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ng-container&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- script --&gt;
+treeview2: any = ['parent-node'];
+
+toggleTreeview2(name: string) {
+    if (this.treeview2.includes(name)) {
+        this.treeview2 = this.treeview2.filter((d: string) =&gt; d !== name);
+    } else {
+        this.treeview2.push(name);
+    }
+}"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

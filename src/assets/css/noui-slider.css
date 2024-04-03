@@ -1,0 +1,39 @@
+.noui-slider .noUi-horizontal .noUi-handle {
+    width: 25px !important;
+    height: 20px !important;
+    top: -8px !important;
+}
+
+.noui-slider .noUi-handle:after,
+.noui-slider .noUi-handle:before {
+    display: none !important;
+}
+
+.dark .noui-slider .noUi-connects {
+    background: #1b2e4b;
+}
+
+.dark .noui-slider .noUi-target {
+    border-color: #253b5c;
+    background: transparent;
+}
+
+.dark .noui-slider .noUi-handle {
+    background: #3b3f5c;
+    border-color: #3b3f5c;
+    box-shadow: none;
+}
+
+.dark .noui-slider .noUi-tooltip {
+    background: #1b2e4b;
+    border-color: #253b5c;
+    color: #888ea8;
+}
+
+.noui-slider .noUi-horizontal {
+    height: 6px;
+}
+
+.noui-slider .noUi-connect {
+    @apply bg-primary;
+}

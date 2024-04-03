@@ -1,0 +1,750 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Dashboard</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Sales</span>
+        </li>
+    </ul>
+
+    <div class="pt-5">
+        <div class="mb-6 grid gap-6 xl:grid-cols-3">
+            <div class="panel h-full xl:col-span-2">
+                <div class="mb-5 flex items-center justify-between dark:text-white-light">
+                    <h5 class="text-lg font-semibold">Revenue</h5>
+                    <div class="dropdown ltr:ml-auto rtl:mr-auto">
+                        <div hlMenu>
+                            <a hlMenuButton href="javascript:;" class="align-middle">
+                                <icon-horizontal-dots class="text-black/70 hover:!text-primary dark:text-white/70" />
+                            </a>
+                            <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Weekly</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Monthly</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Yearly</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg dark:text-white-light/90">Total Profit <span class="ml-2 text-primary">$10,840</span></p>
+                <div class="relative overflow-hidden">
+                    <!-- [dropShadow]="revenueChart.dropShadow" -->
+                    <apx-chart
+                        [series]="revenueChart.series"
+                        [chart]="revenueChart.chart"
+                        [dataLabels]="revenueChart.dataLabels"
+                        [stroke]="revenueChart.stroke"
+                        [colors]="revenueChart.colors"
+                        [markers]="revenueChart.markers"
+                        [labels]="revenueChart.labels"
+                        [xaxis]="revenueChart.xaxis"
+                        [yaxis]="revenueChart.yaxis"
+                        [grid]="revenueChart.grid"
+                        [legend]="revenueChart.legend"
+                        [tooltip]="revenueChart.tooltip"
+                        [fill]="revenueChart.fill"
+                        class="rounded-lg bg-white dark:bg-black"
+                    >
+                        <!-- loader -->
+                        <div class="grid min-h-[325px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
+                            <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
+                        </div>
+                    </apx-chart>
+                </div>
+            </div>
+
+            <div class="panel h-full">
+                <div class="mb-5 flex items-center">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Sales By Category</h5>
+                </div>
+                <div class="overflow-hidden">
+                    <apx-chart
+                        [series]="salesByCategory.series"
+                        [chart]="salesByCategory.chart"
+                        [dataLabels]="salesByCategory.dataLabels"
+                        [stroke]="salesByCategory.stroke"
+                        [colors]="salesByCategory.colors"
+                        [legend]="salesByCategory.legend"
+                        [plotOptions]="salesByCategory.plotOptions"
+                        [labels]="salesByCategory.labels"
+                        [states]="salesByCategory.states"
+                        class="rounded-lg bg-white dark:bg-black"
+                    >
+                        <!-- loader -->
+                        <div class="grid min-h-[460px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
+                            <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
+                        </div>
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div class="panel h-full sm:col-span-2 xl:col-span-1">
+                <div class="mb-5 flex items-center">
+                    <h5 class="text-lg font-semibold dark:text-white-light">
+                        Daily Sales <span class="block text-sm font-normal text-white-dark">Go to columns for details.</span>
+                    </h5>
+                    <div class="relative ltr:ml-auto rtl:mr-auto">
+                        <div class="grid h-11 w-11 place-content-center rounded-full bg-[#ffeccb] text-warning dark:bg-warning dark:text-[#ffeccb]">
+                            <icon-dollar-sign />
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-hidden">
+                    <apx-chart
+                        [series]="dailySales.series"
+                        [chart]="dailySales.chart"
+                        [dataLabels]="dailySales.dataLabels"
+                        [stroke]="dailySales.stroke"
+                        [colors]="dailySales.colors"
+                        [responsive]="dailySales.responsive"
+                        [xaxis]="dailySales.xaxis"
+                        [yaxis]="dailySales.yaxis"
+                        [fill]="dailySales.fill"
+                        [plotOptions]="dailySales.plotOptions"
+                        [legend]="dailySales.legend"
+                        [grid]="dailySales.grid"
+                        class="rounded-lg bg-white dark:bg-black"
+                    >
+                        <!-- loader -->
+                        <div class="grid min-h-[175px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
+                            <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
+                        </div>
+                    </apx-chart>
+                </div>
+            </div>
+
+            <div class="panel h-full">
+                <div class="mb-5 flex items-center dark:text-white-light">
+                    <h5 class="text-lg font-semibold">Summary</h5>
+                    <div class="dropdown ltr:ml-auto rtl:mr-auto">
+                        <div hlMenu>
+                            <a href="javascript:;" hlMenuButton class="align-middle">
+                                <icon-horizontal-dots class="h-5 w-5 text-black/70 hover:!text-primary dark:text-white/70" />
+                            </a>
+                            <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">View Report</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Edit Report</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Mark as Done</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-9">
+                    <div class="flex items-center">
+                        <div class="h-9 w-9 ltr:mr-3 rtl:ml-3">
+                            <div
+                                class="grid h-9 w-9 place-content-center rounded-full bg-secondary-light text-secondary dark:bg-secondary dark:text-secondary-light"
+                            >
+                                <icon-inbox />
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="mb-2 flex font-semibold text-white-dark">
+                                <h6>Income</h6>
+                                <p class="ltr:ml-auto rtl:mr-auto">$92,600</p>
+                            </div>
+                            <div class="h-2 rounded-full bg-dark-light shadow dark:bg-[#1b2e4b]">
+                                <div class="h-full w-11/12 rounded-full bg-gradient-to-r from-[#7579ff] to-[#b224ef]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-9 w-9 ltr:mr-3 rtl:ml-3">
+                            <div class="grid h-9 w-9 place-content-center rounded-full bg-success-light text-success dark:bg-success dark:text-success-light">
+                                <icon-tag />
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="mb-2 flex font-semibold text-white-dark">
+                                <h6>Profit</h6>
+                                <p class="ltr:ml-auto rtl:mr-auto">$37,515</p>
+                            </div>
+                            <div class="h-2 w-full rounded-full bg-dark-light shadow dark:bg-[#1b2e4b]">
+                                <div class="h-full w-full rounded-full bg-gradient-to-r from-[#3cba92] to-[#0ba360]" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="h-9 w-9 ltr:mr-3 rtl:ml-3">
+                            <div class="grid h-9 w-9 place-content-center rounded-full bg-warning-light text-warning dark:bg-warning dark:text-warning-light">
+                                <icon-credit-card />
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="mb-2 flex font-semibold text-white-dark">
+                                <h6>Expenses</h6>
+                                <p class="ltr:ml-auto rtl:mr-auto">$55,085</p>
+                            </div>
+                            <div class="h-2 w-full rounded-full bg-dark-light shadow dark:bg-[#1b2e4b]">
+                                <div class="h-full w-full rounded-full bg-gradient-to-r from-[#f09819] to-[#ff5858]" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel h-full p-0">
+                <div class="absolute flex w-full items-center justify-between p-5">
+                    <div class="relative">
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-lg bg-success-light text-success dark:bg-success dark:text-success-light"
+                        >
+                            <icon-shopping-cart />
+                        </div>
+                    </div>
+                    <h5 class="text-2xl font-semibold ltr:text-right rtl:text-left dark:text-white-light">
+                        3,192
+                        <span class="block text-sm font-normal">Total Orders</span>
+                    </h5>
+                </div>
+                <div class="overflow-hidden">
+                    <apx-chart
+                        [series]="totalOrders.series"
+                        [chart]="totalOrders.chart"
+                        [stroke]="totalOrders.stroke"
+                        [colors]="totalOrders.colors"
+                        [labels]="totalOrders.labels"
+                        [yaxis]="totalOrders.yaxis"
+                        [grid]="totalOrders.grid"
+                        [fill]="totalOrders.fill"
+                        [tooltip]="totalOrders.tooltip"
+                        class="rounded-lg bg-white dark:bg-black"
+                    >
+                        <!-- loader -->
+                        <div class="grid min-h-[290px] place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08]">
+                            <span class="inline-flex h-5 w-5 animate-spin rounded-full border-2 border-black !border-l-transparent dark:border-white"></span>
+                        </div>
+                    </apx-chart>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div class="panel h-full pb-0 sm:col-span-2 xl:col-span-1">
+                <h5 class="mb-5 text-lg font-semibold dark:text-white-light">Recent Activities</h5>
+
+                <ng-scrollbar class="relative mb-4 !h-[290px] ltr:-mr-3 ltr:pr-3 rtl:-ml-3 rtl:pl-3">
+                    <div class="cursor-pointer text-sm">
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-primary ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Updated Server Logs</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">Just Now</div>
+
+                            <span
+                                class="badge badge-outline-primary absolute bg-primary-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-success ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Send Mail to HR and Admin</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">2 min ago</div>
+
+                            <span
+                                class="badge badge-outline-success absolute bg-success-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-danger ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Backup Files EOD</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">14:00</div>
+
+                            <span
+                                class="badge badge-outline-danger absolute bg-danger-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-black ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Collect documents from Sara</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">16:00</div>
+
+                            <span
+                                class="badge badge-outline-dark absolute bg-dark-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-warning ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Conference call with Marketing Manager.</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">17:00</div>
+
+                            <span
+                                class="badge badge-outline-warning absolute bg-warning-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >In progress</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-info ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Rebooted Server</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">17:00</div>
+
+                            <span
+                                class="badge badge-outline-info absolute bg-info-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-secondary ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Send contract details to Freelancer</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">18:00</div>
+
+                            <span
+                                class="badge badge-outline-secondary absolute bg-secondary-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-primary ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Updated Server Logs</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">Just Now</div>
+
+                            <span
+                                class="badge badge-outline-primary absolute bg-primary-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-success ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Send Mail to HR and Admin</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">2 min ago</div>
+
+                            <span
+                                class="badge badge-outline-success absolute bg-success-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-danger ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Backup Files EOD</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">14:00</div>
+
+                            <span
+                                class="badge badge-outline-danger absolute bg-danger-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-black ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Collect documents from Sara</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">16:00</div>
+
+                            <span
+                                class="badge badge-outline-dark absolute bg-dark-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-warning ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Conference call with Marketing Manager.</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">17:00</div>
+
+                            <span
+                                class="badge badge-outline-warning absolute bg-warning-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >In progress</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-info ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Rebooted Server</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">17:00</div>
+
+                            <span
+                                class="badge badge-outline-info absolute bg-info-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Completed</span
+                            >
+                        </div>
+                        <div class="group relative flex items-center py-1.5">
+                            <div class="h-1.5 w-1.5 rounded-full bg-secondary ltr:mr-1 rtl:ml-1.5"></div>
+                            <div class="flex-1">Send contract details to Freelancer</div>
+                            <div class="text-xs text-white-dark ltr:ml-auto rtl:mr-auto dark:text-gray-500">18:00</div>
+
+                            <span
+                                class="badge badge-outline-secondary absolute bg-secondary-light text-xs opacity-0 group-hover:opacity-100 ltr:right-0 rtl:left-0 dark:bg-[#0e1726]"
+                                >Pending</span
+                            >
+                        </div>
+                    </div>
+                </ng-scrollbar>
+                <div class="border-t border-white-light dark:border-white/10">
+                    <a href="javascript:;" class="group group flex items-center justify-center p-4 font-semibold hover:text-primary">
+                        View All
+                        <icon-arrow-left
+                            class="transition duration-300 group-hover:translate-x-1 ltr:ml-1 rtl:mr-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                        />
+                    </a>
+                </div>
+            </div>
+
+            <div class="panel h-full">
+                <div class="mb-5 flex items-center justify-between dark:text-white-light">
+                    <h5 class="text-lg font-semibold">Transactions</h5>
+                    <div class="dropdown ltr:ml-auto rtl:mr-auto">
+                        <div hlMenu>
+                            <a href="javascript:;" hlMenuButton class="align-middle">
+                                <icon-horizontal-dots class="text-black/70 hover:!text-primary dark:text-white/70" />
+                            </a>
+                            <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">View Report</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Edit Report</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" *hlMenuItem="let menuItem">Mark as Done</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-success-light text-base text-success dark:bg-success dark:text-success-light"
+                                >SP</span
+                            >
+                            <div class="flex-1 px-3">
+                                <div>Shaun Park</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-success ltr:ml-auto rtl:mr-auto">+$36.11</span>
+                        </div>
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-warning-light text-warning dark:bg-warning dark:text-warning-light"
+                            >
+                                <icon-cash-banknotes />
+                            </span>
+                            <div class="flex-1 px-3">
+                                <div>Cash withdrawal</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-danger ltr:ml-auto rtl:mr-auto">-$16.44</span>
+                        </div>
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-danger-light text-danger dark:bg-danger dark:text-danger-light"
+                            >
+                                <icon-user class="h-6 w-6" />
+                            </span>
+                            <div class="flex-1 px-3">
+                                <div>Amy Diaz</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-success ltr:ml-auto rtl:mr-auto">+$66.44</span>
+                        </div>
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-secondary-light text-secondary dark:bg-secondary dark:text-secondary-light"
+                            >
+                                <icon-netflix />
+                            </span>
+                            <div class="flex-1 px-3">
+                                <div>Netflix</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-danger ltr:ml-auto rtl:mr-auto">-$32.00</span>
+                        </div>
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-info-light text-base text-info dark:bg-info dark:text-info-light"
+                                >DA</span
+                            >
+                            <div class="flex-1 px-3">
+                                <div>Daisy Anderson</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">10 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-success ltr:ml-auto rtl:mr-auto">+$10.08</span>
+                        </div>
+                        <div class="flex">
+                            <span
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-primary-light text-primary dark:bg-primary dark:text-primary-light"
+                            >
+                                <icon-bolt />
+                            </span>
+                            <div class="flex-1 px-3">
+                                <div>Electricity Bill</div>
+                                <div class="text-xs text-white-dark dark:text-gray-500">04 Jan 1:00PM</div>
+                            </div>
+                            <span class="whitespace-pre px-1 text-base text-danger ltr:ml-auto rtl:mr-auto">-$22.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel h-full overflow-hidden border-0 p-0">
+                <div class="min-h-[190px] bg-gradient-to-r from-[#4361ee] to-[#160f6b] p-6">
+                    <div class="mb-6 flex items-center justify-between">
+                        <div class="flex items-center rounded-full bg-black/50 p-1 font-semibold text-white ltr:pr-3 rtl:pl-3">
+                            <img
+                                class="block h-8 w-8 rounded-full border-2 border-white/50 object-cover ltr:mr-1 rtl:ml-1"
+                                src="/assets/images/profile-34.jpeg"
+                                alt=""
+                            />
+                            Alan Green
+                        </div>
+                        <button
+                            type="button"
+                            class="flex h-9 w-9 items-center justify-between rounded-md bg-black text-white hover:opacity-80 ltr:ml-auto rtl:mr-auto"
+                        >
+                            <icon-plus class="m-auto h-6 w-6" />
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between text-white">
+                        <p class="text-xl">Wallet Balance</p>
+                        <h5 class="text-2xl ltr:ml-auto rtl:mr-auto"><span class="text-white-light">$</span>2953</h5>
+                    </div>
+                </div>
+                <div class="-mt-12 grid grid-cols-2 gap-2 px-8">
+                    <div class="rounded-md bg-white px-4 py-2.5 shadow dark:bg-[#060818]">
+                        <span class="mb-4 flex items-center justify-between dark:text-white"
+                            >Received
+                            <icon-caret-down class="h-4 w-4 rotate-180 text-success" />
+                        </span>
+                        <div class="btn w-full border-0 bg-[#ebedf2] py-1 text-base text-[#515365] shadow-none dark:bg-black dark:text-[#bfc9d4]">$97.99</div>
+                    </div>
+                    <div class="rounded-md bg-white px-4 py-2.5 shadow dark:bg-[#060818]">
+                        <span class="mb-4 flex items-center justify-between dark:text-white"
+                            >Spent
+                            <icon-caret-down class="h-4 w-4 text-danger" />
+                        </span>
+                        <div class="btn w-full border-0 bg-[#ebedf2] py-1 text-base text-[#515365] shadow-none dark:bg-black dark:text-[#bfc9d4]">$53.00</div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="mb-5">
+                        <span
+                            class="rounded-full bg-[#1b2e4b] px-4 py-1.5 text-xs text-white before:inline-block before:h-1.5 before:w-1.5 before:rounded-full before:bg-white ltr:before:mr-2 rtl:before:ml-2"
+                            >Pending</span
+                        >
+                    </div>
+                    <div class="mb-5 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="font-semibold text-[#515365]">Netflix</p>
+                            <p class="text-base"><span>$ </span> <span class="font-semibold">13.85</span></p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="font-semibold text-[#515365]">BlueHost VPN</p>
+                            <p class="text-base"><span>$ </span> <span class="font-semibold">15.66</span></p>
+                        </div>
+                    </div>
+                    <div class="flex justify-around px-2 text-center">
+                        <button type="button" class="btn btn-secondary ltr:mr-2 rtl:ml-2">View Details</button>
+                        <button type="button" class="btn btn-success">Pay Now $29.51</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="panel h-full w-full">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Recent Orders</h5>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="ltr:rounded-l-md rtl:rounded-r-md">Customer</th>
+                                <th>Product</th>
+                                <th>Invoice</th>
+                                <th>Price</th>
+                                <th class="ltr:rounded-r-md rtl:rounded-l-md">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="min-w-[150px] text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-6.jpeg" alt="avatar" />
+                                        <span class="whitespace-nowrap">Luke Ivory</span>
+                                    </div>
+                                </td>
+                                <td class="text-primary">Headphone</td>
+                                <td><a routerLink="/apps/invoice/preview">#46894</a></td>
+                                <td>$56.07</td>
+                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-7.jpeg" alt="avatar" />
+                                        <span class="whitespace-nowrap">Andy King</span>
+                                    </div>
+                                </td>
+                                <td class="text-info">Nike Sport</td>
+                                <td><a routerLink="/apps/invoice/preview">#76894</a></td>
+                                <td>$126.04</td>
+                                <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-8.jpeg" alt="avatar" />
+                                        <span class="whitespace-nowrap">Laurie Fox</span>
+                                    </div>
+                                </td>
+                                <td class="text-warning">Sunglasses</td>
+                                <td><a routerLink="/apps/invoice/preview">#66894</a></td>
+                                <td>$56.07</td>
+                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-9.jpeg" alt="avatar" />
+                                        <span class="whitespace-nowrap">Ryan Collins</span>
+                                    </div>
+                                </td>
+                                <td class="text-danger">Sport</td>
+                                <td><a routerLink="/apps/invoice/preview">#75844</a></td>
+                                <td>$110.00</td>
+                                <td><span class="badge bg-secondary shadow-md dark:group-hover:bg-transparent">Shipped</span></td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/profile-10.jpeg" alt="avatar" />
+                                        <span class="whitespace-nowrap">Irene Collins</span>
+                                    </div>
+                                </td>
+                                <td class="text-secondary">Speakers</td>
+                                <td><a routerLink="/apps/invoice/preview">#46894</a></td>
+                                <td>$56.07</td>
+                                <td><span class="badge bg-success shadow-md dark:group-hover:bg-transparent">Paid</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="panel h-full w-full">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Top Selling Product</h5>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr class="border-b-0">
+                                <th class="ltr:rounded-l-md rtl:rounded-r-md">Product</th>
+                                <th>Price</th>
+                                <th>Discount</th>
+                                <th>Sold</th>
+                                <th class="ltr:rounded-r-md rtl:rounded-l-md">Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="min-w-[150px] text-black dark:text-white">
+                                    <div class="flex">
+                                        <img
+                                            class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3"
+                                            src="/assets/images/product-headphones.jpg"
+                                            alt="avatar"
+                                        />
+                                        <p class="whitespace-nowrap">Headphone <span class="block text-xs text-primary">Digital</span></p>
+                                    </div>
+                                </td>
+                                <td>$168.09</td>
+                                <td>$60.09</td>
+                                <td>170</td>
+                                <td>
+                                    <a class="flex items-center text-danger" href="javascript:;">
+                                        <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
+
+                                        Direct
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-shoes.jpg" alt="avatar" />
+                                        <p class="whitespace-nowrap">Shoes <span class="block text-xs text-warning">Faishon</span></p>
+                                    </div>
+                                </td>
+                                <td>$126.04</td>
+                                <td>$47.09</td>
+                                <td>130</td>
+                                <td>
+                                    <a class="flex items-center text-success" href="javascript:;">
+                                        <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
+                                        Google
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-watch.jpg" alt="avatar" />
+                                        <p class="whitespace-nowrap">Watch <span class="block text-xs text-danger">Accessories</span></p>
+                                    </div>
+                                </td>
+                                <td>$56.07</td>
+                                <td>$20.00</td>
+                                <td>66</td>
+                                <td>
+                                    <a class="flex items-center text-warning" href="javascript:;">
+                                        <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
+                                        Ads
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-laptop.jpg" alt="avatar" />
+                                        <p class="whitespace-nowrap">Laptop <span class="block text-xs text-primary">Digital</span></p>
+                                    </div>
+                                </td>
+                                <td>$110.00</td>
+                                <td>$33.00</td>
+                                <td>35</td>
+                                <td>
+                                    <a class="flex items-center text-secondary" href="javascript:;">
+                                        <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
+                                        Email
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="group text-white-dark hover:text-black dark:hover:text-white-light/90">
+                                <td class="text-black dark:text-white">
+                                    <div class="flex">
+                                        <img class="h-8 w-8 rounded-md object-cover ltr:mr-3 rtl:ml-3" src="/assets/images/product-camera.jpg" alt="avatar" />
+                                        <p class="whitespace-nowrap">Camera <span class="block text-xs text-primary">Digital</span></p>
+                                    </div>
+                                </td>
+                                <td>$56.07</td>
+                                <td>$26.04</td>
+                                <td>30</td>
+                                <td>
+                                    <a class="flex items-center text-primary" href="javascript:;">
+                                        <icon-multiple-forward-right class="ltr:mr-1 rtl:ml-1 rtl:rotate-180" />
+                                        Referral
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

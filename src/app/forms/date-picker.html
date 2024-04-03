@@ -1,0 +1,599 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Date and Range Picker</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="inline-block rounded bg-[#009688]/[.26] px-2 py-1 text-base text-[#009688]">Date and Time Picker</div>
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/ng2-flatpickr" target="_blank" class="block hover:underline">https://www.npmjs.com/package/ng2-flatpickr</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form [formGroup]="form1">
+                        <ng2-flatpickr [config]="basic" formControlName="date1" addClass="form-input"></ng2-flatpickr>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;form [formGroup]=&quot;form1&quot;&gt;
+    &lt;ng2-flatpickr [config]=&quot;basic&quot; formControlName=&quot;date1&quot; addClass=&quot;form-input&quot;&gt;&lt;/ng2-flatpickr&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+basic: FlatpickrOptions;
+form1!: FormGroup;
+constructor(public storeData: Store&lt;any&gt;, public fb: FormBuilder) {
+    this.form1 = this.fb.group({
+        date1: ['2022-07-05'],
+    });
+
+    this.basic = {
+        defaultDate: '2022-07-05',
+        dateFormat: 'Y-m-d',
+        position: this.store.rtlClass === 'rtl' ? 'auto right' : 'auto left',
+    };
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Date & time -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Date Time</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-2.5">Use <code class="text-danger">{{"{enableTime: true, dateFormat: 'Y-m-d H:i'}"}}</code> option to enable time support</div>
+                <div class="mb-5">
+                    <form [formGroup]="form2">
+                        <ng2-flatpickr [config]="dateTime" formControlName="date2" addClass="form-input"></ng2-flatpickr>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- date & time --&gt;
+&lt;form [formGroup]=&quot;form2&quot;&gt;
+    &lt;ng2-flatpickr [config]=&quot;dateTime&quot; formControlName=&quot;date2&quot; addClass=&quot;form-input&quot;&gt;&lt;/ng2-flatpickr&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+dateTime: FlatpickrOptions;
+
+form2!: FormGroup;
+
+constructor(public storeData: Store&lt;any&gt;, public fb: FormBuilder) {
+    this.form2 = this.fb.group({
+        date2: ['2022-07-05 12:00'],
+    });
+
+    this.dateTime = {
+        defaultDate: '2022-07-05 12:00',
+        enableTime: true,
+        dateFormat: 'Y-m-d H:i',
+        position: this.store.rtlClass === 'rtl' ? 'auto right' : 'auto left',
+    };
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- range-calendar -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Range Calendar</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-2.5">Use <code class="text-danger">{{ "{mode: 'range'}" }}</code> select the date with range.</div>
+                <div class="mb-5">
+                    <form [formGroup]="form3">
+                        <ng2-flatpickr [config]="rangeCalendar" formControlName="date3" addClass="form-input"></ng2-flatpickr>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- range calendar --&gt;
+&lt;form [formGroup]=&quot;form3&quot;&gt;
+    &lt;ng2-flatpickr [config]=&quot;rangeCalendar&quot; formControlName=&quot;date3&quot; addClass=&quot;form-input&quot;&gt;&lt;/ng2-flatpickr&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+rangeCalendar: FlatpickrOptions;
+
+form3!: FormGroup;
+
+constructor(public storeData: Store&lt;any&gt;, public fb: FormBuilder) {
+    this.form3 = this.fb.group({
+        date3: ['2022-07-05 to 2022-07-10'],
+    });
+
+    this.rangeCalendar = {
+        defaultDate: '2022-07-05 to 2022-07-10',
+        dateFormat: 'Y-m-d',
+        mode: 'range',
+        position: this.store.rtlClass === 'rtl' ? 'auto right' : 'auto left',
+    };
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- preloading time -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Preloading Time</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-2.5">
+                    Use <code class="text-danger">{{ "{noCalendar: true, enableTime: true, dateFormat: 'H:i'}" }}</code> with Date Time options to disable
+                    calendar and show time picker only.
+                </div>
+                <div class="mb-5">
+                    <form [formGroup]="form4">
+                        <ng2-flatpickr [config]="preloadingTime" formControlName="date4" addClass="form-input"></ng2-flatpickr>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- preloading time --&gt;
+&lt;form [formGroup]=&quot;form4&quot;&gt;
+    &lt;ng2-flatpickr [config]=&quot;preloadingTime&quot; formControlName=&quot;date4&quot; addClass=&quot;form-input&quot;&gt;&lt;/ng2-flatpickr&gt;
+&lt;/form&gt;
+
+&lt;!-- script --&gt;
+preloadingTime: FlatpickrOptions;
+
+form4!: FormGroup;
+
+constructor(public storeData: Store&lt;any&gt;, public fb: FormBuilder) {
+    this.form4 = this.fb.group({
+        date4: ['13:45'],
+    });
+
+    this.preloadingTime = {
+        defaultDate: '13:45',
+        noCalendar: true,
+        enableTime: true,
+        dateFormat: 'H:i',
+        position: this.store.rtlClass === 'rtl' ? 'auto right' : 'auto left',
+    };
+}"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- range picker -->
+        <div class="inline-block rounded bg-[#009688]/[.26] px-2 py-1 text-base text-[#009688]">Javascript Range Slider</div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Top-Left -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Postion : Top-Left</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="font-bold">
+                        <span class="inline-block rounded border border-white-light px-2 py-1 text-primary dark:border-dark">{{ slider1 }}</span>
+                        <span>%</span>
+                    </div>
+                    <input type="range" class="w-full py-2.5" min="0" max="100" [(ngModel)]="slider1" />
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- top left --&gt;
+&lt;div&gt;
+    &lt;div class=&quot;font-bold&quot;&gt;
+        &lt;span class=&quot;inline-block rounded border border-white-light py-1 px-2 text-primary dark:border-dark&quot;&gt;{{ slider1 }}&lt;/span&gt;
+        &lt;span&gt;%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;input type=&quot;range&quot; class=&quot;w-full py-2.5&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;slider1&quot; /&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Top-right -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Postion : Top-right</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="font-bold ltr:text-right rtl:text-left">
+                        <span class="inline-block rounded border border-white-light px-2 py-1 text-primary dark:border-dark">{{ slider2 }}</span>
+                        <span>%</span>
+                    </div>
+                    <input type="range" class="w-full py-2.5" min="0" max="100" [(ngModel)]="slider2" />
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- top right --&gt;
+&lt;div&gt;
+    &lt;div class=&quot;font-bold ltr:text-right rtl:text-left&quot;&gt;
+        &lt;span class=&quot;inline-block rounded border border-white-light py-1 px-2 text-primary dark:border-dark&quot;&gt;{{ slider2 }}&lt;/span&gt;
+        &lt;span&gt;%&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;input type=&quot;range&quot; class=&quot;w-full py-2.5&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;slider2&quot; /&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- bottom-left -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Postion : Bottom-Left</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <input type="range" class="w-full py-2.5" min="0" max="100" [(ngModel)]="slider3" />
+                    <div class="font-bold">
+                        <span class="inline-block rounded border border-white-light px-2 py-1 text-primary dark:border-dark">{{ slider3 }}</span>
+                        <span>%</span>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code7')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- bottom left --&gt;
+&lt;div&gt;
+    &lt;input type=&quot;range&quot; class=&quot;w-full py-2.5&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;slider3&quot; /&gt;
+    &lt;div class=&quot;font-bold&quot;&gt;
+        &lt;span class=&quot;inline-block rounded border border-white-light py-1 px-2 text-primary dark:border-dark&quot;&gt;{{ slider3 }}&lt;/span&gt;
+        &lt;span&gt;%&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Bottom-right -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Postion : Bottom-right</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <input type="range" class="w-full py-2.5" min="0" max="100" [(ngModel)]="slider4" />
+                    <div class="font-bold ltr:text-right rtl:text-left">
+                        <span class="inline-block rounded border border-white-light px-2 py-1 text-primary dark:border-dark">{{ slider4 }}</span>
+                        <span>%</span>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code8')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- bottom right --&gt;
+&lt;div&gt;
+    &lt;input type=&quot;range&quot; class=&quot;w-full py-2.5&quot; min=&quot;0&quot; max=&quot;100&quot; [(ngModel)]=&quot;slider4&quot; /&gt;
+    &lt;div class=&quot;font-bold ltr:text-right rtl:text-left&quot;&gt;
+        &lt;span class=&quot;inline-block rounded border border-white-light py-1 px-2 text-primary dark:border-dark&quot;&gt;{{ slider4 }}&lt;/span&gt;
+        &lt;span&gt;%&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- Nouislider -->
+        <div class="inline-block rounded bg-[#009688]/[.26] px-2 py-1 text-base text-[#009688]">noUI Slider</div>
+
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/ng2-nouislider" target="_blank" class="block hover:underline"
+                >https://www.npmjs.com/package/ng2-nouislider</a
+            >
+        </div>
+        <div class="noui-slider grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Using HTML5 input elements -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Using HTML5 input elements</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code10')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5 pt-5">
+                    <nouislider
+                        [min]="0"
+                        [max]="100"
+                        [step]="1"
+                        [ngModel]="nouiSlider1"
+                        [tooltips]="[true,true]"
+                        (change)="slider1Update($event)"
+                        [config]="{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}"
+                    ></nouislider>
+                    <div class="my-4 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                        <div class="mb-3">
+                            <select [(ngModel)]="nouiMin1" class="form-select w-full" id="select" (change)="selectUpdateValue()">
+                                <ng-container *ngFor="let index of arrNo">
+                                    <option>{{ index }}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                [(ngModel)]="nouiMax1"
+                                class="form-input"
+                                [min]="-20"
+                                [max]="100"
+                                [step]="1"
+                                (ngModelChange)="selectUpdateValue()"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code10')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- using HTML5 input elements --&gt;
+&lt;div&gt;
+    &lt;nouislider
+        [min]=&quot;0&quot;
+        [max]=&quot;100&quot;
+        [step]=&quot;1&quot;
+        [ngModel]=&quot;nouiSlider1&quot;
+        [tooltips]=&quot;[true,true]&quot;
+        (change)=&quot;slider1Update($event)&quot;
+        [config]=&quot;{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}&quot;
+    &gt;&lt;/nouislider&gt;
+    &lt;div class=&quot;my-4 grid grid-cols-1 gap-8 lg:grid-cols-2&quot;&gt;
+        &lt;div class=&quot;mb-3&quot;&gt;
+            &lt;select [(ngModel)]=&quot;nouiMin1&quot; class=&quot;form-select w-full&quot; id=&quot;select&quot; (change)=&quot;selectUpdateValue()&quot;&gt;
+                &lt;ng-container *ngFor=&quot;let index of arrNo&quot;&gt;
+                    &lt;option&gt; index &lt;/option&gt;
+                &lt;/ng-container&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;input
+                type=&quot;number&quot;
+                [(ngModel)]=&quot;nouiMax1&quot;
+                class=&quot;form-input&quot;
+                [min]=&quot;-20&quot;
+                [max]=&quot;100&quot;
+                [step]=&quot;1&quot;
+                (ngModelChange)=&quot;selectUpdateValue()&quot;
+            /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+nouiMin1 = 20;
+nouiMax1 = 40;
+nouiSlider1: any = [this.nouiMin1, this.nouiMax1];
+arrNo = Array.from({ length: 100 }, (_, i) =&gt; i);
+slider1Update(range: any) {
+    if (range) {
+        this.nouiMin1 = range[0];
+        this.nouiMax1 = JSON.parse(JSON.stringify(range[1]));
+    }
+}
+selectUpdateValue() {
+    this.nouiSlider1 = [this.nouiMin1, this.nouiMax1];
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Non linear slider -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Non linear slider</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code11')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5 pt-5">
+                    <nouislider
+                        [min]="0"
+                        [max]="10000"
+                        [ngModel]="nouiSlider2"
+                        [tooltips]="[true,true]"
+                        (change)="slider2Update($event)"
+                        [config]="{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}"
+                    ></nouislider>
+
+                    <div class="my-5 grid grid-cols-1 gap-8 font-bold lg:grid-cols-2">
+                        <div>
+                            <span class="mr-2 text-primary" id="nouiMin2">{{ nouiSlider2[0].toFixed(2) }}</span
+                            ><span class="rounded border border-white-light px-2 py-1 text-dark dark:border-dark dark:text-white-dark" id="nouiMin2Perc"
+                                >{{ nouiMin2Perc }}%</span
+                            >
+                        </div>
+                        <div class="ltr:text-right rtl:text-left">
+                            <span class="mr-2 text-primary" id="nouiMax2">{{ nouiSlider2[1].toFixed(2) }}</span
+                            ><span class="rounded border border-white-light px-2 py-1 text-dark dark:border-dark dark:text-white-dark" id="nouiMax2Perc"
+                                >{{ nouiMax2Perc }}%</span
+                            >
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code11')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- non linear slider --&gt;
+&lt;div&gt;
+    &lt;nouislider
+        [min]=&quot;0&quot;
+        [max]=&quot;10000&quot;
+        [ngModel]=&quot;nouiSlider2&quot;
+        [tooltips]=&quot;[true,true]&quot;
+        (change)=&quot;slider2Update($event)&quot;
+        [config]=&quot;{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}&quot;
+    &gt;&lt;/nouislider&gt;
+
+    &lt;div class=&quot;my-5 grid grid-cols-1 gap-8 font-bold lg:grid-cols-2&quot;&gt;
+        &lt;div&gt;
+            &lt;span class=&quot;mr-2 text-primary&quot; id=&quot;nouiMin2&quot;&gt;{{ nouiSlider2[0].toFixed(2) }}&lt;/span
+            &gt;&lt;span class=&quot;rounded border border-white-light py-1 px-2 text-dark dark:border-dark dark:text-white-dark&quot; id=&quot;nouiMin2Perc&quot;
+                &gt;{{ nouiMin2Perc }}%&lt;/span
+            &gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;ltr:text-right rtl:text-left&quot;&gt;
+            &lt;span class=&quot;mr-2 text-primary&quot; id=&quot;nouiMax2&quot;&gt;{{ nouiSlider2[1].toFixed(2) }}&lt;/span
+            &gt;&lt;span class=&quot;rounded border border-white-light py-1 px-2 text-dark dark:border-dark dark:text-white-dark&quot; id=&quot;nouiMax2Perc&quot;
+                &gt;{{ nouiMax2Perc }}%&lt;/span
+            &gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+nouiSlider2: any = [500.0, 4000.0];
+nouiMin2Perc = 0;
+nouiMax2Perc = 0;
+slider2Update(range: any) {
+    if (range) {
+        this.nouiSlider2 = range;
+        this.nouiMin2Perc = parseFloat((range[0] * 0.01).toFixed(2));
+        this.nouiMax2Perc = parseFloat((range[1] * 0.01).toFixed(2));
+    }
+}"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- Locking slider -->
+            <div class="panel lg:col-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Locking sliders together</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code12')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5 pt-5">
+                    <nouislider
+                        [min]="0"
+                        [max]="100"
+                        [ngModel]="nouiSlider3"
+                        (change)="setLockSlider1($event)"
+                        [tooltips]="[true]"
+                        [config]="{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}"
+                    ></nouislider>
+                    <div class="mb-10 font-bold text-primary">{{nouiSlider3.toFixed(2)}}</div>
+                    <nouislider
+                        [min]="0"
+                        [max]="100"
+                        [ngModel]="nouiSlider4"
+                        (change)="setLockSlider2($event)"
+                        [tooltips]="[true]"
+                        [disabled]="lockedState"
+                        [config]="{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}"
+                    ></nouislider>
+                    <div class="mb-10 font-bold text-primary">{{nouiSlider4.toFixed(2)}}</div>
+                    <div class="ltr:text-right rtl:text-left">
+                        <button type="button" class="btn btn-primary" id="lockbutton" (click)="setLock()">{{ lockedState ? 'Unlock' : 'Lock' }}</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code12')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- locking sliders together --&gt;
+&lt;div&gt;
+    &lt;nouislider
+        [min]=&quot;0&quot;
+        [max]=&quot;100&quot;
+        [ngModel]=&quot;nouiSlider3&quot;
+        (change)=&quot;setLockSlider1($event)&quot;
+        [tooltips]=&quot;[true]&quot;
+        [config]=&quot;{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}&quot;
+    &gt;&lt;/nouislider&gt;
+    &lt;div class=&quot;mb-10 font-bold text-primary&quot;&gt;{{nouiSlider3.toFixed(2)}}&lt;/div&gt;
+    &lt;nouislider
+        [min]=&quot;0&quot;
+        [max]=&quot;100&quot;
+        [ngModel]=&quot;nouiSlider4&quot;
+        (change)=&quot;setLockSlider2($event)&quot;
+        [tooltips]=&quot;[true]&quot;
+        [disabled]=&quot;lockedState&quot;
+        [config]=&quot;{barColor : store.theme === 'dark' ? '#1b2e4b' : '#ffffff', activeBarColor: '#4361ee', direction: store.rtlClass, connect: true}&quot;
+    &gt;&lt;/nouislider&gt;
+    &lt;div class=&quot;mb-10 font-bold text-primary&quot;&gt;{{nouiSlider4.toFixed(2)}}&lt;/div&gt;
+    &lt;div class=&quot;ltr:text-right rtl:text-left&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;lockbutton&quot; (click)=&quot;setLock()&quot;&gt;{{ lockedState ? 'Unlock' : 'Lock' }}&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+nouiSlider3: any = 5;
+nouiSlider4: any = 10;
+lockedState = false;
+lockingSlider1 = 0;
+lockingSlider2 = 0;
+
+setLock() {
+    this.lockedState = !this.lockedState;
+    if (this.lockedState) {
+        this.lockingSlider1 = this.nouiSlider3;
+        this.lockingSlider2 = this.nouiSlider4;
+    }
+}
+
+setLockSlider1(value: Number) {
+    this.nouiSlider3 = value;
+    if (this.lockedState) {
+        if (this.lockingSlider1 &gt; this.lockingSlider2) {
+            this.nouiSlider4 = this.nouiSlider3 - this.lockingSlider1;
+        } else if (this.lockingSlider1 &lt; this.lockingSlider2) {
+            this.nouiSlider4 = this.lockingSlider1 + this.nouiSlider3;
+        } else {
+            this.nouiSlider4 = this.nouiSlider3;
+        }
+    }
+}
+
+setLockSlider2(value: Number) {
+    this.nouiSlider4 = value;
+}"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

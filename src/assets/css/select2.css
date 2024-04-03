@@ -1,0 +1,65 @@
+.custom-multiselect.ng-select .ng-select-container {
+    @apply h-[38px] !shadow-none;
+}
+
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder,
+.custom-multiselect.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+    @apply top-1/2 -translate-y-1/2 !pl-0 !pb-0 text-inherit;
+}
+
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+    @apply !pt-0;
+}
+
+.custom-multiselect.ng-select.ng-select-single .ng-select-container .ng-value-container,
+.custom-multiselect.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input,
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container {
+    @apply ltr:!pl-4.5 rtl:!pr-4.5;
+}
+
+.custom-multiselect.ng-select .ng-select-container .ng-value-container .ng-input > input {
+    @apply text-inherit;
+}
+
+.custom-multiselect.ng-select .ng-select-container,
+.custom-multiselect.ng-select .ng-dropdown-panel,
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    @apply gap-2 border-[rgb(224,230,237)] bg-white text-inherit dark:border-[#253b5c] dark:bg-[#1b2e4b];
+}
+
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    @apply px-5;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked,
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option:hover {
+    @apply !bg-[#f6f6f6] dark:!bg-[#132136];
+}
+
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup,
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-disabled,
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-optgroup:hover,
+.custom-multiselect.ng-select .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-disabled:hover {
+    @apply !bg-transparent !text-[#999];
+}
+
+.custom-multiselect.ng-select .ng-select-container .ng-value-container {
+    @apply gap-2;
+}
+
+.custom-multiselect.ng-select .ng-arrow-wrapper {
+    @apply ltr:pr-4.5 rtl:pl-4.5;
+}
+
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+    @apply !m-0 bg-success text-white;
+}
+
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon:hover {
+    @apply  !bg-[#128c4f];
+}
+
+.custom-multiselect.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+    @apply ltr:!pl-1 rtl:!pr-1;
+}

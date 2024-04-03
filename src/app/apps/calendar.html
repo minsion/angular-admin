@@ -1,0 +1,125 @@
+<div>
+    <div class="panel">
+        <div class="mb-5">
+            <div class="mb-4 flex flex-col items-center justify-center sm:flex-row sm:justify-between">
+                <div class="mb-4 sm:mb-0">
+                    <div class="text-center text-lg font-semibold ltr:sm:text-left rtl:sm:text-right">Calendar</div>
+                    <div class="mt-2 flex flex-wrap items-center justify-center sm:justify-start">
+                        <div class="flex items-center ltr:mr-4 rtl:ml-4">
+                            <div class="h-2.5 w-2.5 rounded-sm bg-primary ltr:mr-2 rtl:ml-2"></div>
+                            <div>Work</div>
+                        </div>
+                        <div class="flex items-center ltr:mr-4 rtl:ml-4">
+                            <div class="h-2.5 w-2.5 rounded-sm bg-info ltr:mr-2 rtl:ml-2"></div>
+                            <div>Travel</div>
+                        </div>
+                        <div class="flex items-center ltr:mr-4 rtl:ml-4">
+                            <div class="h-2.5 w-2.5 rounded-sm bg-success ltr:mr-2 rtl:ml-2"></div>
+                            <div>Personal</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="h-2.5 w-2.5 rounded-sm bg-danger ltr:mr-2 rtl:ml-2"></div>
+                            <div>Important</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="editEvent()">
+                    <icon-plus class="ltr:mr-2 rtl:ml-2" />
+                    Create Event
+                </button>
+            </div>
+            <div class="calendar-wrapper">
+                <full-calendar #calendar [options]="calendarOptions" [deepChangeDetection]="true">
+                    <ng-template #eventContent let-arg>
+                        <div class="fc-event-main-frame flex items-center px-1 py-0.5 text-white">
+                            <div class="fc-event-time px-0.5 font-semibold">{{ arg.timeText }}</div>
+                            <div class="fc-event-title-container">
+                                <div class="fc-event-title fc-sticky px-0.5 !font-medium">{{ arg.event.title }}</div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </full-calendar>
+            </div>
+        </div>
+    </div>
+    <!-- add event modal -->
+    <modal #isAddEventModal class="no-footer">
+        <ng-template #modalHeader>
+            <div class="!font-medium">{{ params.value.id ? 'Edit Event' : 'Add Event' }}</div>
+        </ng-template>
+        <ng-template #modalBody>
+            <form [formGroup]="params" class="text-sm" (submit)="saveEvent()" ngNativeValidate>
+                <div class="mb-5">
+                    <label for="title">Event Title :</label>
+                    <input id="title" type="text" name="title" class="form-input" placeholder="Enter Event Title" formControlName="title" required />
+                    <div class="mt-2 text-danger" id="titleErr"></div>
+                </div>
+
+                <div class="mb-5">
+                    <label for="dateStart">From :</label>
+                    <input
+                        id="dateStart"
+                        type="datetime-local"
+                        name="start"
+                        class="form-input"
+                        placeholder="Event Start Date"
+                        formControlName="start"
+                        [min]="minStartDate"
+                        (change)="startDateChange($event)"
+                        required
+                    />
+                    <div class="mt-2 text-danger" id="startDateErr"></div>
+                </div>
+                <div class="mb-5">
+                    <label for="dateEnd">To :</label>
+                    <input
+                        id="dateEnd"
+                        type="datetime-local"
+                        name="end"
+                        class="form-input"
+                        placeholder="Event End Date"
+                        formControlName="end"
+                        [min]="minEndDate"
+                        required
+                    />
+                    <div class="mt-2 text-danger" id="endDateErr"></div>
+                </div>
+                <div class="mb-5">
+                    <label for="description">Event Description :</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="form-textarea min-h-[130px]"
+                        placeholder="Enter Event Description"
+                        formControlName="description"
+                    ></textarea>
+                </div>
+                <div class="mb-5">
+                    <label>Badge:</label>
+                    <div class="mt-3">
+                        <label class="inline-flex cursor-pointer ltr:mr-3 rtl:ml-3">
+                            <input type="radio" class="form-radio" name="badge" value="primary" formControlName="type" name="type" />
+                            <span class="ltr:pl-2 rtl:pr-2">Work</span>
+                        </label>
+                        <label class="inline-flex cursor-pointer ltr:mr-3 rtl:ml-3">
+                            <input type="radio" class="form-radio text-info" name="badge" value="info" formControlName="type" name="type" />
+                            <span class="ltr:pl-2 rtl:pr-2">Travel</span>
+                        </label>
+                        <label class="inline-flex cursor-pointer ltr:mr-3 rtl:ml-3">
+                            <input type="radio" class="form-radio text-success" name="badge" value="success" formControlName="type" name="type" />
+                            <span class="ltr:pl-2 rtl:pr-2">Personal</span>
+                        </label>
+                        <label class="inline-flex cursor-pointer">
+                            <input type="radio" class="form-radio text-danger" name="badge" value="danger" formControlName="type" name="type" />
+                            <span class="ltr:pl-2 rtl:pr-2">Important</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-8 flex items-center justify-end">
+                    <button type="button" class="btn btn-outline-danger" (click)="isAddEventModal.close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary ltr:ml-4 rtl:mr-4">{{ params.value.id ? 'Update Event' : 'Create Event' }}</button>
+                </div>
+            </form>
+        </ng-template>
+    </modal>
+</div>

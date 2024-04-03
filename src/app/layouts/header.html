@@ -1,0 +1,838 @@
+﻿<div class="z-40 shadow-sm" [ngClass]="{ 'dark text-white-dark': store.semidark && store.menu === 'horizontal'}">
+    <div class="relative flex w-full items-center bg-white px-5 py-2.5 dark:bg-[#0e1726]">
+        <div class="horizontal-logo flex items-center justify-between ltr:mr-2 rtl:ml-2 lg:hidden">
+            <a routerLink="/" class="main-logo flex shrink-0 items-center">
+                <img class="inline w-8 ltr:-ml-1 rtl:-mr-1" src="/assets/images/logo.svg" alt="" />
+                <span class="hidden align-middle text-2xl font-semibold transition-all duration-300 ltr:ml-1.5 rtl:mr-1.5 dark:text-white-light md:inline">
+                    VRISTO
+                </span>
+            </a>
+
+            <a
+                href="javascript:;"
+                class="collapse-icon flex flex-none rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary ltr:ml-2 rtl:mr-2 dark:bg-dark/40 dark:text-[#d0d2d6] dark:hover:bg-dark/60 dark:hover:text-primary lg:hidden"
+                (click)="storeData.dispatch({type: 'toggleSidebar'})"
+            >
+                <icon-menu class="h-5 w-5" />
+            </a>
+        </div>
+        <div class="hidden ltr:mr-2 rtl:ml-2 sm:block">
+            <ul class="flex items-center space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
+                <li>
+                    <a
+                        routerLink="/apps/calendar"
+                        class="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <icon-calendar />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        routerLink="/apps/todolist"
+                        class="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <icon-edit />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        routerLink="/apps/chat"
+                        class="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <icon-chat-notification />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div
+            class="flex items-center space-x-1.5 ltr:ml-auto rtl:mr-auto rtl:space-x-reverse dark:text-[#d0d2d6] sm:flex-1 ltr:sm:ml-0 sm:rtl:mr-0 lg:space-x-2"
+        >
+            <div class="sm:ltr:mr-auto sm:rtl:ml-auto">
+                <form
+                    class="absolute inset-x-0 top-1/2 z-10 mx-4 hidden -translate-y-1/2 sm:relative sm:top-0 sm:mx-0 sm:block sm:translate-y-0"
+                    [ngClass]="{ '!block': search }"
+                    (submit.prevent)="search = false"
+                >
+                    <div class="relative">
+                        <input
+                            type="text"
+                            class="peer form-input bg-gray-100 placeholder:tracking-widest ltr:pl-9 ltr:pr-9 rtl:pl-9 rtl:pr-9 sm:bg-transparent ltr:sm:pr-4 rtl:sm:pl-4"
+                            placeholder="Search..."
+                        />
+                        <button type="button" class="absolute inset-0 h-9 w-9 appearance-none peer-focus:text-primary ltr:right-auto rtl:left-auto">
+                            <icon-search class="mx-auto" />
+                        </button>
+                        <button
+                            type="button"
+                            class="absolute top-1/2 block -translate-y-1/2 hover:opacity-80 ltr:right-2 rtl:left-2 sm:hidden"
+                            (click)="search = false"
+                        >
+                            <icon-x-circle />
+                        </button>
+                    </div>
+                </form>
+
+                <button
+                    type="button"
+                    class="search_btn rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 dark:bg-dark/40 dark:hover:bg-dark/60 sm:hidden"
+                    (click)="search = !search"
+                >
+                    <icon-search class="mx-auto h-4.5 w-4.5 dark:text-[#d0d2d6]" />
+                </button>
+            </div>
+            <div>
+                <a
+                    href="javascript:;"
+                    *ngIf="store.theme === 'light'"
+                    class="flex items-center rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    (click)="storeData.dispatch({type: 'toggleTheme', payload:'dark'})"
+                >
+                    <icon-sun />
+                </a>
+                <a
+                    href="javascript:;"
+                    *ngIf="store.theme === 'dark'"
+                    class="flex items-center rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    (click)="storeData.dispatch({type: 'toggleTheme', payload:'system'})"
+                >
+                    <icon-moon />
+                </a>
+                <a
+                    href="javascript:;"
+                    *ngIf="store.theme === 'system'"
+                    class="flex items-center rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    (click)="storeData.dispatch({type: 'toggleTheme', payload:'light'})"
+                >
+                    <icon-laptop />
+                </a>
+            </div>
+
+            <div class="dropdown shrink-0">
+                <div hlMenu>
+                    <button
+                        type="button"
+                        hlMenuButton
+                        class="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <img [src]="'/assets/images/flags/'+ store.locale.toUpperCase() + '.svg'" alt="flag" class="h-5 w-5 rounded-full object-cover" />
+                    </button>
+                    <ul
+                        *hlMenuItems
+                        @toggleAnimation
+                        class="top-11 grid w-[280px] grid-cols-2 gap-2 !px-2 font-semibold text-dark ltr:-right-14 rtl:-left-14 dark:text-white-dark dark:text-white-light/90 sm:ltr:-right-2 sm:rtl:-left-2"
+                    >
+                        <li *ngFor="let item of store.languageList;">
+                            <button
+                                *hlMenuItem="let menuItem"
+                                type="button"
+                                class="w-full hover:text-primary"
+                                [ngClass]="{ 'bg-primary/10 text-primary': translate.currentLang === item.code }"
+                                (click)="changeLanguage(item)"
+                            >
+                                <img class="h-5 w-5 rounded-full object-cover" [src]="'/assets/images/flags/'+ item.code.toUpperCase() + '.svg'" alt="" />
+                                <span class="ltr:ml-3 rtl:mr-3">{{ item.name }}</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown shrink-0">
+                <div hlMenu>
+                    <button
+                        type="button"
+                        hlMenuButton
+                        class="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <icon-mail-dot />
+                    </button>
+                    <ul
+                        *hlMenuItems
+                        @toggleAnimation
+                        class="top-11 w-[300px] !py-0 text-xs text-dark ltr:-right-16 rtl:-left-16 dark:text-white-dark sm:w-[375px] sm:ltr:-right-2 sm:rtl:-left-2"
+                    >
+                        <li class="mb-5">
+                            <div class="relative overflow-hidden rounded-t-md !p-5 text-white">
+                                <div class="absolute inset-0 h-full w-full bg-[url('/assets/images/menu-heade.jpg')] bg-cover bg-center bg-no-repeat"></div>
+                                <h4 class="relative z-10 text-lg font-semibold">Messages</h4>
+                            </div>
+                        </li>
+                        <li *ngFor="let msg of messages">
+                            <div class="flex items-center px-5 py-3">
+                                <div [innerHTML]="msg.image"></div>
+                                <span class="px-3 dark:text-gray-500">
+                                    <div class="text-sm font-semibold dark:text-white-light/90">{{msg.title}}</div>
+                                    <div>{{msg.message}}</div>
+                                </span>
+                                <span
+                                    class="whitespace-pre rounded bg-white-dark/20 px-1 font-semibold text-dark/60 ltr:ml-auto ltr:mr-2 rtl:ml-2 rtl:mr-auto dark:text-white-dark"
+                                    >{{msg.time}}</span
+                                >
+                                <button type="button" class="text-neutral-300 hover:text-danger" (click)="$event.stopPropagation();removeMessage(msg.id)">
+                                    <icon-x-circle />
+                                </button>
+                            </div>
+                        </li>
+                        <li *ngIf="messages.length" class="mt-5 border-t border-white-light text-center dark:border-white/10">
+                            <div
+                                class="group flex cursor-pointer items-center justify-center px-5 py-4 font-semibold text-primary dark:text-gray-400"
+                                *hlMenuItem="let menuItem"
+                            >
+                                <span class="group-hover:underline ltr:mr-1 rtl:ml-1">VIEW ALL ACTIVITIES</span>
+
+                                <icon-arrow-left class="transition duration-300 group-hover:translate-x-1 ltr:ml-1 rtl:mr-1" />
+                            </div>
+                        </li>
+                        <li *ngIf="!messages.length" class="mb-5">
+                            <div class="!grid min-h-[200px] place-content-center text-lg hover:!bg-transparent">
+                                <div class="mx-auto mb-4 rounded-full text-primary ring-4 ring-primary/30">
+                                    <icon-info-circle [fill]="true" class="h-10 w-10" />
+                                </div>
+                                No data available.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown shrink-0">
+                <div hlMenu>
+                    <button
+                        type="button"
+                        hlMenuButton
+                        class="relative block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
+                    >
+                        <icon-bell-bing />
+
+                        <span class="absolute top-0 flex h-3 w-3 ltr:right-0 rtl:left-0">
+                            <span
+                                class="absolute -top-[3px] inline-flex h-full w-full animate-ping rounded-full bg-success/50 opacity-75 ltr:-left-[3px] rtl:-right-[3px]"
+                            ></span>
+                            <span class="relative inline-flex h-[6px] w-[6px] rounded-full bg-success"></span>
+                        </span>
+                    </button>
+                    <ul
+                        *hlMenuItems
+                        @toggleAnimation
+                        class="top-11 w-[300px] divide-y !py-0 text-dark ltr:-right-2 rtl:-left-2 dark:divide-white/10 dark:text-white-dark sm:w-[350px]"
+                    >
+                        <li>
+                            <div class="flex items-center justify-between px-4 py-2 font-semibold">
+                                <h4 class="text-lg">Notification</h4>
+                                <span *ngIf="notifications.length" class="badge bg-primary/80">{{notifications.length + 'New'}}</span>
+                            </div>
+                        </li>
+                        <li *ngFor="let notification of notifications" class="dark:text-white-light/90">
+                            <div class="group flex items-center px-4 py-2">
+                                <div class="grid place-content-center rounded">
+                                    <div class="relative h-12 w-12">
+                                        <img class="h-12 w-12 rounded-full object-cover" [src]="'/assets/images/' + notification.profile" alt="" />
+                                        <span class="absolute bottom-0 right-[6px] block h-2 w-2 rounded-full bg-success"></span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-auto ltr:pl-3 rtl:pr-3">
+                                    <div class="ltr:pr-3 rtl:pl-3">
+                                        <h6 [innerHTML]="notification.message"></h6>
+                                        <span class="block text-xs font-normal dark:text-gray-500">{{notification.time}}</span>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="text-neutral-300 opacity-0 hover:text-danger group-hover:opacity-100 ltr:ml-auto rtl:mr-auto"
+                                        (click)="$event.stopPropagation();removeNotification(notification.id)"
+                                    >
+                                        <icon-x-circle />
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <li *ngIf="notifications.length">
+                            <div class="p-4">
+                                <button type="button" class="btn btn-primary btn-small block w-full" *hlMenuItem="let menuItem">Read All Notifications</button>
+                            </div>
+                        </li>
+                        <li *ngIf="!notifications.length">
+                            <div class="!grid min-h-[200px] place-content-center text-lg hover:!bg-transparent">
+                                <div class="mx-auto mb-4 rounded-full text-primary ring-4 ring-primary/30">
+                                    <icon-info-circle [fill]="true" class="h-10 w-10" />
+                                </div>
+                                No data available.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dropdown shrink-0">
+                <div hlMenu class="!block">
+                    <button type="button" hlMenuButton class="group relative block">
+                        <img class="h-9 w-9 rounded-full object-cover saturate-50 group-hover:saturate-100" src="/assets/images/user-profile.jpeg" alt="" />
+                    </button>
+                    <ul
+                        *hlMenuItems
+                        @toggleAnimation
+                        class="top-11 w-[230px] !py-0 font-semibold text-dark ltr:right-0 rtl:left-0 dark:text-white-dark dark:text-white-light/90"
+                    >
+                        <li>
+                            <div class="flex items-center px-4 py-4">
+                                <div class="flex-none">
+                                    <img class="h-10 w-10 rounded-md object-cover" src="/assets/images/user-profile.jpeg" alt="" />
+                                </div>
+                                <div class="truncate ltr:pl-4 rtl:pr-4">
+                                    <h4 class="text-base">
+                                        John Doe<span class="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
+                                    </h4>
+                                    <a class="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white" href="javascript:;"
+                                        >johndoe@gmail.com</a
+                                    >
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a routerLink="/users/profile" *hlMenuItem="let menuItem" class="dark:hover:text-white">
+                                <icon-user class="h-4.5 w-4.5 shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/apps/mailbox" *hlMenuItem="let menuItem" class="dark:hover:text-white">
+                                <icon-mail class="h-4.5 w-4.5 shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                Inbox
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/auth/boxed-lockscreen" *hlMenuItem="let menuItem" class="dark:hover:text-white">
+                                <icon-lock-dots class="h-4.5 w-4.5 shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                Lock Screen
+                            </a>
+                        </li>
+                        <li class="border-t border-white-light dark:border-white-light/10">
+                            <a routerLink="/auth/boxed-signin" *hlMenuItem="let menuItem" class="!py-3 text-danger">
+                                <icon-logout class="h-4.5 w-4.5 shrink-0 rotate-90 ltr:mr-2 rtl:ml-2" />
+
+                                Sign Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- horizontal menu -->
+    <ul
+        class="horizontal-menu hidden border-t border-[#ebedf2] bg-white px-6 py-1.5 font-semibold text-black rtl:space-x-reverse dark:border-[#191e3a] dark:bg-[#0e1726] dark:text-white-dark lg:space-x-1.5 xl:space-x-8"
+    >
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-dashboard class="shrink-0" />
+
+                    <span class="px-2">{{ 'dashboard' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ 'sales' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/analytics" routerLinkActive="active">{{ 'analytics' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/finance" routerLinkActive="active">{{ 'finance' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/crypto" routerLinkActive="active">{{ 'crypto' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-apps class="shrink-0" />
+
+                    <span class="px-2">{{'apps' | translate}}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/apps/chat" routerLinkActive="active">{{ 'chat' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/apps/mailbox" routerLinkActive="active">{{ 'mailbox' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/apps/todolist" routerLinkActive="active">{{ 'todo_list' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/apps/notes" routerLinkActive="active">{{ 'notes' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/apps/scrumboard" routerLinkActive="active">{{ 'scrumboard' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/apps/contacts" routerLinkActive="active">{{ 'contacts' | translate }}</a>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'invoice' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/apps/invoice/list" routerLinkActive="active">{{ 'list' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/apps/invoice/preview" routerLinkActive="active">{{ 'preview' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/apps/invoice/add" routerLinkActive="active">{{ 'add' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/apps/invoice/edit" routerLinkActive="active">{{ 'edit' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a routerLink="/apps/calendar" routerLinkActive="active">{{ 'calendar' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-components class="shrink-0" />
+                    <span class="px-2">{{ 'components' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/components/tabs" routerLinkActive="active">{{ 'tabs' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/accordions" routerLinkActive="active">{{ 'accordions' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/modals" routerLinkActive="active">{{ 'modals' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/cards" routerLinkActive="active">{{ 'cards' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/carousel" routerLinkActive="active">{{ 'carousel' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/countdown" routerLinkActive="active">{{ 'countdown' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/counter" routerLinkActive="active">{{ 'counter' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/sweetalert" routerLinkActive="active">{{ 'sweet_alerts' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/timeline" routerLinkActive="active">{{ 'timeline' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/notifications" routerLinkActive="active">{{ 'notifications' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/media-object" routerLinkActive="active">{{ 'media_object' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/list-group" routerLinkActive="active">{{ 'list_group' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/pricing-table" routerLinkActive="active">{{ 'pricing_tables' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/components/lightbox" routerLinkActive="active">{{ 'lightbox' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-elements class="shrink-0" />
+                    <span class="px-2">{{ 'elements' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/elements/alerts" routerLinkActive="active">{{ 'alerts' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/avatar" routerLinkActive="active">{{ 'avatar' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/badges" routerLinkActive="active">{{ 'badges' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/breadcrumbs" routerLinkActive="active">{{ 'breadcrumbs' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/buttons" routerLinkActive="active">{{ 'buttons' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/buttons-group" routerLinkActive="active">{{ 'button_groups' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/color-library" routerLinkActive="active">{{ 'color_library' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/dropdown" routerLinkActive="active">{{ 'dropdown' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/infobox" routerLinkActive="active">{{ 'infobox' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/jumbotron" routerLinkActive="active">{{ 'jumbotron' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/loader" routerLinkActive="active">{{ 'loader' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/pagination" routerLinkActive="active">{{ 'pagination' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/popovers" routerLinkActive="active">{{ 'popovers' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/progress-bar" routerLinkActive="active">{{ 'progress_bar' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/search" routerLinkActive="active">{{ 'search' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/tooltips" routerLinkActive="active">{{ 'tooltips' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/treeview" routerLinkActive="active">{{ 'treeview' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/elements/typography" routerLinkActive="active">{{ 'typography' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-datatables class="shrink-0" />
+                    <span class="px-2">{{ 'tables' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/tables" routerLinkActive="active">{{ 'tables' | translate }}</a>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'datatables' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/datatables/basic" routerLinkActive="active">{{ 'basic' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/advanced" routerLinkActive="active">{{ 'advanced' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/skin" routerLinkActive="active">{{ 'skin' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/order-sorting" routerLinkActive="active">{{ 'order_sorting' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/columns-filter" routerLinkActive="active">{{ 'columns_filter' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/multi-column" routerLinkActive="active">{{ 'multi_column' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/multiple-tables" routerLinkActive="active">{{ 'multiple_tables' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/alt-pagination" routerLinkActive="active">{{ 'alt_pagination' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/checkbox" routerLinkActive="active">{{ 'checkbox' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/range-search" routerLinkActive="active">{{ 'range_search' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/export" routerLinkActive="active">{{ 'export' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/sticky-header" routerLinkActive="active">{{ 'sticky_header' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/clone-header" routerLinkActive="active">{{ 'clone_header' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/datatables/column-chooser" routerLinkActive="active">{{ 'column_chooser' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-forms class="shrink-0" />
+                    <span class="px-2">{{ 'forms' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/forms/basic" routerLinkActive="active">{{ 'basic' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/input-group" routerLinkActive="active">{{ 'input_group' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/layouts" routerLinkActive="active">{{ 'layouts' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/validation" routerLinkActive="active">{{ 'validation' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/input-mask" routerLinkActive="active">{{ 'input_mask' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/select2" routerLinkActive="active">{{ 'select2' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/touchspin" routerLinkActive="active">{{ 'touchspin' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/checkbox-radio" routerLinkActive="active">{{ 'checkbox_and_radio' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/switches" routerLinkActive="active">{{ 'switches' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/wizards" routerLinkActive="active">{{ 'wizards' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/file-upload" routerLinkActive="active">{{ 'file_upload' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/quill-editor" routerLinkActive="active">{{ 'quill_editor' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/markdown-editor" routerLinkActive="active">{{ 'markdown_editor' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/date-picker" routerLinkActive="active">{{ 'date_and_range_picker' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/forms/clipboard" routerLinkActive="active">{{ 'clipboard' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-pages class="shrink-0" />
+                    <span class="px-2">{{ 'pages' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'users' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/users/profile" routerLinkActive="active">{{ 'profile' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/users/user-account-settings" routerLinkActive="active">{{ 'account_settings' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a routerLink="/pages/knowledge-base" routerLinkActive="active">{{ 'knowledge_base' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/contact-us-boxed" target="_blank" routerLinkActive="active">{{ 'contact_us_boxed' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/contact-us-cover" target="_blank" routerLinkActive="active">{{ 'contact_us_cover' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/faq" routerLinkActive="active">{{ 'faq' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/coming-soon-boxed" target="_blank" routerLinkActive="active">{{ 'coming_soon_boxed' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/coming-soon-cover" target="_blank" routerLinkActive="active">{{ 'coming_soon_cover' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/pages/maintenence" target="_blank" routerLinkActive="active">{{ 'maintenence' | translate }}</a>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'error' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/pages/error404" target="_blank" routerLinkActive="active">{{ '404' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/pages/error500" target="_blank" routerLinkActive="active">{{ '500' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/pages/error503" target="_blank" routerLinkActive="active">{{ '503' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'login' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/auth/cover-login" target="_blank" routerLinkActive="active">{{ 'login_cover' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/auth/boxed-signin" target="_blank" routerLinkActive="active">{{ 'login_boxed' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'register' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/auth/cover-register" target="_blank" routerLinkActive="active">{{ 'register_cover' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/auth/boxed-signup" target="_blank" routerLinkActive="active">{{ 'register_boxed' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'password_recovery' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/auth/cover-password-reset" target="_blank" routerLinkActive="active">{{ 'recover_id_cover' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/auth/boxed-password-reset" target="_blank" routerLinkActive="active">{{ 'recover_id_boxed' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative">
+                    <a href="javascript:;"
+                        >{{ 'lockscreen' | translate }}
+                        <div class="-rotate-90 ltr:ml-auto rtl:mr-auto rtl:rotate-90">
+                            <icon-caret-down />
+                        </div>
+                    </a>
+                    <ul
+                        class="absolute top-0 z-[10] hidden min-w-[180px] rounded bg-white p-0 py-2 text-dark shadow ltr:left-[95%] rtl:right-[95%] dark:bg-[#1b2e4b] dark:text-white-dark"
+                    >
+                        <li>
+                            <a routerLink="/auth/cover-lockscreen" target="_blank" routerLinkActive="active">{{ 'unlock_cover' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/auth/boxed-lockscreen" target="_blank" routerLinkActive="active">{{ 'unlock_boxed' | translate }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="menu nav-item relative">
+            <a href="javascript:;" class="nav-link">
+                <div class="flex items-center">
+                    <icon-menu-more class="shrink-0" />
+
+                    <span class="px-2">{{ 'more' | translate }}</span>
+                </div>
+                <div class="right_arrow">
+                    <icon-caret-down />
+                </div>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a routerLink="/dragndrop" routerLinkActive="active">{{ 'drag_and_drop' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/charts" routerLinkActive="active">{{ 'charts' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/font-icons" routerLinkActive="active">{{ 'font_icons' | translate }}</a>
+                </li>
+                <li>
+                    <a routerLink="/widgets" routerLinkActive="active">{{ 'widgets' | translate }}</a>
+                </li>
+                <li>
+                    <a href="https://vristo.sbthemes.com" target="_blank" routerLinkActive="active">{{ 'documentation' | translate }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,336 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Breadcrumbs</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Default</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ol class="flex font-semibold text-gray-500 dark:text-white-dark">
+                    <li>
+                        <a href="javascript:;" class="hover:text-gray-500/70 dark:hover:text-white-dark/70">
+                            <icon-home class="h-4 w-4" />
+                        </a>
+                    </li>
+                    <li class="before:px-1.5 before:content-['/']"><a href="javascript:;">Components</a></li>
+                    <li class="before:px-1.5 before:content-['/']">
+                        <a href="javascript:;" class="text-black hover:text-black/70 dark:text-white-light dark:hover:text-white-light/70">UI Kit</a>
+                    </li>
+                </ol>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;ol class=&quot;flex text-gray-500 font-semibold dark:text-white-dark&quot;&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-gray-500/70 dark:hover:text-white-dark/70&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;before:content-['/'] before:px-1.5&quot;&gt;&lt;a href=&quot;javascript:;&quot;&gt;Components&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;before:content-['/'] before:px-1.5&quot;&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;text-black dark:text-white-light hover:text-black/70 dark:hover:text-white-light/70&quot;&gt;UI Kit&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ol class="flex font-semibold text-gray-500 dark:text-white-dark">
+                    <li><a href="javascript:;">Components</a></li>
+                    <li class="before:px-1.5 before:content-['/']">
+                        <a href="javascript:;" class="text-black hover:text-black/70 dark:text-white-light dark:hover:text-white-light/70">UI Kit</a>
+                    </li>
+                </ol>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;ol class=&quot;flex text-gray-500 font-semibold dark:text-white-dark&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;javascript:;&quot;&gt;Components&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;before:content-['/'] before:px-1.5&quot;&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;text-black dark:text-white-light hover:text-black/70 dark:hover:text-white-light/70&quot;&gt;UI Kit&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Arrowed</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ol class="flex font-semibold text-primary dark:text-white-dark">
+                    <li class="bg-[#ebedf2] ltr:rounded-l-md rtl:rounded-r-md dark:bg-[#1b2e4b]">
+                        <a
+                            href="javascript:;"
+                            class="relative flex h-full items-center p-1.5 before:absolute before:inset-y-0 before:z-[1] before:m-auto before:h-0 before:w-0 before:border-[16px] before:border-l-[15px] before:border-r-0 before:border-b-transparent before:border-l-[#ebedf2] before:border-t-transparent hover:text-primary/70 ltr:pl-3 ltr:pr-2 ltr:before:-right-[15px] rtl:pl-2 rtl:pr-3 rtl:before:-left-[15px] rtl:before:rotate-180 dark:before:border-l-[#1b2e4b] dark:hover:text-white-dark/70"
+                            >Home</a
+                        >
+                    </li>
+                    <li class="bg-[#ebedf2] dark:bg-[#1b2e4b]">
+                        <a
+                            class="relative flex h-full items-center bg-primary p-1.5 text-white-light before:absolute before:inset-y-0 before:z-[1] before:m-auto before:h-0 before:w-0 before:border-[16px] before:border-l-[15px] before:border-r-0 before:border-b-transparent before:border-l-primary before:border-t-transparent ltr:pl-6 ltr:pr-2 ltr:before:-right-[15px] rtl:pl-2 rtl:pr-6 rtl:before:-left-[15px] rtl:before:rotate-180"
+                            >Components</a
+                        >
+                    </li>
+                    <li class="bg-[#ebedf2] dark:bg-[#1b2e4b]">
+                        <a
+                            href="javascript:;"
+                            class="relative flex h-full items-center p-1.5 px-3 before:absolute before:inset-y-0 before:z-[1] before:m-auto before:h-0 before:w-0 before:border-[16px] before:border-l-[15px] before:border-r-0 before:border-b-transparent before:border-l-[#ebedf2] before:border-t-transparent hover:text-primary/70 ltr:pl-6 ltr:before:-right-[15px] rtl:pr-6 rtl:before:-left-[15px] rtl:before:rotate-180 dark:before:border-l-[#1b2e4b] dark:hover:text-white-dark/70"
+                            >UI Kit</a
+                        >
+                    </li>
+                </ol>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- arrowed --&gt;
+&lt;ol class=&quot;flex text-primary font-semibold dark:text-white-dark&quot;&gt;
+  &lt;li class=&quot;bg-[#ebedf2] ltr:rounded-l-md rtl:rounded-r-md dark:bg-[#1b2e4b]&quot;&gt;
+    &lt;a
+      href=&quot;javascript:;&quot;
+      class=&quot;
+        p-1.5
+        ltr:pl-3
+        rtl:pr-3
+        ltr:pr-2
+        rtl:pl-2
+        relative
+        h-full
+        flex
+        items-center
+        before:absolute
+        ltr:before:-right-[15px]
+        rtl:before:-left-[15px] rtl:before:rotate-180
+        before:inset-y-0
+        before:m-auto
+        before:w-0
+        before:h-0
+        before:border-[16px]
+        before:border-l-[15px]
+        before:border-r-0
+        before:border-t-transparent
+        before:border-b-transparent
+        before:border-l-[#ebedf2]
+        before:z-[1]
+        dark:before:border-l-[#1b2e4b]
+        hover:text-primary/70
+        dark:hover:text-white-dark/70
+      &quot;
+      &gt;Home&lt;/a
+    &gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;bg-[#ebedf2] dark:bg-[#1b2e4b]&quot;&gt;
+    &lt;a
+      class=&quot;
+        bg-primary
+        text-white-light
+        p-1.5
+        ltr:pl-6
+        rtl:pr-6
+        ltr:pr-2
+        rtl:pl-2
+        relative
+        h-full
+        flex
+        items-center
+        before:absolute
+        ltr:before:-right-[15px]
+        rtl:before:-left-[15px] rtl:before:rotate-180
+        before:inset-y-0
+        before:m-auto
+        before:w-0
+        before:h-0
+        before:border-[16px]
+        before:border-l-[15px]
+        before:border-r-0
+        before:border-t-transparent
+        before:border-b-transparent
+        before:border-l-primary
+        before:z-[1]
+      &quot;
+      &gt;Components&lt;/a
+    &gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;bg-[#ebedf2] dark:bg-[#1b2e4b]&quot;&gt;
+    &lt;a
+      href=&quot;javascript:;&quot;
+      class=&quot;
+        p-1.5
+        px-3
+        ltr:pl-6
+        rtl:pr-6
+        relative
+        h-full
+        flex
+        items-center
+        before:absolute
+        ltr:before:-right-[15px]
+        rtl:before:-left-[15px] rtl:before:rotate-180
+        before:inset-y-0
+        before:m-auto
+        before:w-0
+        before:h-0
+        before:border-[16px]
+        before:border-l-[15px]
+        before:border-r-0
+        before:border-t-transparent
+        before:border-b-transparent
+        before:border-l-[#ebedf2]
+        before:z-[1]
+        dark:before:border-l-[#1b2e4b]
+        hover:text-primary/70
+        dark:hover:text-white-dark/70
+      &quot;
+      &gt;UI Kit&lt;/a
+    &gt;
+  &lt;/li&gt;
+&lt;/ol&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Dotted Seperators</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ol class="flex font-semibold text-gray-500 dark:text-white-dark">
+                    <li><a href="javascript:;" class="hover:text-gray-500/70 dark:hover:text-white-dark/70">Home</a></li>
+                    <li class="before:relative before:-top-0.5 before:mx-4 before:inline-block before:h-1 before:w-1 before:rounded-full before:bg-primary">
+                        <a href="javascript:;" class="text-primary">Components</a>
+                    </li>
+                    <li class="before:relative before:-top-0.5 before:mx-4 before:inline-block before:h-1 before:w-1 before:rounded-full before:bg-primary">
+                        <a href="javascript:;" class="hover:text-gray-500/70 dark:hover:text-white-dark/70">UI Kit</a>
+                    </li>
+                </ol>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- dotted seperators --&gt;
+&lt;ol class=&quot;flex text-gray-500 font-semibold dark:text-white-dark&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-gray-500/70 dark:hover:text-white-dark/70&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class=&quot;before:w-1 before:h-1 before:rounded-full before:bg-primary before:inline-block before:relative before:-top-0.5 before:mx-4&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;text-primary&quot;&gt;Components&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;before:w-1 before:h-1 before:rounded-full before:bg-primary before:inline-block before:relative before:-top-0.5 before:mx-4&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-gray-500/70 dark:hover:text-white-dark/70&quot;&gt;UI Kit&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">With Icons</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <ol class="flex flex-wrap items-center gap-y-4 font-semibold text-gray-500 dark:text-white-dark">
+                    <li>
+                        <a
+                            href="javascript:;"
+                            class="flex items-center justify-center rounded-md border border-gray-500/20 p-2.5 shadow hover:text-gray-500/70 dark:border-0 dark:bg-[#191e3a] dark:hover:text-white-dark/70"
+                        >
+                            <icon-home />
+                        </a>
+                    </li>
+                    <li
+                        class="flex items-center before:relative before:-top-0.5 before:mx-4 before:inline-block before:h-1 before:w-1 before:rounded-full before:bg-primary"
+                    >
+                        <a
+                            href="javascript:;"
+                            class="flex items-center justify-center rounded-md border border-gray-500/20 p-2.5 text-primary shadow dark:border-0 dark:bg-[#191e3a]"
+                        >
+                            <icon-box class="shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                            Components
+                        </a>
+                    </li>
+                    <li
+                        class="flex items-center before:relative before:-top-0.5 before:mx-4 before:inline-block before:h-1 before:w-1 before:rounded-full before:bg-primary"
+                    >
+                        <a
+                            class="flex items-center justify-center rounded-md border border-gray-500/20 p-2.5 shadow hover:text-gray-500/70 dark:border-0 dark:bg-[#191e3a] dark:hover:text-white-dark/70"
+                            href="javascript:;"
+                        >
+                            <icon-cpu-bolt class="ltr:mr-2 rtl:ml-2" />
+
+                            UI Kit
+                        </a>
+                    </li>
+                </ol>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- with icons --&gt;
+&lt;ol class=&quot;flex items-center flex-wrap text-gray-500 font-semibold dark:text-white-dark gap-y-4&quot;&gt;
+  &lt;li&gt;
+    &lt;a
+      href=&quot;javascript:;&quot;
+      class=&quot;p-2.5 border border-gray-500/20 rounded-md shadow flex items-center justify-center dark:border-0 dark:bg-[#191e3a] hover:text-gray-500/70 dark:hover:text-white-dark/70&quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;flex items-center before:w-1 before:h-1 before:rounded-full before:bg-primary before:inline-block before:relative before:-top-0.5 before:mx-4&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;p-2.5 border border-gray-500/20 rounded-md shadow flex items-center justify-center text-primary dark:border-0 dark:bg-[#191e3a]&quot;&gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      Components
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;flex items-center before:w-1 before:h-1 before:rounded-full before:bg-primary before:inline-block before:relative before:-top-0.5 before:mx-4&quot;&gt;
+    &lt;a
+      class=&quot;p-2.5 border border-gray-500/20 rounded-md shadow flex items-center justify-center dark:border-0 dark:bg-[#191e3a] hover:text-gray-500/70 dark:hover:text-white-dark/70&quot;
+      href=&quot;javascript:;&quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+      UI Kit
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1689 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Pagination</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 xl:grid-cols-2">
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Default</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-col justify-center">
+                    <ul class="m-auto mb-4 inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                First
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                Prev
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-primary px-3.5 py-2 font-semibold text-primary transition dark:border-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                Next
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                Last
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="m-auto inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                Prev
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-primary px-3.5 py-2 font-semibold text-primary transition dark:border-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded border-2 border-[#e0e6ed] px-3.5 py-2 font-semibold text-dark transition hover:border-primary hover:text-primary dark:border-[#191e3a] dark:text-white-light dark:hover:border-primary"
+                            >
+                                Next
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- default --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto mb-4&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      First
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      Prev
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition text-primary border-2 border-primary dark:border-primary dark:text-white-light&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      Next
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      Last
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- default --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      Prev
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition text-primary border-2 border-primary dark:border-primary dark:text-white-light&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        text-dark
+        hover:text-primary
+        border-2 border-[#e0e6ed]
+        dark:border-[#191e3a]
+        hover:border-primary
+        dark:hover:border-primary dark:text-white-light
+      &quot;
+    &gt;
+      Next
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Solid</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-col justify-center">
+                    <ul class="m-auto mb-4 inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                First
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                Prev
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                Next
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                Last
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="m-auto inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                Prev
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                Next
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- solid --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto mb-4&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      First
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      Prev
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      Next
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      Last
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- solid --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      Prev
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      Next
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">With Icons</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-col justify-center">
+                    <ul class="m-auto mb-4 inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="-rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="m-auto inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- with icons --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto mb-4&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- with icons --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">With Icons and Rounded</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-col justify-center">
+                    <ul class="m-auto mb-4 inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="-rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="m-auto inline-flex items-center space-x-1 rtl:space-x-reverse">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center rounded-full bg-white-light p-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- with icons rounded --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto mb-4&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded-full transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- with icons rounded --&gt;
+&lt;ul class=&quot;inline-flex items-center space-x-1 rtl:space-x-reverse m-auto&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 rounded-full transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        p-2
+        rounded-full
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">No Spacing</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="flex w-full flex-col justify-center">
+                    <ul class="m-auto mb-4 inline-flex items-center">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white ltr:rounded-l-full rtl:rounded-r-full dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white ltr:rounded-r-full rtl:rounded-l-full dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-carets-down class="-rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="m-auto inline-flex items-center">
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white ltr:rounded-l-full rtl:rounded-r-full dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                1
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-primary px-3.5 py-2 font-semibold text-white transition dark:bg-primary dark:text-white-light"
+                            >
+                                2
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                3
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                class="flex justify-center bg-white-light px-3.5 py-2 font-semibold text-dark transition hover:bg-primary hover:text-white ltr:rounded-r-full rtl:rounded-l-full dark:bg-[#191e3a] dark:text-white-light dark:hover:bg-primary"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- no spacing --&gt;
+&lt;ul class=&quot;inline-flex items-center m-auto mb-4&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        ltr:rounded-l-full
+        rtl:rounded-r-full
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        ltr:rounded-r-full
+        rtl:rounded-l-full
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- no spacing --&gt;
+&lt;ul class=&quot;inline-flex items-center m-auto&quot;&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        ltr:rounded-l-full
+        rtl:rounded-r-full
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      1
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button type=&quot;button&quot; class=&quot;flex justify-center font-semibold px-3.5 py-2 transition bg-primary text-white dark:text-white-light dark:bg-primary&quot;&gt;2&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      3
+    &lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;button
+      type=&quot;button&quot;
+      class=&quot;
+        flex
+        justify-center
+        font-semibold
+        ltr:rounded-r-full
+        rtl:rounded-l-full
+        px-3.5
+        py-2
+        transition
+        bg-white-light
+        text-dark
+        hover:text-white hover:bg-primary
+        dark:text-white-light dark:bg-[#191e3a] dark:hover:bg-primary
+      &quot;
+    &gt;
+      &lt;svg&gt; ... &lt;/svg&gt;
+    &lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,362 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Users</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Profile</span>
+        </li>
+    </ul>
+    <div class="pt-5">
+        <div class="mb-5 grid grid-cols-1 gap-5 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Profile</h5>
+                    <a routerLink="/users/user-account-settings" class="btn btn-primary rounded-full p-2 ltr:ml-auto rtl:mr-auto">
+                        <icon-pencil-paper />
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex flex-col items-center justify-center">
+                        <img src="/assets/images/profile-34.jpeg" alt="" class="mb-5 h-24 w-24 rounded-full object-cover" />
+                        <p class="text-xl font-semibold text-primary">Jimmy Turner</p>
+                    </div>
+                    <ul class="m-auto mt-5 flex max-w-[160px] flex-col space-y-4 font-semibold text-white-dark">
+                        <li class="flex items-center gap-2">
+                            <icon-coffee class="shrink-0" />
+                            Web Developer
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <icon-calendar class="shrink-0" />
+                            Jan 20, 1989
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <icon-map-pin class="shrink-0" />
+                            New York, USA
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="flex items-center gap-2">
+                                <icon-mail class="h-5 w-5 shrink-0" />
+                                <span class="truncate text-primary">jimmy@gmail.com</span></a
+                            >
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <icon-phone />
+                            <span class="whitespace-nowrap" dir="ltr">+1 (530) 555-12121</span>
+                        </li>
+                    </ul>
+                    <ul class="mt-7 flex items-center justify-center gap-2">
+                        <li>
+                            <a class="btn btn-info flex h-10 w-10 items-center justify-center rounded-full p-0" href="javascript:;">
+                                <icon-twitter class="h-5 w-5" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-danger flex h-10 w-10 items-center justify-center rounded-full p-0" href="javascript:;">
+                                <icon-dribbble />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-dark flex h-10 w-10 items-center justify-center rounded-full p-0" href="javascript:;">
+                                <icon-github />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel lg:col-span-2 xl:col-span-3">
+                <div class="mb-5">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Task</h5>
+                </div>
+                <div class="mb-5">
+                    <div class="table-responsive font-semibold text-[#515365] dark:text-white-light">
+                        <table class="whitespace-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Projects</th>
+                                    <th>Progress</th>
+                                    <th>Task Done</th>
+                                    <th class="text-center">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody class="dark:text-white-dark">
+                                <tr>
+                                    <td>Figma Design</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-[29.56%] rounded-full bg-danger"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-danger">29.56%</td>
+                                    <td class="text-center">2 mins ago</td>
+                                </tr>
+                                <tr>
+                                    <td>Vue Migration</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-1/2 rounded-full bg-info"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-success">50%</td>
+                                    <td class="text-center">4 hrs ago</td>
+                                </tr>
+                                <tr>
+                                    <td>Flutter App</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-[39%] rounded-full bg-warning"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-danger">39%</td>
+                                    <td class="text-center">a min ago</td>
+                                </tr>
+                                <tr>
+                                    <td>API Integration</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-[78.03%] rounded-full bg-success"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-success">78.03%</td>
+                                    <td class="text-center">2 weeks ago</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Blog Update</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-full rounded-full bg-secondary"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-success">100%</td>
+                                    <td class="text-center">18 hrs ago</td>
+                                </tr>
+                                <tr>
+                                    <td>Landing Page</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-[19.15%] rounded-full bg-danger"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-danger">19.15%</td>
+                                    <td class="text-center">5 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td>Shopify Dev</td>
+                                    <td>
+                                        <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                            <div class="w-[60.55%] rounded-full bg-primary"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-success">60.55%</td>
+                                    <td class="text-center">8 days ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div class="panel">
+                <div class="mb-5">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Summary</h5>
+                </div>
+                <div class="space-y-4">
+                    <div class="rounded border border-[#ebedf2] dark:border-0 dark:bg-[#1b2e4b]">
+                        <div class="flex items-center justify-between p-4 py-2">
+                            <div
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-secondary-light text-secondary dark:bg-secondary dark:text-secondary-light"
+                            >
+                                <icon-shopping-bag />
+                            </div>
+                            <div class="flex flex-auto items-start justify-between font-semibold ltr:ml-4 rtl:mr-4">
+                                <h6 class="text-[13px] text-white-dark dark:text-white-dark">
+                                    Income <span class="block text-base text-[#515365] dark:text-white-light">$92,600</span>
+                                </h6>
+                                <p class="text-secondary ltr:ml-auto rtl:mr-auto">90%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded border border-[#ebedf2] dark:border-0 dark:bg-[#1b2e4b]">
+                        <div class="flex items-center justify-between p-4 py-2">
+                            <div class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-info-light text-info dark:bg-info dark:text-info-light">
+                                <icon-tag />
+                            </div>
+                            <div class="flex flex-auto items-start justify-between font-semibold ltr:ml-4 rtl:mr-4">
+                                <h6 class="text-[13px] text-white-dark dark:text-white-dark">
+                                    Profit <span class="block text-base text-[#515365] dark:text-white-light">$37,515</span>
+                                </h6>
+                                <p class="text-info ltr:ml-auto rtl:mr-auto">65%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded border border-[#ebedf2] dark:border-0 dark:bg-[#1b2e4b]">
+                        <div class="flex items-center justify-between p-4 py-2">
+                            <div
+                                class="grid h-9 w-9 shrink-0 place-content-center rounded-md bg-warning-light text-warning dark:bg-warning dark:text-warning-light"
+                            >
+                                <icon-credit-card />
+                            </div>
+                            <div class="flex flex-auto items-start justify-between font-semibold ltr:ml-4 rtl:mr-4">
+                                <h6 class="text-[13px] text-white-dark dark:text-white-dark">
+                                    Expenses <span class="block text-base text-[#515365] dark:text-white-light">$55,085</span>
+                                </h6>
+                                <p class="text-warning ltr:ml-auto rtl:mr-auto">80%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="mb-10 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Pro Plan</h5>
+                    <a href="javascript:;" class="btn btn-primary">Renew Now</a>
+                </div>
+                <div class="group">
+                    <ul class="mb-7 list-inside list-disc space-y-2 font-semibold text-white-dark">
+                        <li>10,000 Monthly Visitors</li>
+                        <li>Unlimited Reports</li>
+                        <li>2 Years Data Storage</li>
+                    </ul>
+                    <div class="mb-4 flex items-center justify-between font-semibold">
+                        <p class="flex items-center rounded-full bg-dark px-2 py-1 text-xs font-semibold text-white-light">
+                            <icon-clock class="h-3 w-3 ltr:mr-1 rtl:ml-1" />
+                            5 Days Left
+                        </p>
+                        <p class="text-info">$25 / month</p>
+                    </div>
+                    <div class="mb-5 h-2.5 overflow-hidden rounded-full bg-dark-light p-0.5 dark:bg-dark-light/10">
+                        <div class="relative h-full w-full rounded-full bg-gradient-to-r from-[#f67062] to-[#fc5296]" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Payment History</h5>
+                </div>
+                <div>
+                    <div class="border-b border-[#ebedf2] dark:border-[#1b2e4b]">
+                        <div class="flex items-center justify-between py-2">
+                            <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                March<span class="block text-white-dark dark:text-white-light">Pro Membership</span>
+                            </h6>
+                            <div class="flex items-start justify-between ltr:ml-auto rtl:mr-auto">
+                                <p class="font-semibold">90%</p>
+                                <div class="dropdown ltr:ml-4 rtl:mr-4">
+                                    <div hlMenu>
+                                        <a href="javascript:;" hlMenuButton class="align-middle">
+                                            <icon-horizontal-dots class="opacity-80 hover:opacity-100" />
+                                        </a>
+                                        <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">View Invoice</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">Download Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-b border-[#ebedf2] dark:border-[#1b2e4b]">
+                        <div class="flex items-center justify-between py-2">
+                            <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                February <span class="block text-white-dark dark:text-white-light">Pro Membership</span>
+                            </h6>
+                            <div class="flex items-start justify-between ltr:ml-auto rtl:mr-auto">
+                                <p class="font-semibold">90%</p>
+                                <div class="dropdown ltr:ml-4 rtl:mr-4">
+                                    <div hlMenu>
+                                        <a href="javascript:;" hlMenuButton class="align-middle">
+                                            <icon-horizontal-dots class="opacity-80 hover:opacity-100" />
+                                        </a>
+                                        <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">View Invoice</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">Download Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between py-2">
+                            <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                January<span class="block text-white-dark dark:text-white-light">Pro Membership</span>
+                            </h6>
+                            <div class="flex items-start justify-between ltr:ml-auto rtl:mr-auto">
+                                <p class="font-semibold">90%</p>
+                                <div class="dropdown ltr:ml-4 rtl:mr-4">
+                                    <div hlMenu>
+                                        <a href="javascript:;" hlMenuButton class="align-middle">
+                                            <icon-horizontal-dots class="opacity-80 hover:opacity-100" />
+                                        </a>
+                                        <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">View Invoice</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem">Download Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Card Details</h5>
+                </div>
+                <div>
+                    <div class="border-b border-[#ebedf2] dark:border-[#1b2e4b]">
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex-none">
+                                <img src="/assets/images/card-americanexpress.svg" alt="" />
+                            </div>
+                            <div class="flex flex-auto items-center justify-between ltr:ml-4 rtl:mr-4">
+                                <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                    American Express <span class="block text-white-dark dark:text-white-light">Expires on 12/2025</span>
+                                </h6>
+                                <span class="badge bg-success ltr:ml-auto rtl:mr-auto">Primary</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-b border-[#ebedf2] dark:border-[#1b2e4b]">
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex-none">
+                                <img src="/assets/images/card-mastercard.svg" alt="" />
+                            </div>
+                            <div class="flex flex-auto items-center justify-between ltr:ml-4 rtl:mr-4">
+                                <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                    Mastercard <span class="block text-white-dark dark:text-white-light">Expires on 03/2025</span>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between py-2">
+                            <div class="flex-none">
+                                <img src="/assets/images/card-visa.svg" alt="" />
+                            </div>
+                            <div class="flex flex-auto items-center justify-between ltr:ml-4 rtl:mr-4">
+                                <h6 class="font-semibold text-[#515365] dark:text-white-dark">
+                                    Visa <span class="block text-white-dark dark:text-white-light">Expires on 10/2025</span>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

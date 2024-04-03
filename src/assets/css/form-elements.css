@@ -1,0 +1,59 @@
+/* progress bar */
+.animated-progress {
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position: 1rem 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
+}
+
+/* range picker */
+input[type='range'] {
+    -webkit-appearance: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: #dee2e6;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #4361ee;
+    margin-top: -4px;
+}
+
+.dark input[type='range']::-webkit-slider-runnable-track {
+    background: #1b2e4b;
+}
+
+.dark input[type='range'] {
+    background-color: transparent;
+}
+
+input[type='range']:focus {
+    outline: none;
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+    background: #4361eec2;
+    cursor: pointer;
+}
+
+/* input group */
+.input-group-dropodwn > div {
+    @apply h-full;
+}

@@ -1,0 +1,108 @@
+<div>
+    <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+        <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+            <icon-bell />
+        </div>
+        <span class="ltr:mr-3 rtl:ml-3">Documentation: </span>
+        <a href="https://www.npmjs.com/package/@bhplugin/ng-datatable" target="_blank" class="block hover:underline">
+            https://www.npmjs.com/package/@bhplugin/ng-datatable
+        </a>
+    </div>
+
+    <div class="panel mt-6 pb-0">
+        <div class="mb-5 flex flex-col gap-5 md:flex-row md:items-center">
+            <h5 class="text-lg font-semibold dark:text-white-light">Sticky Header</h5>
+            <div class="ltr:ml-auto rtl:mr-auto">
+                <input [(ngModel)]="search1" type="text" class="form-input w-auto" placeholder="Search..." />
+            </div>
+        </div>
+
+        <div class="datatable">
+            <ng-datatable
+                [rows]="rows"
+                [columns]="cols1"
+                [sortable]="true"
+                [search]="search1"
+                [pageSize]="20"
+                [hasCheckbox]="true"
+                [stickyHeader]="true"
+                firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+                previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+            >
+                <ng-template slot="id" let-value="data">
+                    <strong>#{{ value.id }}</strong>
+                </ng-template>
+            </ng-datatable>
+        </div>
+    </div>
+
+    <!-- disable first last pagination -->
+    <div class="panel mt-6 pb-0">
+        <div class="mb-5 flex flex-col gap-5 md:flex-row md:items-center">
+            <h5 class="text-lg font-semibold dark:text-white-light">Sticky First Column</h5>
+            <div class="ltr:ml-auto rtl:mr-auto">
+                <input [(ngModel)]="search2" type="text" class="form-input w-auto" placeholder="Search..." />
+            </div>
+        </div>
+
+        <div class="datatable">
+            <ng-datatable
+                [rows]="rows"
+                [columns]="cols2"
+                [sortable]="true"
+                [search]="search2"
+                [hasCheckbox]="true"
+                [stickyFirstColumn]="true"
+                class="whitespace-nowrap"
+                firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+                previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+            >
+                <ng-template slot="id" let-value="data">
+                    <strong>#{{ value.id }}</strong>
+                </ng-template>
+                <ng-template slot="email" let-value="data">
+                    <a [href]="'mailto:' + value.email" class="text-primary hover:underline">{{ value.email }}</a>
+                </ng-template>
+            </ng-datatable>
+        </div>
+    </div>
+
+    <!-- pagination without number -->
+    <div class="panel mt-6 pb-0">
+        <div class="mb-5 flex flex-col gap-5 md:flex-row md:items-center">
+            <h5 class="text-lg font-semibold dark:text-white-light">Sticky Header & First Column</h5>
+            <div class="ltr:ml-auto rtl:mr-auto">
+                <input [(ngModel)]="search3" type="text" class="form-input w-auto" placeholder="Search..." />
+            </div>
+        </div>
+
+        <div class="datatable">
+            <ng-datatable
+                [rows]="rows"
+                [columns]="cols3"
+                [sortable]="true"
+                [search]="search3"
+                [pageSize]="20"
+                [hasCheckbox]="true"
+                [stickyFirstColumn]="true"
+                [stickyHeader]="true"
+                class="whitespace-nowrap"
+                firstArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M13 19L7 12L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M16.9998 19L10.9998 12L16.9998 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                lastArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M11 19L17 12L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path opacity="0.5" d="M6.99976 19L12.9998 12L6.99976 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> '
+                previousArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M15 5L9 12L15 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+                nextArrow='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5 rtl:rotate-180"> <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg>'
+            >
+                <ng-template slot="id" let-value="data">
+                    <strong>#{{ value.id }}</strong>
+                </ng-template>
+                <ng-template slot="email" let-value="data">
+                    <a [href]="'mailto:' +value.email" class="text-primary hover:underline">{{ value.email }}</a>
+                </ng-template>
+            </ng-datatable>
+        </div>
+    </div>
+</div>

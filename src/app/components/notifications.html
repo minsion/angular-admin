@@ -1,0 +1,362 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Notifications</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/sweetalert2" target="_blank" class="block hover:underline">https://www.npmjs.com/package/sweetalert2</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-primary" (click)="showMessage('Hello, world! This is a toast message.')">Open Toast</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;showMessage('Hello, world! This is a toast message.')&quot;&gt;Open Toast&lt;/button&gt;
+
+&lt;!-- script --&gt;
+showMessage(msg = 'Example notification text.', position = 'bottom-start', showCloseButton = true, closeButtonHtml = '', duration = 3000){
+    const toast = Swal.mixin({
+        toast: true,
+        position: position || 'bottom-start',
+        showConfirmButton: false,
+        timer: duration,
+        showCloseButton: showCloseButton,
+    });
+    toast.fire({
+        title: msg,
+    });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Position -->
+            <div class="panel lg:row-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Position</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <h6 class="mb-3 text-center text-base font-semibold dark:text-white-light">Top Position</h6>
+                    <div class="mb-10 flex items-center justify-center gap-2">
+                        <button
+                            type="button"
+                            class="btn btn-success"
+                            (click)="showMessage('Example notification text.', store.rtlClass === 'rtl' ? 'top-end' : 'top-start')"
+                        >
+                            Top Left
+                        </button>
+                        <button type="button" class="btn btn-secondary" (click)="showMessage('Example notification text', 'top')">Top Center</button>
+                        <button
+                            type="button"
+                            class="btn btn-info"
+                            (click)="showMessage('Example notification text.', store.rtlClass === 'rtl' ? 'top-start' : 'top-end')"
+                        >
+                            Top Right
+                        </button>
+                    </div>
+                    <h6 class="mb-3 text-center text-base font-semibold dark:text-white-light">Bottom Position</h6>
+                    <div class="flex items-center justify-center gap-2">
+                        <button
+                            type="button"
+                            class="btn btn-dark"
+                            (click)="showMessage('Example notification text.', store.rtlClass === 'rtl' ? 'bottom-end' : 'bottom-start')"
+                        >
+                            Bottom Left
+                        </button>
+                        <button type="button" class="btn btn-primary" (click)="showMessage('Example notification text.', 'bottom')">Bottom Center</button>
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            (click)="showMessage('Example notification text.', store.rtlClass === 'rtl' ? 'bottom-start' : 'bottom-end')"
+                        >
+                            Bottom Right
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- top left --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; (click)=&quot;showMessage('Example notification text.',store.rtlClass === 'rtl' ? 'top-end' : 'top-start')&quot;&gt;Top Left&lt;/button&gt;
+
+&lt;!-- top center --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;showMessage('Example notification text','top')&quot;&gt;Top Center&lt;/button&gt;
+
+&lt;!-- top right --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; (click)=&quot;showMessage('Example notification text.', store.rtlClass === 'rtl' ? 'top-start' : 'top-end')&quot;&gt;Top Right&lt;/button&gt;
+
+&lt;!-- bottom left --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot; (click)=&quot;showMessage('Example notification text.',store.rtlClass === 'rtl' ? 'bottom-end' : 'bottom-start')&quot;&gt;Bottom Left&lt;/button&gt;
+
+&lt;!-- bottom center --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;showMessage('Example notification text.','bottom')&quot;&gt;Bottom Center&lt;/button&gt;
+
+&lt;!-- bottom right --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;showMessage('Example notification text.',store.rtlClass === 'rtl' ? 'bottom-start' : 'bottom-end')&quot;&gt;Bottom Right&lt;/button&gt;
+
+&lt;!-- script --&gt;
+showMessage(msg = 'Example notification text.', position = 'bottom-start', showCloseButton = true, closeButtonHtml = '', duration = 3000){
+  const toast = Swal.mixin({
+      toast: true,
+      position: position || 'bottom-start',
+      showConfirmButton: false,
+      timer: duration,
+      showCloseButton: showCloseButton,
+  });
+  toast.fire({
+      title: msg,
+  });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- No Action -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">No Action</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-success" (click)="showMessage('Example notification text.', 'bottom-start', false)">
+                            No Action
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- no action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; (click)=&quot;showMessage('Example notification text.', 'bottom-start',false)&quot;&gt;No Action&lt;/button&gt;
+
+&lt;!-- script --&gt;
+showMessage(msg = 'Example notification text.', position = 'bottom-start', showCloseButton = true, closeButtonHtml = '', duration = 3000){
+    const toast = Swal.mixin({
+        toast: true,
+        position: position || 'bottom-start',
+        showConfirmButton: false,
+        timer: duration,
+        showCloseButton: showCloseButton,
+    });
+    toast.fire({
+        title: msg,
+    });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+
+            <!-- Click Callback -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Click Callback</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-info" (click)="clickCallable()">Click Callback</button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- click callback --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; (click)=&quot;clickCallable()&quot;&gt;Click Callback&lt;/button&gt;
+
+&lt;!-- script --&gt;
+clickCallable(){
+    Swal.fire({
+        toast: true,
+        position: 'bottom-start',
+        text: &quot;Custom callback when action button is clicked.&quot;,
+        showCloseButton: true,
+        showConfirmButton: false,
+    }).then((result) =&gt; {
+        Swal.fire({
+            toast: true,
+            position: 'bottom-start',
+            text: 'Thanks for clicking the Dismiss button!',
+            showCloseButton: true,
+            showConfirmButton: false,
+        });
+    });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Duration -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Duration</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="flex items-center justify-center">
+                        <button type="button" class="btn btn-dark" (click)="showMessage('Example notification text.', 'bottom-start',true ,5000)">
+                            Duration
+                        </button>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- click callback --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot; (click)=&quot;showMessage(msg='Example notification text.', position= 'bottom-start', duration=5000)&quot;&gt;Duration&lt;/button&gt;
+
+&lt;!-- script --&gt;
+showMessage(msg = 'Example notification text.', position = 'bottom-start', showCloseButton = true, closeButtonHtml = '', duration = 3000){
+    const toast = Swal.mixin({
+        toast: true,
+        position: position || 'bottom-start',
+        showConfirmButton: false,
+        timer: duration,
+        showCloseButton: showCloseButton,
+    });
+    toast.fire({
+        title: msg,
+    });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+            <!-- Background Color -->
+            <div class="panel lg:col-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Background Color</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="colored-toast grid grid-cols-2 items-center justify-center gap-2 sm:flex sm:grid-cols-1">
+                        <div>
+                            <button type="button" class="btn btn-primary" (click)="coloredToast('primary')">Primary</button>
+                            <div id="primary-toast"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary" (click)="coloredToast('secondary')">Secondary</button>
+                            <div id="secondary-toast"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-success" (click)="coloredToast('success')">Success</button>
+                            <div id="success-toast"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-danger" (click)="coloredToast('danger')">Danger</button>
+                            <div id="danger-toast"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-warning" (click)="coloredToast('warning')">Warning</button>
+                            <div id="warning-toast"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-info" (click)="coloredToast('info')">Info</button>
+                            <div id="info-toast"></div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- primary --&gt;
+&lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; (click)=&quot;coloredToast('primary')&quot;&gt;Primary&lt;/button&gt;
+    &lt;div id=&quot;primary-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- secondary --&gt;
+&lt;div&gt;
+    &lt;button type=&quot; button&quot; class=&quot;btn btn-secondary&quot; (click)=&quot;coloredToast('secondary')&quot;&gt;Secondary&lt;/button&gt;
+    &lt;div id=&quot;secondary-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- success --&gt;
+&lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; (click)=&quot;coloredToast('success')&quot;&gt;Success&lt;/button&gt;
+    &lt;div id=&quot;success-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- danger --&gt;
+&lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; (click)=&quot;coloredToast('danger')&quot;&gt;Danger&lt;/button&gt;
+    &lt;div id=&quot;danger-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- warning --&gt;
+&lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot; (click)=&quot;coloredToast('warning')&quot;&gt;Warning&lt;/button&gt;
+    &lt;div id=&quot;warning-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- info --&gt;
+&lt;div&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; (click)=&quot;coloredToast('info')&quot;&gt;Info&lt;/button&gt;
+    &lt;div id=&quot;info-toast&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+coloredToast(color){
+    const toast = Swal.mixin({
+        toast: true,
+        position: 'bottom-start',
+        showConfirmButton: false,
+        timer: 3000,
+        showCloseButton: true,
+        customClass: {
+            popup: `color-${color}`
+        },
+        target: document.getElementById(color + '-toast')
+    });
+    toast.fire({
+        title: 'Example notification text.',
+    });
+};"></code>
+</pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

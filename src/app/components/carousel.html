@@ -1,0 +1,436 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Carousel</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/swiper" target="_blank" class="block hover:underline">https://www.npmjs.com/package/swiper</a>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- basic -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+
+                <div class="swiper mx-auto mb-5 max-w-3xl" id="slider1">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="max-h-80 w-full object-cover" alt="" />
+                        </div>
+                    </div>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-prev-ex1 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                    </a>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-next-ex1 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                    </a>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;div class=&quot;swiper mx-auto mb-5 max-w-3xl&quot; id=&quot;slider1&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;max-h-80 w-full object-cover&quot; alt=&quot;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-prev-ex1 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 rtl:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-next-ex1 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 ltr:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+
+    &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
+    swiper1: any;
+    items = ['carousel1.jpeg', 'carousel2.jpeg', 'carousel3.jpeg'];
+    ngAfterViewInit() {
+        this.swiper1 = new Swiper('#slider1', {
+            modules: [Navigation, Pagination],
+            navigation: { nextEl: '.swiper-button-next-ex1', prevEl: '.swiper-button-prev-ex1' },
+            pagination: {
+                el: '#slider1 .swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+
+            <!-- autopaly -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Autopaly</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+
+                <div class="swiper mx-auto mb-5 max-w-3xl" id="slider2">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="max-h-80 w-full object-cover" alt="" />
+                            <div class="absolute top-1/4 z-[999] text-white ltr:left-12 rtl:right-12">
+                                <div class="text-base font-bold sm:text-3xl">This is blog Image</div>
+                                <div class="mt-1 hidden w-4/5 text-base font-medium sm:mt-5 sm:block">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+                                </div>
+                                <button type="button" class="btn btn-primary mt-4">Learn more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-prev-ex2 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                    </a>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-next-ex2 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                    </a>
+                </div>
+
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- autopaly --&gt;
+&lt;div class=&quot;swiper mx-auto mb-5 max-w-3xl&quot; id=&quot;slider2&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;max-h-80 w-full object-cover&quot; alt=&quot;&quot; /&gt;
+            &lt;div class=&quot;absolute top-1/4 z-[999] text-white ltr:left-12 rtl:right-12&quot;&gt;
+                &lt;div class=&quot;text-base font-bold sm:text-3xl&quot;&gt;This is blog Image&lt;/div&gt;
+                &lt;div class=&quot;mt-1 hidden w-4/5 text-base font-medium sm:mt-5 sm:block&quot;&gt;
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+                &lt;/div&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary mt-4&quot;&gt;Learn more&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-prev-ex2 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 rtl:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-next-ex2 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 ltr:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
+    swiper2: any;
+    items = ['carousel1.jpeg', 'carousel2.jpeg', 'carousel3.jpeg'];
+    ngAfterViewInit() {
+        this.swiper2 = new Swiper('#slider2', {
+            modules: [Navigation, Autoplay],
+            navigation: { nextEl: '.swiper-button-next-ex2', prevEl: '.swiper-button-prev-ex2' },
+            autoplay: { delay: 2000 },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+
+            <!-- vertical -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Vertical</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+
+                <div class="swiper mx-auto mb-5 max-w-3xl" id="slider3">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="w-full" alt="" />
+                            <div class="absolute left-1/2 top-1/2 z-[999] w-full -translate-x-1/2 text-center text-white">
+                                <div class="text-base font-medium sm:text-xl">Lorem Ipsum is simply dummy text of the printing.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- vertical --&gt;
+&lt;div class=&quot;swiper mx-auto mb-5 max-w-3xl&quot; id=&quot;slider3&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;w-full&quot; alt=&quot;&quot; /&gt;
+            &lt;div class=&quot;absolute top-1/2 left-1/2 z-[999] w-full -translate-x-1/2 text-center text-white&quot;&gt;
+                &lt;div class=&quot;text-base font-medium sm:text-xl&quot;&gt;Lorem Ipsum is simply dummy text of the printing.&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
+    swiper3: any;
+    items = ['carousel1.jpeg', 'carousel2.jpeg', 'carousel3.jpeg'];
+    ngAfterViewInit() {
+        this.swiper3 = new Swiper('#slider3', {
+            modules: [Pagination, Autoplay],
+            direction: 'vertical',
+            autoplay: { delay: 2000 },
+            pagination: {
+                el: '#slider3 .swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+
+            <!-- Loop -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Loop</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+
+                <div class="swiper mx-auto mb-5 max-w-3xl" id="slider4">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="w-full" alt="" />
+                            <div class="absolute bottom-8 left-1/2 z-[999] w-full -translate-x-1/2 px-11 text-center text-white sm:px-0">
+                                <div class="text-3xl font-bold">Slide {{i + 1}}</div>
+                                <div class="mb-4 font-medium sm:text-base">Lorem Ipsum is simply dummy text of the printing.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-prev-ex4 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                    </a>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-next-ex4 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                    </a>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- loop --&gt;
+&lt;div class=&quot;swiper mx-auto mb-5 max-w-3xl&quot; id=&quot;slider4&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;w-full&quot; alt=&quot;&quot; /&gt;
+            &lt;div class=&quot;absolute bottom-8 left-1/2 z-[999] w-full -translate-x-1/2 px-11 text-center text-white sm:px-0&quot;&gt;
+                &lt;div class=&quot;text-3xl font-bold&quot;&gt;Slide i + 1&lt;/div&gt;
+                &lt;div class=&quot;mb-4 font-medium sm:text-base&quot;&gt;Lorem Ipsum is simply dummy text of the printing.&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-prev-ex4 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 rtl:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-next-ex4 absolute top-1/2 z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 ltr:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
+    swiper4: any;
+    items = ['carousel1.jpeg', 'carousel2.jpeg', 'carousel3.jpeg'];
+    ngAfterViewInit() {
+        this.swiper4 = new Swiper('#slider4', {
+            modules: [Navigation, Pagination],
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            navigation: { nextEl: '.swiper-button-next-ex4', prevEl: '.swiper-button-prev-ex4' },
+            pagination: {
+                el: '#slider4 .swiper-pagination',
+                type: 'fraction',
+                clickable: true,
+            },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+
+            <!-- Multiple -->
+            <div class="panel lg:col-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Multiple Slides</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="swiper" id="slider5">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="w-full" alt="" />
+                        </div>
+                        <div *ngFor="let item of items; index as i" class="swiper-slide">
+                            <img [src]="'/assets/images/' + item" class="w-full" alt="" />
+                        </div>
+                    </div>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-prev-ex5 absolute top-[44%] z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                    </a>
+                    <a
+                        href="javascript:;"
+                        class="swiper-button-next-ex5 absolute top-[44%] z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2"
+                    >
+                        <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                    </a>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre>
+                        <code [languages]="['xml','typescript']" highlight="&lt;!-- multiple --&gt;
+&lt;div class=&quot;swiper&quot; id=&quot;slider5&quot;&gt;
+    &lt;div class=&quot;swiper-wrapper&quot;&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;w-full&quot; alt=&quot;&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div *ngFor=&quot;let item of items; index as i&quot; class=&quot;swiper-slide&quot;&gt;
+            &lt;img [src]=&quot;'/assets/images/' + item&quot; class=&quot;w-full&quot; alt=&quot;&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-prev-ex5 absolute top-[44%] z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:left-2 rtl:right-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 rtl:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;a
+        href=&quot;javascript:;&quot;
+        class=&quot;swiper-button-next-ex5 absolute top-[44%] z-[999] grid -translate-y-1/2 place-content-center rounded-full border border-primary p-1 text-primary transition hover:border-primary hover:bg-primary hover:text-white ltr:right-2 rtl:left-2&quot;
+    &gt;
+        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5 ltr:rotate-180&quot;&gt;
+            &lt;path d=&quot;M15 5L9 12L15 19&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;swiper-pagination&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+import Swiper, { Autoplay, Navigation, Pagination } from 'swiper';
+
+    swiper5: any;
+    items = ['carousel1.jpeg', 'carousel2.jpeg', 'carousel3.jpeg'];
+    ngAfterViewInit() {
+        this.swiper5 = new Swiper('#slider5', {
+            modules: [Navigation, Pagination],
+            navigation: { nextEl: '.swiper-button-next-ex5', prevEl: '.swiper-button-prev-ex5' },
+            breakpoints: {
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+                768: { slidesPerView: 2, spaceBetween: 40 },
+                320: { slidesPerView: 1, spaceBetween: 20 },
+            },
+            pagination: {
+                el: '#slider5 .swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+    }"></code>
+</pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

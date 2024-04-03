@@ -1,0 +1,85 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>File Upload</span>
+        </li>
+    </ul>
+    <div class="space-y-8 pt-5">
+        <div class="panel flex items-center overflow-x-auto whitespace-nowrap p-3 text-primary">
+            <div class="rounded-full bg-primary p-1.5 text-white ring-2 ring-primary/30 ltr:mr-3 rtl:ml-3">
+                <icon-bell />
+            </div>
+            <span class="ltr:mr-3 rtl:ml-3">Documentation: </span
+            ><a href="https://www.npmjs.com/package/file-upload-with-preview" target="_blank" class="block hover:underline"
+                >https://www.npmjs.com/package/file-upload-with-preview</a
+            >
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <!-- Single File -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Single File Upload</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="custom-file-container" data-upload-id="myFirstImage"></div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- single file --&gt;
+&lt;div class=&quot;custom-file-container&quot; data-upload-id=&quot;myFirstImage&quot;&gt;&lt;/div&gt;
+
+&lt;!-- script --&gt;
+ngOnInit() {
+    // single image upload
+    new FileUploadWithPreview('myFirstImage', {
+        images: {
+            baseImage: '/assets/images/file-preview.svg',
+            backgroundImage: '',
+        },
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+            <!-- Multiple File -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Multiple File</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="custom-file-container" data-upload-id="mySecondImage"></div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- multiple file --&gt;
+&lt;div class=&quot;custom-file-container&quot; data-upload-id=&quot;mySecondImage&quot;&gt;&lt;/div&gt;
+
+&lt;!-- script --&gt;
+ngOnInit() {
+    // multiple image upload
+    new FileUploadWithPreview('mySecondImage', {
+        images: {
+            baseImage: '/assets/images/file-preview.svg',
+            backgroundImage: '',
+        },
+        multiple: true,
+    });
+}"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

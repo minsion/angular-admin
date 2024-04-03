@@ -1,0 +1,1007 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Components</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Media Object</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 xl:grid-cols-2">
+        <!-- Simple -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Simple</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- simple --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Order -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Order</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="flex-1 ltr:mr-4 rtl:ml-4">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- order --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;flex-1 ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Alignment -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Top-aligned media</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-start">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id
+                            sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- top-aligned media --&gt;
+&lt;div class=&quot;flex items-start&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu,
+      gravida neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Center-aligned media</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-center">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id
+                            sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- center aligned media --&gt;
+&lt;div class=&quot;flex items-center&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu,
+      gravida neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Bottom-aligned media</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-end">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id
+                            sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- bottom aligned media --&gt;
+&lt;div class=&quot;flex items-end&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu,
+      gravida neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Right Aligned</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="flex-1 ltr:mr-4 ltr:text-right rtl:ml-4 rtl:text-left">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id
+                            sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-16 w-16 rounded" />
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code6')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- right aligned --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;flex-1 ltr:mr-4 rtl:ml-4 ltr:text-right rtl:text-left&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque. Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu,
+      gravida neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-16 h-16 rounded&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- List -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Media list</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="mb-5 flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-5 flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code7')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- list --&gt;
+&lt;div class=&quot;flex mb-5&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex mb-5&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Nesting -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Nesting</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text mb-5">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                        <div class="flex">
+                            <div class="ltr:mr-4 rtl:ml-4">
+                                <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                                <p class="media-text">
+                                    Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget
+                                    dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida neque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code8')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- nesting --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text mb-5&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+        &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;flex-1&quot;&gt;
+        &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+        &lt;p class=&quot;media-text&quot;&gt;
+          Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu,
+          gravida neque.
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Notation Text -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Notation Text</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text mb-4">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                        <ul class="flex space-x-4 font-bold rtl:space-x-reverse">
+                            <li><a href="javascript:;" class="hover:text-primary">Reply</a></li>
+                            <li><a href="javascript:;" class="hover:text-primary">Edit</a></li>
+                            <li><a href="javascript:;" class="hover:text-primary">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code9')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- notation text --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text mb-4&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+    &lt;ul class=&quot;flex space-x-4 rtl:space-x-reverse font-bold&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-primary&quot;&gt;Reply&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-primary&quot;&gt;Edit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;hover:text-primary&quot;&gt;Delete&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Notation Icon -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Notation Icon</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code10')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text mb-4">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                        <ul class="flex space-x-4 font-bold rtl:space-x-reverse">
+                            <li>
+                                <a href="javascript:;" class="flex items-center hover:text-primary">
+                                    <icon-message-dots class="h-4 w-4 ltr:mr-1 rtl:ml-1" />
+
+                                    Reply
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="flex items-center hover:text-primary">
+                                    <icon-pencil class="h-3.5 w-3.5 ltr:mr-1 rtl:ml-1" />
+
+                                    Edit
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="flex items-center hover:text-primary">
+                                    <icon-trash-lines class="h-4 w-4 ltr:mr-1 rtl:ml-1" />
+
+                                    Delete
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code10')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- notation icon --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text mb-4&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+    &lt;ul class=&quot;flex space-x-4 rtl:space-x-reverse font-bold&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;flex items-center hover:text-primary&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          Reply
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;flex items-center hover:text-primary&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          Edit
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;javascript:;&quot; class=&quot;flex items-center hover:text-primary&quot;&gt;
+          &lt;svg&gt; ... &lt;/svg&gt;
+          Delete
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Badge -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Badge</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code11')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="mb-2 text-lg font-semibold text-primary">
+                            Heading <span class="badge bg-primary ltr:float-right rtl:float-left">Web Designer</span>
+                        </h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code11')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- badge --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg mb-2 text-primary&quot;&gt;Heading &lt;span class=&quot;badge bg-primary ltr:float-right rtl:float-left&quot;&gt;Web Designer&lt;/span&gt;&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Dropdown -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Dropdown List</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code12')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <img src="/assets/images/profile-5.jpeg" alt="" class="h-14 w-14 rounded" />
+                    </div>
+                    <div class="flex-1">
+                        <div class="mb-2 flex justify-between">
+                            <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                            <div hlMenu class="dropdown">
+                                <a href="javascript:;" hlMenuButton>
+                                    <icon-horizontal-dots class="text-white-dark opacity-70" />
+                                </a>
+                                <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                    <li>
+                                        <a href="javascript:;" *hlMenuItem="let menuItem">
+                                            <icon-chat-dot class="ltr:mr-1 rtl:ml-1" />
+                                            Start chat
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" *hlMenuItem="let menuItem">
+                                            <icon-phone class="ltr:mr-1 rtl:ml-1" />
+                                            Make a call
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" *hlMenuItem="let menuItem">
+                                            <icon-bar-chart class="ltr:mr-1 rtl:ml-1" />
+
+                                            Statistics
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code12')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- dropdown --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;img src=&quot;/assets/images/profile-5.jpeg&quot; alt=&quot;&quot; class=&quot;w-14 h-14 rounded&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;div class=&quot;flex justify-between mb-2&quot;&gt;
+      &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+      &lt;div hlMenu class=&quot;dropdown&quot;&gt;
+        &lt;a href=&quot;javascript:;&quot; hlMenuButton&gt;
+            &lt;svg
+                width=&quot;24&quot;
+                height=&quot;24&quot;
+                viewBox=&quot;0 0 24 24&quot;
+                fill=&quot;none&quot;
+                xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                class=&quot;h-5 w-5 text-white-dark opacity-70&quot;
+            &gt;
+                &lt;circle cx=&quot;5&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                &lt;circle opacity=&quot;0.5&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                &lt;circle cx=&quot;19&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+            &lt;/svg&gt;
+        &lt;/a&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;whitespace-nowrap ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;
+                    &lt;svg
+                        width=&quot;24&quot;
+                        height=&quot;24&quot;
+                        viewBox=&quot;0 0 24 24&quot;
+                        fill=&quot;none&quot;
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        class=&quot;h-5 w-5 ltr:mr-1 rtl:ml-1&quot;
+                    &gt;
+                        &lt;g opacity=&quot;0.5&quot;&gt;
+                            &lt;path
+                                d=&quot;M9 12C9 12.5523 8.55228 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12Z&quot;
+                                fill=&quot;currentColor&quot;
+                            /&gt;
+                            &lt;path
+                                d=&quot;M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12Z&quot;
+                                fill=&quot;currentColor&quot;
+                            /&gt;
+                            &lt;path
+                                d=&quot;M17 12C17 12.5523 16.5523 13 16 13C15.4477 13 15 12.5523 15 12C15 11.4477 15.4477 11 16 11C16.5523 11 17 11.4477 17 12Z&quot;
+                                fill=&quot;currentColor&quot;
+                            /&gt;
+                        &lt;/g&gt;
+                        &lt;path
+                            d=&quot;M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                    &lt;/svg&gt;
+                    Start chat
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;
+                    &lt;svg
+                        width=&quot;24&quot;
+                        height=&quot;24&quot;
+                        viewBox=&quot;0 0 24 24&quot;
+                        fill=&quot;none&quot;
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        class=&quot;h-5 w-5 ltr:mr-1 rtl:ml-1&quot;
+                    &gt;
+                        &lt;path
+                            d=&quot;M16.1007 13.359L16.5562 12.9062C17.1858 12.2801 18.1672 12.1515 18.9728 12.5894L20.8833 13.628C22.1102 14.2949 22.3806 15.9295 21.4217 16.883L20.0011 18.2954C19.6399 18.6546 19.1917 18.9171 18.6763 18.9651M4.00289 5.74561C3.96765 5.12559 4.25823 4.56668 4.69185 4.13552L6.26145 2.57483C7.13596 1.70529 8.61028 1.83992 9.37326 2.85908L10.6342 4.54348C11.2507 5.36691 11.1841 6.49484 10.4775 7.19738L10.1907 7.48257&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                        &lt;path
+                            opacity=&quot;0.5&quot;
+                            d=&quot;M18.6763 18.9651C17.0469 19.117 13.0622 18.9492 8.8154 14.7266C4.81076 10.7447 4.09308 7.33182 4.00293 5.74561&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                        &lt;path
+                            opacity=&quot;0.5&quot;
+                            d=&quot;M16.1007 13.3589C16.1007 13.3589 15.0181 14.4353 12.0631 11.4971C9.10807 8.55886 10.1907 7.48242 10.1907 7.48242&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                            stroke-linecap=&quot;round&quot;
+                        /&gt;
+                    &lt;/svg&gt;
+                    Make a call
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;
+                    &lt;svg
+                        width=&quot;24&quot;
+                        height=&quot;24&quot;
+                        viewBox=&quot;0 0 24 24&quot;
+                        fill=&quot;none&quot;
+                        xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                        class=&quot;h-5 w-5 ltr:mr-1 rtl:ml-1&quot;
+                    &gt;
+                        &lt;path d=&quot;M22 22H2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                        &lt;path
+                            opacity=&quot;0.5&quot;
+                            d=&quot;M21 22V14.5C21 13.6716 20.3284 13 19.5 13H16.5C15.6716 13 15 13.6716 15 14.5V22&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                        &lt;path
+                            d=&quot;M15 22V5C15 3.58579 15 2.87868 14.5607 2.43934C14.1213 2 13.4142 2 12 2C10.5858 2 9.87868 2 9.43934 2.43934C9 2.87868 9 3.58579 9 5V22&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                        &lt;path
+                            opacity=&quot;0.5&quot;
+                            d=&quot;M9 22V9.5C9 8.67157 8.32843 8 7.5 8H4.5C3.67157 8 3 8.67157 3 9.5V22&quot;
+                            stroke=&quot;currentColor&quot;
+                            stroke-width=&quot;1.5&quot;
+                        /&gt;
+                    &lt;/svg&gt;
+
+                    Statistics
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Labels -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Labels</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code13')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="mb-5 flex items-center">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <icon-x-circle class="h-7 w-7 text-danger" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <icon-info-triangle class="h-7 w-7 text-warning" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code13')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- error --&gt;
+&lt;div class=&quot;flex items-center mb-5&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;svg&gt; ... &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex items-center&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;svg&gt; ... &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Checkbox -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Checkbox</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code14')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="mb-5 flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <input type="checkbox" class="form-checkbox mt-1.5" checked />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <input type="checkbox" class="form-checkbox mt-1.5" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code14')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- checkbox --&gt;
+&lt;div class=&quot;flex mb-5&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox mt-1.5&quot; checked /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox mt-1.5&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+        <!-- Radio -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Radio</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code15')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="mb-5 flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <input type="radio" class="form-radio mt-1.5" name="radio" checked />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="ltr:mr-4 rtl:ml-4">
+                        <input type="radio" class="form-radio mt-1.5" name="radio" />
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-primary">Heading</h4>
+                        <p class="media-text">
+                            Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed
+                            dapibus nulla elementum, rutrum neque eu, gravida neque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code15')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- radio --&gt;
+&lt;div class=&quot;flex mb-5&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;form-radio mt-1.5&quot; name=&quot;radio&quot; checked /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div class=&quot;ltr:mr-4 rtl:ml-4&quot;&gt;
+    &lt;input type=&quot;radio&quot; class=&quot;form-radio mt-1.5&quot; name=&quot;radio&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;flex-1&quot;&gt;
+    &lt;h4 class=&quot;font-semibold text-lg text-primary&quot;&gt;Heading&lt;/h4&gt;
+    &lt;p class=&quot;media-text&quot;&gt;
+      Fusce condimentum cursus mauris et ornare. Mauris fermentum mi id sollicitudin viverra. Aenean dignissim sed ante eget dapibus. Sed dapibus nulla elementum, rutrum neque eu, gravida
+      neque.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

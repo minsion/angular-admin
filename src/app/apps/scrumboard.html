@@ -1,0 +1,175 @@
+<div>
+    <div>
+        <button type="button" class="btn btn-primary flex" (click)="addEditProject()">
+            <icon-plus class="h-5 w-5 ltr:mr-3 rtl:ml-3" />
+            Add Project
+        </button>
+    </div>
+
+    <!-- project list -->
+    <div class="relative pt-5">
+        <div class="-mx-2 h-full">
+            <div class="flex flex-nowrap items-start gap-5 overflow-x-auto px-2 pb-2">
+                <ng-container *ngFor="let project of projectList" key="project.id">
+                    <div class="panel w-80 flex-none">
+                        <div class="mb-5 flex justify-between">
+                            <h4 class="text-base font-semibold">{{ project.title }}</h4>
+
+                            <div class="flex items-center">
+                                <button type="button" class="hover:text-primary ltr:mr-2 rtl:ml-2" (click)="addEditTask(project.id)">
+                                    <icon-plus-circle />
+                                </button>
+                                <div hlMenu class="dropdown">
+                                    <button type="button" hlMenuButton class="hover:text-primary">
+                                        <icon-horizontal-dots class="opacity-70 hover:opacity-100" />
+                                    </button>
+                                    <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                        <li>
+                                            <a href="javascript:;" *hlMenuItem="let menuItem" (click)="addEditProject(project)">Edit</a>
+                                        </li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem" (click)="deleteProject(project)">Delete</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem" (click)="clearProjects(project)">Clear All</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- task list -->
+                        <div
+                            [sortablejs]="project.tasks"
+                            [sortablejsOptions]="{ animation: 200, group: 'default', ghostClass: 'sortable-ghost', dragClass:'sortable-drag' }"
+                            class="connect-sorting-content min-h-[150px]"
+                        >
+                            <div class="sortable-list" *ngFor="let task of project.tasks" key="project.id + '' + task.id">
+                                <div class="mb-5 cursor-move space-y-3 rounded-md bg-[#f4f4f4] p-3 pb-5 shadow dark:bg-white-dark/20">
+                                    <ng-container *ngIf="task.image">
+                                        <img src="/assets/images/carousel1.jpeg" alt="images" class="h-32 w-full rounded-md object-cover" />
+                                    </ng-container>
+                                    <div class="text-base font-medium">{{ task.title }}</div>
+                                    <p class="break-all">{{ task.description }}</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <ng-container *ngIf="task.tags?.length; else elseBlock">
+                                            <ng-container *ngFor="let tag of task.tags; index as i" key="i">
+                                                <div class="btn btn-outline-primary flex px-2 py-1">
+                                                    <icon-tag class="shrink-0" />
+
+                                                    <span class="ltr:ml-2 rtl:mr-2">{{ tag }}</span>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                        <ng-template #elseBlock>
+                                            <div class="btn flex px-2 py-1 text-white-dark shadow-none dark:border-white-dark/50">
+                                                <icon-tag class="shrink-0" />
+                                                <span class="ltr:ml-2 rtl:mr-2">No Tags</span>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center font-medium hover:text-primary">
+                                            <icon-calendar class="shrink-0 ltr:mr-3 rtl:ml-3" />
+                                            <span>{{ task.date }}</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <button type="button" class="hover:text-info" (click)="addEditTask(project.id, task)">
+                                                <icon-edit class="ltr:mr-3 rtl:ml-3" />
+                                            </button>
+                                            <button type="button" class="hover:text-danger" (click)="deleteConfirmModal(project.id, task)">
+                                                <icon-trash-lines />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3">
+                            <button type="button" class="btn btn-primary mx-auto" (click)="addEditTask(project.id)">
+                                <icon-plus />
+                                Add Task
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- add project modal -->
+    <modal #isAddProjectModal class="no-footer">
+        <ng-template #modalHeader>
+            <div class="!font-medium">{{ params.id ? 'Edit Project' : 'Add Project' }}</div>
+        </ng-template>
+        <ng-template #modalBody>
+            <form (ngSubmit)="saveProject()" class="text-sm">
+                <div class="grid gap-5">
+                    <div>
+                        <label for="title">Name</label>
+                        <input id="title" [(ngModel)]="params.title" name="title" type="text" class="form-input mt-1" placeholder="Enter Name" />
+                    </div>
+                </div>
+
+                <div class="mt-8 flex items-center justify-end">
+                    <button type="button" class="btn btn-outline-danger" (click)="isAddProjectModal.close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary ltr:ml-4 rtl:mr-4">{{ params.id ? 'Update' : 'Add' }}</button>
+                </div>
+            </form>
+        </ng-template>
+    </modal>
+
+    <!-- add task modal -->
+    <modal #isAddTaskModal class="no-footer">
+        <ng-template #modalHeader>
+            <div class="!font-medium">{{ paramsTask.id ? 'Edit Task' : 'Add Task' }}</div>
+        </ng-template>
+        <ng-template #modalBody>
+            <form (ngSubmit)="saveTask()" class="text-sm">
+                <div class="grid gap-5">
+                    <div>
+                        <label for="taskTitle">Name</label>
+                        <input id="taskTitle" [(ngModel)]="paramsTask.title" name="title" type="text" class="form-input" placeholder="Enter Name" />
+                    </div>
+
+                    <div>
+                        <label for="taskTag">Tag</label>
+                        <input id="taskTag" [(ngModel)]="paramsTask.tags" name="tags" type="text" class="form-input" placeholder="Enter Tag" />
+                    </div>
+                    <div>
+                        <label for="taskdesc">Description</label>
+                        <textarea
+                            id="taskdesc"
+                            [(ngModel)]="paramsTask.description"
+                            name="description"
+                            class="form-textarea min-h-[130px]"
+                            placeholder="Enter Description"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex items-center justify-end">
+                    <button type="button" class="btn btn-outline-danger" (click)="isAddTaskModal.close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary ltr:ml-4 rtl:mr-4">{{ paramsTask.id ? 'Update' : 'Add' }}</button>
+                </div>
+            </form>
+        </ng-template>
+    </modal>
+
+    <!-- delete task modal -->
+    <modal #isDeleteModal class="no-footer">
+        <ng-template #modalHeader>
+            <div class="!font-medium">Delete Task</div>
+        </ng-template>
+        <ng-template #modalBody>
+            <div class="text-center">
+                <div class="mx-auto w-fit rounded-full bg-danger p-4 text-white ring-4 ring-danger/30">
+                    <icon-trash-lines />
+                </div>
+                <div class="mx-auto mt-5 text-base sm:w-3/4">Are you sure you want to delete Task?</div>
+
+                <div class="mt-8 flex items-center justify-center">
+                    <button type="button" class="btn btn-outline-danger" (click)="isDeleteModal.close()">Cancel</button>
+                    <button type="button" class="btn btn-primary ltr:ml-4 rtl:mr-4" (click)="deleteTask()">Delete</button>
+                </div>
+            </div>
+        </ng-template>
+    </modal>
+</div>

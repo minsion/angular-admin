@@ -1,0 +1,498 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Avatar</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Basic</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                    <img class="h-20 w-20 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-16 w-16 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-14 w-14 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-12 w-12 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;img class=&quot;w-20 h-20 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;img class=&quot;w-14 h-14 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;img class=&quot;w-12 h-12 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Indicators</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                    <span class="relative h-20 w-20">
+                        <img class="h-20 w-20 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                        <span class="absolute bottom-0 h-7 w-7 rounded-full bg-danger ring-2 ring-white ltr:right-0 rtl:left-0 dark:ring-white-dark"> </span>
+                    </span>
+                    <span class="relative h-16 w-16">
+                        <img class="h-16 w-16 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                        <span class="absolute bottom-0 h-6 w-6 rounded-full bg-success ring-2 ring-white ltr:right-0 rtl:left-0 dark:ring-white-dark"> </span>
+                    </span>
+                    <span class="relative h-14 w-14">
+                        <img class="h-14 w-14 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                        <span class="absolute bottom-0 h-5 w-5 rounded-full bg-secondary ring-2 ring-white ltr:right-0 rtl:left-0 dark:ring-white-dark"> </span>
+                    </span>
+                    <span class="relative h-12 w-12">
+                        <img class="h-12 w-12 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                        <span class="absolute bottom-0 h-4 w-4 rounded-full bg-info ring-2 ring-white ltr:right-0 rtl:left-0 dark:ring-white-dark"> </span>
+                    </span>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- danger --&gt;
+&lt;span class=&quot;w-20 h-20 relative&quot;&gt;
+  &lt;img class=&quot;w-20 h-20 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;absolute ltr:right-0 rtl:left-0 bottom-0 w-7 h-7 rounded-full ring-2 ring-white dark:ring-white-dark bg-danger&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;!-- success --&gt;
+&lt;span class=&quot;w-16 h-16 relative&quot;&gt;
+  &lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;absolute ltr:right-0 rtl:left-0 bottom-0 w-6 h-6 rounded-full ring-2 ring-white dark:ring-white-dark bg-success&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;!-- secondary --&gt;
+&lt;span class=&quot;w-14 h-14 relative&quot;&gt;
+  &lt;img class=&quot;w-14 h-14 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;absolute ltr:right-0 rtl:left-0 bottom-0 w-5 h-5 rounded-full ring-2 ring-white dark:ring-white-dark bg-secondary&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;
+
+&lt;!-- info --&gt;
+&lt;span class=&quot;w-12 h-12 relative&quot;&gt;
+  &lt;img class=&quot;w-12 h-12 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;absolute ltr:right-0 rtl:left-0 bottom-0 w-4 h-4 rounded-full ring-2 ring-white dark:ring-white-dark bg-info&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Shapes</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                    <img class="h-20 w-20 overflow-hidden rounded-md object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-16 w-16 overflow-hidden rounded-full object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-14 w-14 overflow-hidden rounded-md object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                    <img class="h-10 w-10 overflow-hidden object-cover" src="/assets/images/profile-12.jpeg" alt="" />
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- squre rounded large --&gt;
+&lt;img class=&quot;w-20 h-20 rounded-md overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;!-- circle --&gt;
+&lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;!-- squre rounded small --&gt;
+&lt;img class=&quot;w-14 h-14 rounded-md overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+
+&lt;!-- squre --&gt;
+&lt;img class=&quot;w-10 h-10 overflow-hidden object-cover&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Initials</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex flex-wrap items-center justify-center gap-2 text-white">
+                    <span class="flex h-20 w-20 items-center justify-center rounded-full bg-success object-cover text-center text-2xl">AG</span>
+                    <span class="flex h-16 w-16 items-center justify-center rounded-full bg-primary object-cover text-center text-xl">AG</span>
+                    <span class="flex h-14 w-14 items-center justify-center rounded-full bg-info object-cover text-center text-lg">AG</span>
+                    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-danger object-cover text-center text-base">AG</span>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- success --&gt;
+&lt;span class=&quot;flex justify-center items-center w-20 h-20 text-center rounded-full object-cover bg-success text-2xl&quot;&gt;AG&lt;/span&gt;
+
+&lt;!-- primary --&gt
+&lt;span class=&quot;flex justify-center items-center w-16 h-16 text-center rounded-full object-cover bg-primary text-xl&quot;&gt;AG&lt;/span&gt;
+
+&lt;!-- info --&gt
+&lt;span class=&quot;flex justify-center items-center w-14 h-14 text-center rounded-full object-cover bg-info text-lg&quot;&gt;AG&lt;/span&gt;
+
+&lt;!-- danger --&gt
+&lt;span class=&quot;flex justify-center items-center w-10 h-10 text-center rounded-full object-cover bg-danger text-base&quot;&gt;AG&lt;/span&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Group</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5 flex flex-wrap items-center justify-around gap-10">
+                <div class="flex items-center justify-center -space-x-4 text-white rtl:space-x-reverse">
+                    <img
+                        class="h-16 w-16 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="h-16 w-16 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="h-16 w-16 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <span
+                        class="flex h-16 w-16 items-center justify-center rounded-full bg-info object-cover text-center text-xl ring-2 ring-white dark:ring-white-dark"
+                        >AG</span
+                    >
+                </div>
+                <div class="flex items-center justify-center -space-x-4 text-white rtl:space-x-reverse">
+                    <img
+                        class="h-12 w-12 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="h-12 w-12 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="h-12 w-12 overflow-hidden rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <span
+                        class="flex h-12 w-12 items-center justify-center rounded-full bg-info object-cover text-center text-base ring-2 ring-white dark:ring-white-dark"
+                        >AG</span
+                    >
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- large --&gt;
+&lt;div class=&quot;flex items-center justify-center -space-x-4 rtl:space-x-reverse text-white&quot;&gt;
+  &lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;img class=&quot;w-16 h-16 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;flex justify-center items-center w-16 h-16 text-center rounded-full object-cover bg-info text-xl ring-2 ring-white dark:ring-white-dark&quot;&gt;AG&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- small --&gt;
+&lt;div class=&quot;flex items-center justify-center -space-x-4 rtl:space-x-reverse text-white&quot;&gt;
+  &lt;img class=&quot;w-12 h-12 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;img class=&quot;w-12 h-12 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;img class=&quot;w-12 h-12 rounded-full overflow-hidden object-cover ring-2 ring-white dark:ring-white-dark&quot; src=&quot;/assets/images/profile-12.jpeg&quot; alt=&quot;&quot; /&gt;
+  &lt;span class=&quot;flex justify-center items-center w-12 h-12 text-center rounded-full object-cover bg-info text-base ring-2 ring-white dark:ring-white-dark&quot;&gt;AG&lt;/span&gt;
+&lt;/div&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Animate Y-axis</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-center justify-center -space-x-4 text-white rtl:space-x-reverse">
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:hover:translate-y-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:hover:translate-y-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:hover:translate-y-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <span
+                        class="relative flex h-12 w-12 items-center justify-center rounded-full bg-info object-cover text-center text-base ring-2 ring-white transition-all duration-300 hover:hover:translate-y-2 dark:ring-white-dark"
+                        >AG</span
+                    >
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code6')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- animate y axis --&gt;
+&lt;div class=&quot;flex items-center justify-center -space-x-4 rtl:space-x-reverse text-white&quot;&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:hover:translate-y-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:hover:translate-y-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:hover:translate-y-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;span
+    class=&quot;
+      flex
+      justify-center
+      items-center
+      w-12
+      h-12
+      text-center
+      rounded-full
+      object-cover
+      bg-info
+      text-base
+      ring-2 ring-white
+      dark:ring-white-dark
+      relative
+      transition-all
+      duration-300
+      hover:hover:translate-y-2
+    &quot;
+    &gt;AG&lt;/span
+  &gt;
+&lt;/div&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Animate X-axis</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-center justify-center -space-x-4 text-white rtl:space-x-reverse">
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:translate-x-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:translate-x-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <img
+                        class="relative h-12 w-12 rounded-full object-cover ring-2 ring-white transition-all duration-300 hover:translate-x-2 dark:ring-white-dark"
+                        src="/assets/images/profile-12.jpeg"
+                        alt=""
+                    />
+                    <span
+                        class="relative flex h-12 w-12 items-center justify-center rounded-full bg-info object-cover text-center text-base ring-2 ring-white transition-all duration-300 hover:translate-x-2 dark:ring-white-dark"
+                        >AG</span
+                    >
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code7')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- animate x axis --&gt;
+&lt;div class=&quot;flex items-center justify-center -space-x-4 rtl:space-x-reverse text-white&quot;&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:translate-x-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:translate-x-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;img
+    class=&quot;w-12 h-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark relative transition-all duration-300 hover:translate-x-2&quot;
+    src=&quot;/assets/images/profile-12.jpeg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;span
+    class=&quot;
+      flex
+      justify-center
+      items-center
+      w-12
+      h-12
+      text-center
+      rounded-full
+      object-cover
+      bg-info
+      text-base
+      ring-2 ring-white
+      dark:ring-white-dark
+      relative
+      transition-all
+      duration-300
+      hover:translate-x-2
+    &quot;
+    &gt;AG&lt;/span
+  &gt;
+&lt;/div&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Tooltip</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="flex items-center justify-center -space-x-4 text-white rtl:space-x-reverse">
+                    <span>
+                        <img
+                            ngxTippy="Judy Holmes"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                            src="/assets/images/profile-12.jpeg"
+                            alt=""
+                        />
+                    </span>
+                    <span>
+                        <img
+                            ngxTippy="Judy Holmes"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                            src="/assets/images/profile-12.jpeg"
+                            alt=""
+                        />
+                    </span>
+                    <span>
+                        <img
+                            ngxTippy="Judy Holmes"
+                            class="h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark"
+                            src="/assets/images/profile-12.jpeg"
+                            alt=""
+                        />
+                    </span>
+                    <span>
+                        <span
+                            ngxTippy="Alan Green"
+                            class="flex h-12 w-12 items-center justify-center rounded-full bg-info object-cover text-center text-base ring-2 ring-white dark:ring-white-dark"
+                        >
+                            AG
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code8')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- tooltip --&gt;
+&lt;div class=&quot;flex items-center justify-center -space-x-4 rtl:space-x-reverse text-white&quot;&gt;
+    &lt;span&gt;
+        &lt;img
+            ngxTippy=&quot;Judy Holmes&quot;
+            class=&quot;h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark&quot;
+            src=&quot;/assets/images/profile-12.jpeg&quot;
+            alt=&quot;&quot;
+        /&gt;
+    &lt;/span&gt;
+    &lt;span&gt;
+        &lt;img
+            ngxTippy=&quot;Judy Holmes&quot;
+            class=&quot;h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark&quot;
+            src=&quot;/assets/images/profile-12.jpeg&quot;
+            alt=&quot;&quot;
+        /&gt;
+    &lt;/span&gt;
+    &lt;span&gt;
+        &lt;img
+            ngxTippy=&quot;Judy Holmes&quot;
+            class=&quot;h-12 w-12 rounded-full object-cover ring-2 ring-white dark:ring-white-dark&quot;
+            src=&quot;/assets/images/profile-12.jpeg&quot;
+            alt=&quot;&quot;
+        /&gt;
+    &lt;/span&gt;
+    &lt;span&gt;
+        &lt;span
+            ngxTippy=&quot;Alan Green&quot;
+            class=&quot;flex h-12 w-12 items-center justify-center rounded-full bg-info object-cover text-center text-base ring-2 ring-white dark:ring-white-dark&quot;
+        &gt;
+            AG
+        &lt;/span&gt;
+    &lt;/span&gt;
+&lt;/div&gt;">
+</code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

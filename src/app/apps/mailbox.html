@@ -1,0 +1,735 @@
+<div>
+    <div class="relative flex h-full gap-5 sm:h-[calc(100vh_-_150px)]">
+        <div
+            class="overlay absolute z-[5] hidden h-full w-full rounded-md bg-black/60"
+            [ngClass]="{ '!block xl:!hidden': isShowMailMenu }"
+            (click)="isShowMailMenu = !isShowMailMenu"
+        ></div>
+        <div
+            class="panel dark:gray-50 absolute z-10 hidden h-full w-[250px] max-w-full flex-none space-y-3 overflow-hidden p-4 ltr:rounded-r-none rtl:rounded-l-none xl:relative xl:block xl:h-auto ltr:xl:rounded-r-md rtl:xl:rounded-l-md"
+            [ngClass]="{ '!block': isShowMailMenu }"
+        >
+            <div class="flex h-full flex-col pb-16">
+                <div class="pb-5">
+                    <button class="btn btn-primary w-full" type="button" (click)="openMail('add', null)">New Message</button>
+                </div>
+                <ng-scrollbar class="relative h-full grow" appearance="compact">
+                    <div class="space-y-1">
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'inbox' }"
+                            (click)="tabChanged('inbox')"
+                        >
+                            <div class="flex items-center">
+                                <icon-mail class="h-5 w-5 shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Inbox</div>
+                            </div>
+                            <div class="whitespace-nowrap rounded-md bg-primary-light px-2 py-0.5 font-semibold dark:bg-[#060818]">
+                                {{ getMailsLength('inbox') }}
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'star'}"
+                            (click)="tabChanged('star')"
+                        >
+                            <div class="flex items-center">
+                                <icon-star class="shrink-0" />
+                                <div class="ltr:ml-3 rtl:mr-3">Marked</div>
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'sent_mail'}"
+                            (click)="tabChanged('sent_mail')"
+                        >
+                            <div class="flex items-center">
+                                <icon-send class="shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Sent</div>
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'spam'}"
+                            (click)="tabChanged('spam')"
+                        >
+                            <div class="flex items-center">
+                                <icon-info-hexagon class="shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Spam</div>
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'draft'}"
+                            (click)="tabChanged('draft')"
+                        >
+                            <div class="flex items-center">
+                                <icon-file class="h-4.5 w-4.5" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Drafts</div>
+                            </div>
+                            <div class="whitespace-nowrap rounded-md bg-primary-light px-2 py-0.5 font-semibold dark:bg-[#060818]">
+                                {{ getMailsLength('draft') }}
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                            [ngClass]="{
+                                    'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'trash'}"
+                            (click)="tabChanged('trash')"
+                        >
+                            <div class="flex items-center">
+                                <icon-trash-lines class="shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Trash</div>
+                            </div>
+                        </button>
+
+                        <div class="relative">
+                            <button
+                                class="flex h-10 w-full items-center rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                                (click)="isShowDropdown = !isShowDropdown"
+                            >
+                                <icon-caret-down [class]="'w-5 h-5 shrink-0 ' +  [isShowDropdown ? 'rotate-180' : ''] " />
+
+                                <div class="ltr:ml-3 rtl:mr-3">{{ isShowDropdown ? 'Less' : 'More' }}</div>
+                            </button>
+                            <ul class="mt-1 w-full space-y-1" *ngIf="isShowDropdown">
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="flex h-10 w-full items-center rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                                        [ngClass]="{
+                                                'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'archive'}"
+                                        (click)="tabChanged('archive')"
+                                    >
+                                        <icon-archive class="shrink-0" />
+
+                                        <div class="ltr:ml-3 rtl:mr-3">Archive</div>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        class="flex h-10 w-full items-center rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                                        [ngClass]="{
+                                                'bg-gray-100 dark:text-primary text-primary dark:bg-[#181F32]': !isEdit && selectedTab === 'important'}"
+                                        (click)="tabChanged('important')"
+                                    >
+                                        <icon-bookmark class="shrink-0" />
+
+                                        <div class="ltr:ml-3 rtl:mr-3">Important</div>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                        >
+                            <div class="flex items-center">
+                                <icon-video class="shrink-0" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">New meeting</div>
+                            </div>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="flex h-10 w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                        >
+                            <div class="flex items-center">
+                                <icon-chart-square class="shrink-0 rotate-180" />
+
+                                <div class="ltr:ml-3 rtl:mr-3">Join a meeting</div>
+                            </div>
+                        </button>
+                        <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                    </div>
+                </ng-scrollbar>
+                <div class="absolute bottom-0 w-full p-4 ltr:left-0 rtl:right-0">
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between rounded-md p-2 font-medium hover:bg-white-dark/10 hover:text-primary dark:hover:bg-[#181F32] dark:hover:text-primary"
+                        (click)="isShowMailMenu = false"
+                    >
+                        <div class="flex items-center">
+                            <icon-user-plus class="shrink-0" />
+
+                            <div class="ltr:ml-3 rtl:mr-3">Add Account</div>
+                        </div>
+                        <div class="rounded-md bg-primary-light px-2 py-1 dark:bg-[#060818]">
+                            <icon-plus />
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="panel h-full flex-1 overflow-x-hidden p-0">
+            <div *ngIf="!selectedMail && !isEdit" class="flex h-full flex-col">
+                <div class="flex flex-wrap-reverse items-center justify-between gap-4 p-4">
+                    <div class="flex w-full items-center sm:w-auto">
+                        <div class="ltr:mr-4 rtl:ml-4">
+                            <input
+                                #selectedAll
+                                type="checkbox"
+                                class="form-checkbox"
+                                [(ngModel)]="checkedAll"
+                                (click)="checkAll(selectedAll.checked); $event.stopPropagation()"
+                            />
+                        </div>
+                        <div class="ltr:mr-4 rtl:ml-4">
+                            <button type="button" ngxTippy="Refresh" class="flex items-center hover:text-primary" (click)="refreshMails()">
+                                <icon-refresh />
+                            </button>
+                        </div>
+                        <ng-container *ngIf="selectedTab != 'trash'">
+                            <ul class="flex grow items-center gap-4 sm:flex-none ltr:sm:mr-4 rtl:sm:ml-4">
+                                <li>
+                                    <div>
+                                        <button type="button" ngxTippy="Archive" class="flex items-center hover:text-primary" (click)="setArchive()">
+                                            <icon-archive />
+                                        </button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div (click)="setSpam()">
+                                        <button type="button" ngxTippy="Spam" class="flex items-center hover:text-primary">
+                                            <icon-info-hexagon />
+                                        </button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div hlMenu class="dropdown">
+                                        <div>
+                                            <button hlMenuButton type="button" ngxTippy="Group" class="flex items-center hover:text-primary">
+                                                <icon-wheel />
+                                            </button>
+                                        </div>
+                                        <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setGroup('personal')">
+                                                    <div class="h-2 w-2 shrink-0 rounded-full bg-primary ltr:mr-3 rtl:ml-3"></div>
+                                                    Personal
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setGroup('work')">
+                                                    <div class="h-2 w-2 shrink-0 rounded-full bg-warning ltr:mr-3 rtl:ml-3"></div>
+                                                    Work
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setGroup('social')">
+                                                    <div class="h-2 w-2 shrink-0 rounded-full bg-success ltr:mr-3 rtl:ml-3"></div>
+                                                    Social
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" (click)="setGroup('private')">
+                                                    <div class="h-2 w-2 shrink-0 rounded-full bg-danger ltr:mr-3 rtl:ml-3"></div>
+                                                    Private
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div hlMenu class="dropdown">
+                                        <button hlMenuButton type="button" class="flex items-center hover:text-primary">
+                                            <icon-horizontal-dots class="rotate-90 opacity-70" />
+                                        </button>
+                                        <ul *hlMenuItems @toggleAnimation class="whitespace-nowrap ltr:right-0 rtl:left-0">
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" class="w-full" (click)="setAction('read')">
+                                                    <icon-open-book class="shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                                    Mark as Read
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" class="w-full" (click)="setAction('unread')">
+                                                    <icon-book class="shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                                    Mark as Unread
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" *hlMenuItem="let menuItem" class="w-full" (click)="setAction('trash')">
+                                                    <icon-trash-lines class="shrink-0 ltr:mr-2 rtl:ml-2" />
+
+                                                    Trash
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </ng-container>
+                        <ng-container *ngIf="selectedTab == 'trash'">
+                            <ul class="flex flex-1 items-center gap-4 sm:flex-none ltr:sm:mr-3 rtl:sm:ml-4">
+                                <li>
+                                    <div>
+                                        <button type="button" ngxTippy="Permanently Delete" class="block hover:text-primary" (click)="setAction('delete')">
+                                            <icon-trash />
+                                        </button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button type="button" ngxTippy="Restore" class="block hover:text-primary" (click)="setAction('restore')">
+                                            <icon-restore />
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </div>
+                    <div class="flex w-full items-center justify-between sm:w-auto">
+                        <div class="flex items-center ltr:mr-4 rtl:ml-4">
+                            <button type="button" class="block hover:text-primary ltr:mr-3 rtl:ml-3 xl:hidden" (click)="isShowMailMenu = !isShowMailMenu">
+                                <icon-menu />
+                            </button>
+                            <div class="group relative">
+                                <input
+                                    type="text"
+                                    placeholder="Search Mail"
+                                    class="peer form-input ltr:pr-8 rtl:pl-8"
+                                    [(ngModel)]="searchText"
+                                    (ngModelChange)="searchMails()"
+                                />
+                                <div class="absolute top-1/2 -translate-y-1/2 peer-focus:text-primary ltr:right-[11px] rtl:left-[11px]">
+                                    <icon-search />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="ltr:mr-4 rtl:ml-4">
+                                <button type="button" ngxTippy="Settings" class="hover:text-primary">
+                                    <icon-settings />
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" ngxTippy="Help" class="hover:text-primary">
+                                    <icon-help-circle class="h-6 w-6" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                <div class="flex flex-col flex-wrap items-center justify-between px-4 pb-4 md:flex-row xl:w-auto">
+                    <div class="mt-4 grid w-full grid-cols-2 gap-3 sm:w-auto sm:grid-cols-4">
+                        <button
+                            type="button"
+                            class="btn btn-outline-primary flex"
+                            [ngClass]="{ 'text-white bg-primary': selectedTab === 'personal' }"
+                            (click)="tabChanged('personal')"
+                        >
+                            <icon-user class="h-5 w-5 ltr:mr-2 rtl:ml-2" />
+
+                            Personal
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-warning flex"
+                            [ngClass]="{ 'text-white bg-warning': selectedTab === 'work' }"
+                            (click)="tabChanged('work')"
+                        >
+                            <icon-message-2 class="h-5 w-5 ltr:mr-2 rtl:ml-2" />
+
+                            Work
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-success flex"
+                            [ngClass]="{ 'text-white bg-success': selectedTab === 'social' }"
+                            (click)="tabChanged('social')"
+                        >
+                            <icon-users class="ltr:mr-2 rtl:ml-2" />
+
+                            Social
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline-danger flex"
+                            [ngClass]="{ 'text-white bg-danger': selectedTab === 'private' }"
+                            (click)="tabChanged('private')"
+                        >
+                            <icon-tag class="ltr:mr-2 rtl:ml-2" />
+
+                            Private
+                        </button>
+                    </div>
+                    <div class="mt-4 flex-1 md:flex-auto">
+                        <div class="flex items-center justify-center md:justify-end">
+                            <div class="ltr:mr-3 rtl:ml-3">{{ pager.startIndex + 1 + '-' + (pager.endIndex + 1) + ' of ' + filteredMailList.length }}</div>
+                            <button
+                                type="button"
+                                [disabled]="pager.currentPage == 1"
+                                class="rounded-md bg-[#f4f4f4] p-1 enabled:hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-60 ltr:mr-3 rtl:ml-3 dark:bg-white-dark/20 enabled:dark:hover:bg-white-dark/30"
+                                (click)="pager.currentPage = pager.currentPage - 1; searchMails(false)"
+                            >
+                                <icon-caret-down class="h-5 w-5 rotate-90 rtl:-rotate-90" />
+                            </button>
+                            <button
+                                type="button"
+                                [disabled]="pager.currentPage == pager.totalPages"
+                                class="rounded-md bg-[#f4f4f4] p-1 enabled:hover:bg-primary-light disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white-dark/20 enabled:dark:hover:bg-white-dark/30"
+                                (click)="pager.currentPage = pager.currentPage + 1; searchMails(false)"
+                            >
+                                <icon-caret-down class="h-5 w-5 -rotate-90 rtl:rotate-90" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                <ng-container *ngIf="pagedMails.length">
+                    <div class="table-responsive min-h-[300px] grow overflow-y-auto">
+                        <table>
+                            <tbody>
+                                <ng-container *ngFor="let mail of pagedMails">
+                                    <tr class="cursor-pointer" (click)="selectMail(mail)">
+                                        <td>
+                                            <div class="flex items-center whitespace-nowrap">
+                                                <div class="ltr:mr-3 rtl:ml-3">
+                                                    <input
+                                                        type="checkbox"
+                                                        [id]="'chk-' + mail.id"
+                                                        [name]="'chk-' + mail.id"
+                                                        value="{{mail.id}}"
+                                                        [(ngModel)]="mail.selected"
+                                                        (click)="$event.stopPropagation();checkAllCheckbox()"
+                                                        class="form-checkbox"
+                                                    />
+                                                </div>
+                                                <div class="ltr:mr-3 rtl:ml-3">
+                                                    <button
+                                                        type="button"
+                                                        ngxTippy="Star"
+                                                        class="flex items-center enabled:hover:text-warning disabled:opacity-60"
+                                                        [ngClass]="{ 'text-warning': mail.isStar }"
+                                                        (click)="$event.stopPropagation();setStar(mail.id)"
+                                                        [disabled]="selectedTab === 'trash'"
+                                                    >
+                                                        <icon-star [class]="{ 'fill-warning': mail.isStar }" />
+                                                    </button>
+                                                </div>
+                                                <div class="ltr:mr-3 rtl:ml-3">
+                                                    <button
+                                                        type="button"
+                                                        ngxTippy="Important"
+                                                        class="flex rotate-90 items-center enabled:hover:text-primary disabled:opacity-60"
+                                                        [ngClass]="{ 'text-primary': mail.isImportant }"
+                                                        (click)="$event.stopPropagation();setImportant(mail.id)"
+                                                        [disabled]="selectedTab === 'trash'"
+                                                    >
+                                                        <icon-bookmark
+                                                            [bookmark]="false"
+                                                            [class]="'w-4.5 h-4.5 ' + [mail.isImportant ? 'fill-primary' : ''] "
+                                                        />
+                                                    </button>
+                                                </div>
+                                                <div
+                                                    class="whitespace-nowrap font-semibold dark:text-gray-300"
+                                                    [ngClass]="{
+                                                            'text-gray-500 dark:text-gray-500 font-normal': !mail.isUnread}"
+                                                >
+                                                    {{ mail.firstName ? mail.firstName + ' ' + mail.lastName : mail.email }}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="line-clamp-1 min-w-[300px] overflow-hidden font-medium text-white-dark">
+                                                <span
+                                                    [ngClass]="{
+                                                            'text-gray-800 dark:text-gray-300 font-semibold': mail.isUnread}"
+                                                >
+                                                    <span>{{ mail.title }}</span> &minus; <span>{{ mail.displayDescription }}</span></span
+                                                >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="flex items-center">
+                                                <div
+                                                    class="h-2 w-2 rounded-full"
+                                                    [ngClass]="{
+                                                            'bg-primary': mail.group === 'personal',
+                                                            'bg-warning': mail.group === 'work',
+                                                            'bg-success': mail.group === 'social',
+                                                            'bg-danger': mail.group === 'private'}"
+                                                ></div>
+                                                <ng-container *ngIf="mail.attachments">
+                                                    <div class="ltr:ml-4 rtl:mr-4">
+                                                        <icon-paperclip />
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </td>
+                                        <td class="whitespace-nowrap font-medium ltr:text-right rtl:text-left">{{ showTime(mail) }}</td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!pagedMails.length">
+                    <div class="grid h-full min-h-[300px] place-content-center text-lg font-semibold">No data available</div>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="selectedMail && !isEdit">
+                <div>
+                    <div class="flex flex-wrap items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <button type="button" class="hover:text-primary ltr:mr-2 rtl:ml-2" (click)="selectedMail = null">
+                                <icon-arrow-left class="h-5 w-5 rotate-180" />
+                            </button>
+                            <h4 class="text-base font-medium ltr:mr-2 rtl:ml-2 md:text-lg">{{ selectedMail.title }}</h4>
+                            <div class="badge bg-info hover:top-0">{{ selectedMail.type }}</div>
+                        </div>
+                        <div>
+                            <button type="button" ngxTippy="Print">
+                                <icon-printer />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                    <div class="relative p-4">
+                        <div class="flex flex-wrap">
+                            <div class="flex-shrink-0 ltr:mr-2 rtl:ml-2">
+                                <img
+                                    *ngIf="selectedMail.path"
+                                    [src]="'/assets/images/' + selectedMail.path"
+                                    class="h-12 w-12 rounded-full object-cover"
+                                    alt="avatar"
+                                />
+                                <div *ngIf="!selectedMail.path" class="rounded-full border border-gray-300 p-3 dark:border-gray-800">
+                                    <icon-user class="h-5 w-5" />
+                                </div>
+                            </div>
+                            <div class="flex-1 ltr:mr-2 rtl:ml-2">
+                                <div class="flex items-center">
+                                    <div class="whitespace-nowrap text-lg ltr:mr-4 rtl:ml-4">
+                                        {{ selectedMail.firstName ? selectedMail.firstName + ' ' + selectedMail.lastName : selectedMail.email }}
+                                    </div>
+                                    <div>
+                                        <div *ngIf="selectedMail.group" class="ltr:mr-4 rtl:ml-4">
+                                            <div
+                                                [ngxTippy]="htmlTemplate"
+                                                class="h-2 w-2 rounded-full"
+                                                [ngClass]="{
+                                                        'bg-primary': selectedMail.group === 'personal',
+                                                        'bg-warning': selectedMail.group === 'work',
+                                                        'bg-success': selectedMail.group === 'social',
+                                                        'bg-danger': selectedMail.group === 'private'}"
+                                            ></div>
+                                            <ng-template #htmlTemplate>
+                                                <div class="capitalize">{{selectedMail.group}}</div>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <div class="whitespace-nowrap text-white-dark">1 days ago</div>
+                                </div>
+                                <div class="flex items-center text-white-dark">
+                                    <div class="ltr:mr-1 rtl:ml-1">{{ selectedMail.type === 'sent_mail' ? selectedMail.email : 'to me' }}</div>
+                                    <div hlMenu class="dropdown">
+                                        <button hlMenuButton type="button" class="mt-1.5">
+                                            <icon-caret-down class="h-5 w-5" />
+                                        </button>
+                                        <ul *hlMenuItems @toggleAnimation class="ltr:left-0 rtl:right-0 sm:w-56">
+                                            <li>
+                                                <div class="flex items-center px-4 py-2">
+                                                    <div class="w-1/4 text-white-dark ltr:mr-2 rtl:ml-2">From:</div>
+                                                    <div class="flex-1">{{ selectedMail.type === 'sent_mail' ? 'tailly@gmail.com' : selectedMail.email }}</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="flex items-center px-4 py-2">
+                                                    <div class="w-1/4 text-white-dark ltr:mr-2 rtl:ml-2">To:</div>
+                                                    <div class="flex-1">{{ selectedMail.type !== 'sent_mail' ? 'tailly@gmail.com' : selectedMail.email }}</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="flex items-center px-4 py-2">
+                                                    <div class="w-1/4 text-white-dark ltr:mr-2 rtl:ml-2">Date:</div>
+                                                    <div class="flex-1">{{ selectedMail.date + ', ' + selectedMail.time }}</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="flex items-center px-4 py-2">
+                                                    <div class="w-1/4 text-white-dark ltr:mr-2 rtl:ml-2">Subject:</div>
+                                                    <div class="flex-1">{{ selectedMail.title }}</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-center space-x-3 rtl:space-x-reverse">
+                                    <button
+                                        type="button"
+                                        ngxTippy="Star"
+                                        class="enabled:hover:text-warning disabled:opacity-60"
+                                        [ngClass]="{ 'text-warning': selectedMail.isStar }"
+                                        (click)="setStar(selectedMail.id)"
+                                        [disabled]="selectedTab === 'trash'"
+                                    >
+                                        <icon-star [class]="{ 'fill-warning': selectedMail.isStar }" />
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        ngxTippy="Important"
+                                        class="enabled:hover:text-primary disabled:opacity-60"
+                                        [ngClass]="{ 'text-primary': selectedMail.isImportant }"
+                                        (click)="setImportant(selectedMail.id)"
+                                        [disabled]="selectedTab === 'trash'"
+                                    >
+                                        <icon-bookmark
+                                            [bookmark]="false"
+                                            [class]="'h-4.5 w-4.5 rotate-90 ' + [selectedMail.isImportant ? 'fill-primary': '']"
+                                        />
+                                    </button>
+
+                                    <button type="button" ngxTippy="Reply" class="hover:text-info" (click)="openMail('reply', selectedMail)">
+                                        <icon-arrow-backward class="rtl:hidden" />
+                                        <icon-arrow-forward class="ltr:hidden" />
+                                    </button>
+
+                                    <button type="button" ngxTippy="Forward" class="hover:text-info" (click)="openMail('forward', selectedMail)">
+                                        <icon-arrow-backward class="ltr:hidden" />
+                                        <icon-arrow-forward class="rtl:hidden" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="prose mt-8 max-w-full dark:prose-invert prose-p:text-sm prose-img:m-0 prose-img:inline-block prose-img:h-[180px] prose-img:w-[250px] dark:prose-p:text-white md:prose-p:text-sm"
+                            [innerHTML]="sanitizer.bypassSecurityTrustHtml(selectedMail.description)"
+                        ></div>
+                        <p class="mt-4">Best Regards,</p>
+                        <p>{{ selectedMail.firstName + ' ' + selectedMail.lastName }}</p>
+
+                        <div class="mt-8" *ngIf="selectedMail.attachments">
+                            <div class="mb-4 text-base">Attachments</div>
+                            <div class="h-px border-b border-[#e0e6ed] dark:border-[#1b2e4b]"></div>
+                            <div class="mt-6 flex flex-wrap items-center">
+                                <ng-container *ngFor="let attachment of selectedMail.attachments">
+                                    <button
+                                        type="button"
+                                        class="group relative mb-4 flex items-center rounded-md border border-[#e0e6ed] px-4 py-2.5 transition-all duration-300 hover:border-primary hover:text-primary ltr:mr-4 rtl:ml-4 dark:border-[#1b2e4b]"
+                                    >
+                                        <ng-container *ngIf="attachment.type === 'image'">
+                                            <icon-gallery />
+                                        </ng-container>
+                                        <ng-container *ngIf="attachment.type === 'folder'">
+                                            <icon-folder />
+                                        </ng-container>
+                                        <ng-container *ngIf="attachment.type === 'zip'">
+                                            <icon-zip-file />
+                                        </ng-container>
+                                        <ng-container *ngIf="attachment.type !== 'zip' && attachment.type !== 'image' && attachment.type !== 'folder'">
+                                            <icon-txt-file class="h-5 w-5" />
+                                        </ng-container>
+                                        <div class="ltr:ml-3 rtl:mr-3">
+                                            <p class="text-xs font-semibold text-primary">{{ attachment.name }}</p>
+                                            <p class="text-[11px] text-gray-400 dark:text-gray-600">{{ attachment.size }}</p>
+                                        </div>
+                                        <div
+                                            class="absolute top-0 z-[5] hidden h-full w-full rounded-md bg-dark-light/40 group-hover:block ltr:left-0 rtl:right-0"
+                                        ></div>
+                                        <div
+                                            class="btn btn-primary absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full p-1 group-hover:block"
+                                        >
+                                            <icon-download class="h-4.5 w-4.5" />
+                                        </div>
+                                    </button>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="isEdit">
+                <div class="relative">
+                    <div class="flex items-center px-6 py-4">
+                        <button type="button" class="block hover:text-primary ltr:mr-3 rtl:ml-3 xl:hidden" (click)="isShowMailMenu = !isShowMailMenu">
+                            <icon-menu />
+                        </button>
+                        <h4 class="text-lg font-medium text-gray-600 dark:text-gray-400">Message</h4>
+                    </div>
+                    <div class="h-px bg-gradient-to-l from-indigo-900/20 via-black to-indigo-900/20 opacity-[0.1] dark:via-white"></div>
+                    <form [formGroup]="params" class="grid gap-6 p-6">
+                        <div>
+                            <input type="text" class="form-input" placeholder="Enter To" formControlName="to" />
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-input" placeholder="Enter Cc" formControlName="cc" />
+                        </div>
+
+                        <div>
+                            <input type="text" class="form-input" placeholder="Enter Subject" formControlName="title" />
+                        </div>
+
+                        <div class="h-fit">
+                            <quill-editor
+                                #editor
+                                [modules]="editorOptions"
+                                placeholder=""
+                                formControlName="description"
+                                class="w-full"
+                                style="min-height: 200px"
+                                (onContentChanged)="quillEditorReady($event)"
+                            ></quill-editor>
+                        </div>
+
+                        <div>
+                            <input
+                                id="file"
+                                type="file"
+                                class="form-input p-0 file:border-0 file:bg-primary/90 file:px-4 file:py-2 file:font-semibold file:text-white file:hover:bg-primary ltr:file:mr-5 rtl:file:ml-5"
+                                multiple
+                                accept="image/*,.zip,.pdf,.xls,.xlsx,.txt.doc,.docx"
+                                formControlName="file"
+                            />
+                        </div>
+
+                        <div class="mt-8 flex items-center ltr:ml-auto rtl:mr-auto">
+                            <button type="button" class="btn btn-outline-danger ltr:mr-3 rtl:ml-3" (click)="closeMsgPopUp()">Close</button>
+                            <button type="button" class="btn btn-success ltr:mr-3 rtl:ml-3" (click)="saveMail('save', null)">Save</button>
+                            <button type="button" class="btn btn-primary" (click)="saveMail('send', params.value.id)">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

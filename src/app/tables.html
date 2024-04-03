@@ -1,0 +1,1332 @@
+<div>
+    <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        <!-- Basic -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Simple Table</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sale</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.date }}</td>
+                                <td>{{ data.sale }}</td>
+                                <td
+                                    class="whitespace-nowrap text-center"
+                                    [ngClass]="{
+                                            'text-success': data.status === 'Complete',
+                                            'text-secondary': data.status === 'Pending',
+                                            'text-info': data.status === 'In Progress',
+                                            'text-danger': data.status === 'Canceled'
+                                        }"
+                                >
+                                    {{ data.status }}
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" ngxTippy data-tippy-content="Delete">
+                                        <icon-trash-lines class="m-auto" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Sale&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Status&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td&gt; data.sale &lt;/td&gt;
+                &lt;td
+                    class=&quot;whitespace-nowrap text-center&quot;
+                    [ngClass]=&quot;{
+                            'text-success': data.status === 'Complete',
+                            'text-secondary': data.status === 'Pending',
+                            'text-info': data.status === 'In Progress',
+                            'text-danger': data.status === 'Canceled'
+                        }&quot;
+                &gt;
+                    data.status
+                &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;m-auto h-5 w-5&quot;&gt;
+                            &lt;path d=&quot;M20.5001 6H3.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                d=&quot;M18.8334 8.5L18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                                stroke-linecap=&quot;round&quot;
+                            /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M9.5 11L10 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M14.5 11L14 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                opacity=&quot;0.5&quot;
+                                d=&quot;M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                            /&gt;
+                        &lt;/svg&gt;
+                    &lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- Hover Table -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Hover Table</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table class="table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sale</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.date }}</td>
+                                <td>{{ data.sale }}</td>
+                                <td
+                                    class="whitespace-nowrap text-center"
+                                    [ngClass]="{
+                                            'text-success': data.status === 'Complete',
+                                            'text-secondary': data.status === 'Pending',
+                                            'text-info': data.status === 'In Progress',
+                                            'text-danger': data.status === 'Canceled'
+                                        }"
+                                >
+                                    {{ data.status }}
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" ngxTippy data-tippy-content="Delete">
+                                        <icon-trash-lines class="m-auto" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table class=&quot;table-hover&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Sale&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Status&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td&gt; data.sale &lt;/td&gt;
+                &lt;td
+                    class=&quot;whitespace-nowrap text-center&quot;
+                    [ngClass]=&quot;{
+                            'text-success': data.status === 'Complete',
+                            'text-secondary': data.status === 'Pending',
+                            'text-info': data.status === 'In Progress',
+                            'text-danger': data.status === 'Canceled'
+                        }&quot;
+                &gt;
+                    data.status
+                &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;m-auto h-5 w-5&quot;&gt;
+                            &lt;path d=&quot;M20.5001 6H3.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                d=&quot;M18.8334 8.5L18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                                stroke-linecap=&quot;round&quot;
+                            /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M9.5 11L10 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M14.5 11L14 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                opacity=&quot;0.5&quot;
+                                d=&quot;M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                            /&gt;
+                        &lt;/svg&gt;
+                    &lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- stripped table -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Striped Table</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table class="table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sale</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.date }}</td>
+                                <td>{{ data.sale }}</td>
+                                <td class="text-center">
+                                    <button type="button" ngxTippy data-tippy-content="Delete">
+                                        <icon-trash-lines class="m-auto" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table class=&quot;table-striped&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Sale&lt;/th&gt;
+                &lt;th&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td&gt; data.sale &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;m-auto h-5 w-5&quot;&gt;
+                            &lt;path d=&quot;M20.5001 6H3.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                d=&quot;M18.8334 8.5L18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                                stroke-linecap=&quot;round&quot;
+                            /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M9.5 11L10 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path opacity=&quot;0.5&quot; d=&quot;M14.5 11L14 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                            &lt;path
+                                opacity=&quot;0.5&quot;
+                                d=&quot;M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                            /&gt;
+                        &lt;/svg&gt;
+                    &lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- Table Light -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Table Light</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table class="table-hover">
+                        <thead>
+                            <tr class="!bg-transparent dark:!bg-transparent">
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Created At</th>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td>{{ data.id }}</td>
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.email }}</td>
+                                <td>{{ data.date }}</td>
+                                <td class="text-center">
+                                    <button type="button" ngxTippy data-tippy-content="Delete">
+                                        <icon-x-circle class="m-auto" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code4')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table class=&quot;table-hover&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr class=&quot;!bg-transparent dark:!bg-transparent&quot;&gt;
+                &lt;th&gt;#&lt;/th&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Email&lt;/th&gt;
+                &lt;th&gt;Created At&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td&gt; data.id &lt;/td&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.email &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                        &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;m-auto h-5 w-5&quot;&gt;
+                            &lt;circle opacity=&quot;0.5&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; /&gt;
+                            &lt;path
+                                d=&quot;M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5&quot;
+                                stroke=&quot;currentColor&quot;
+                                stroke-width=&quot;1.5&quot;
+                                stroke-linecap=&quot;round&quot;
+                            /&gt;
+                        &lt;/svg&gt;
+                    &lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- captions -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Captions</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th class="text-center">Register</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td>{{ data.id }}</td>
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.email }}</td>
+                                <td>
+                                    <span
+                                        class="badge whitespace-nowrap"
+                                        [ngClass]="{
+                                                'badge-outline-primary': data.status === 'Complete',
+                                                'badge-outline-secondary': data.status === 'Pending',
+                                                'badge-outline-info': data.status === 'In Progress',
+                                                'badge-outline-danger': data.status === 'Canceled'
+                                            }"
+                                        >{{ data.status }}</span
+                                    >
+                                </td>
+                                <td class="text-center">{{ data.register }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code5')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;#&lt;/th&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Email&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Register&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td&gt; data.id &lt;/td&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.email &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;span
+                        class=&quot;badge whitespace-nowrap&quot;
+                        [ngClass]=&quot;{
+                                'badge-outline-primary': data.status === 'Complete',
+                                'badge-outline-secondary': data.status === 'Pending',
+                                'badge-outline-info': data.status === 'In Progress',
+                                'badge-outline-danger': data.status === 'Canceled'
+                            }&quot;
+                        &gt;  data.status &lt;/span
+                    &gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt; data.register &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- progress table -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Progress Table</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Progress</th>
+                                <th>Sales</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td>{{ data.id }}</td>
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>
+                                    <div class="flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40">
+                                        <div
+                                            class="h-1.5 rounded-full rounded-bl-full text-center text-xs text-white"
+                                            [ngClass]="{
+                                                    'bg-success': data.status === 'Complete',
+                                                    'bg-secondary': data.status === 'Pending',
+                                                    'bg-info': data.status === 'In Progress',
+                                                    'bg-danger': data.status === 'Canceled'
+                                                }"
+                                            [ngStyle]="{width: data.progress}"
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td
+                                    class="whitespace-nowrap"
+                                    [ngClass]="{
+                                            'text-success': data.status === 'Complete',
+                                            'text-secondary': data.status === 'Pending',
+                                            'text-info': data.status === 'In Progress',
+                                            'text-danger': data.status === 'Canceled'
+                                        }"
+                                >
+                                    {{ data.progress }}
+                                </td>
+                                <td class="border-b border-[#ebedf2] p-3 text-center dark:border-[#191e3a]">
+                                    <div class="flex items-center">
+                                        <div>
+                                            <button type="button" ngxTippy data-tippy-content="Edit">
+                                                <icon-pencil class="ltr:mr-2 rtl:ml-2" />
+                                            </button>
+                                        </div>
+                                        <div>
+                                            <button type="button" ngxTippy data-tippy-content="Delete">
+                                                <icon-trash-lines />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code6')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;#&lt;/th&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Progress&lt;/th&gt;
+                &lt;th&gt;Sales&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td&gt; data.id &lt;/td&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;div class=&quot;flex h-1.5 w-full rounded-full bg-[#ebedf2] dark:bg-dark/40&quot;&gt;
+                        &lt;div
+                            class=&quot;h-1.5 rounded-full rounded-bl-full text-center text-xs text-white&quot;
+                            [ngClass]=&quot;{
+                                    'bg-success': data.status === 'Complete',
+                                    'bg-secondary': data.status === 'Pending',
+                                    'bg-info': data.status === 'In Progress',
+                                    'bg-danger': data.status === 'Canceled'
+                                }&quot;
+                            [ngStyle]=&quot;{width: data.progress}&quot;
+                        &gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td
+                    class=&quot;whitespace-nowrap&quot;
+                    [ngClass]=&quot;{
+                            'text-success': data.status === 'Complete',
+                            'text-secondary': data.status === 'Pending',
+                            'text-info': data.status === 'In Progress',
+                            'text-danger': data.status === 'Canceled'
+                        }&quot;
+                &gt;
+                     data.progress
+                &lt;/td&gt;
+                &lt;td class=&quot;border-b border-[#ebedf2] p-3 text-center dark:border-[#191e3a]&quot;&gt;
+                    &lt;div class=&quot;flex items-center&quot;&gt;
+                        &lt;div&gt;
+                            &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Edit&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-4.5 w-4.5 ltr:mr-2 rtl:ml-2&quot;
+                                &gt;
+                                    &lt;path
+                                        d=&quot;M15.2869 3.15178L14.3601 4.07866L5.83882 12.5999L5.83881 12.5999C5.26166 13.1771 4.97308 13.4656 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.32181 19.8021L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L4.19792 21.6782L7.47918 20.5844L7.47919 20.5844C8.25353 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5344 19.0269 10.8229 18.7383 11.4001 18.1612L11.4001 18.1612L19.9213 9.63993L20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178Z&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                    &lt;path
+                                        opacity=&quot;0.5&quot;
+                                        d=&quot;M14.36 4.07812C14.36 4.07812 14.4759 6.04774 16.2138 7.78564C17.9517 9.52354 19.9213 9.6394 19.9213 9.6394M4.19789 21.6777L2.32178 19.8015&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;button type=&quot;button&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                                &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5&quot;&gt;
+                                    &lt;path d=&quot;M20.5001 6H3.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path
+                                        d=&quot;M18.8334 8.5L18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                        stroke-linecap=&quot;round&quot;
+                                    /&gt;
+                                    &lt;path opacity=&quot;0.5&quot; d=&quot;M9.5 11L10 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path opacity=&quot;0.5&quot; d=&quot;M14.5 11L14 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path
+                                        opacity=&quot;0.5&quot;
+                                        d=&quot;M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- Contextual -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Contextual</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-dark-dark-light bg-dark-dark-light">
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>johndoe@yahoo.com</td>
+                            </tr>
+                            <tr class="border-primary/20 bg-primary/20">
+                                <td>2</td>
+                                <td>Andy</td>
+                                <td>King</td>
+                                <td>andyking@gmail.com</td>
+                            </tr>
+                            <tr class="border-secondary/20 bg-secondary/20">
+                                <td>3</td>
+                                <td>Lisa</td>
+                                <td>Doe</td>
+                                <td>lisadoe@yahoo.com</td>
+                            </tr>
+                            <tr class="border-success/20 bg-success/20">
+                                <td>4</td>
+                                <td>Vincent</td>
+                                <td>Carpenter</td>
+                                <td>vinnyc@yahoo.com</td>
+                            </tr>
+                            <tr class="border-dark-dark-light bg-dark-dark-light">
+                                <td>5</td>
+                                <td>Amy</td>
+                                <td>Diaz</td>
+                                <td>amydiaz@yahoo.com</td>
+                            </tr>
+                            <tr class="border-danger/20 bg-danger/20">
+                                <td>6</td>
+                                <td>Nia</td>
+                                <td>Hillyer</td>
+                                <td>niahill@gmail.com</td>
+                            </tr>
+                            <tr class="border-info/20 bg-info/20">
+                                <td>7</td>
+                                <td>Marry</td>
+                                <td>McDonald</td>
+                                <td>marryMcD@yahoo.com</td>
+                            </tr>
+                            <tr class="border-warning/20 bg-warning/20">
+                                <td>8</td>
+                                <td>Shaun</td>
+                                <td>Park</td>
+                                <td>park@yahoo.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <ng-container *ngIf="codeArr.includes('code7')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;#&lt;/th&gt;
+                &lt;th&gt;First Name&lt;/th&gt;
+                &lt;th&gt;Last Name&lt;/th&gt;
+                &lt;th&gt;Email&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr class=&quot;border-dark-dark-light bg-dark-dark-light&quot;&gt;
+                &lt;td&gt;1&lt;/td&gt;
+                &lt;td&gt;John&lt;/td&gt;
+                &lt;td&gt;Doe&lt;/td&gt;
+                &lt;td&gt;johndoe@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-primary/20 bg-primary/20&quot;&gt;
+                &lt;td&gt;2&lt;/td&gt;
+                &lt;td&gt;Andy&lt;/td&gt;
+                &lt;td&gt;King&lt;/td&gt;
+                &lt;td&gt;andyking@gmail.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-secondary/20 bg-secondary/20&quot;&gt;
+                &lt;td&gt;3&lt;/td&gt;
+                &lt;td&gt;Lisa&lt;/td&gt;
+                &lt;td&gt;Doe&lt;/td&gt;
+                &lt;td&gt;lisadoe@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-success/20 bg-success/20&quot;&gt;
+                &lt;td&gt;4&lt;/td&gt;
+                &lt;td&gt;Vincent&lt;/td&gt;
+                &lt;td&gt;Carpenter&lt;/td&gt;
+                &lt;td&gt;vinnyc@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-dark-dark-light bg-dark-dark-light&quot;&gt;
+                &lt;td&gt;5&lt;/td&gt;
+                &lt;td&gt;Amy&lt;/td&gt;
+                &lt;td&gt;Diaz&lt;/td&gt;
+                &lt;td&gt;amydiaz@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-danger/20 bg-danger/20&quot;&gt;
+                &lt;td&gt;6&lt;/td&gt;
+                &lt;td&gt;Nia&lt;/td&gt;
+                &lt;td&gt;Hillyer&lt;/td&gt;
+                &lt;td&gt;niahill@gmail.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-info/20 bg-info/20&quot;&gt;
+                &lt;td&gt;7&lt;/td&gt;
+                &lt;td&gt;Marry&lt;/td&gt;
+                &lt;td&gt;McDonald&lt;/td&gt;
+                &lt;td&gt;marryMcD@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr class=&quot;border-warning/20 bg-warning/20&quot;&gt;
+                &lt;td&gt;8&lt;/td&gt;
+                &lt;td&gt;Shaun&lt;/td&gt;
+                &lt;td&gt;Park&lt;/td&gt;
+                &lt;td&gt;park@yahoo.com&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- dropdown -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Dropdown</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sale</th>
+                                <th>Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.date }}</td>
+                                <td>{{ data.sale }}</td>
+                                <td>
+                                    <span
+                                        class="badge whitespace-nowrap"
+                                        [ngClass]="{
+                                                'bg-primary': data.status === 'Complete',
+                                                'bg-secondary': data.status === 'Pending',
+                                                'bg-success': data.status === 'In Progress',
+                                                'bg-danger': data.status === 'Canceled'
+                                            }"
+                                        >{{ data.status }}</span
+                                    >
+                                </td>
+                                <td class="text-center">
+                                    <div class="dropdown w-max">
+                                        <div hlMenu>
+                                            <a hlMenuButton href="javascript:;" class="align-middle">
+                                                <icon-horizontal-dots class="m-auto opacity-70" />
+                                            </a>
+                                            <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem">Download</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem">Share</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem">Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;" *hlMenuItem="let menuItem">Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code8')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Sale&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th class=&quot;text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td&gt; data.sale &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;span
+                        class=&quot;badge whitespace-nowrap&quot;
+                        [ngClass]=&quot;{
+                                'bg-primary': data.status === 'Complete',
+                                'bg-secondary': data.status === 'Pending',
+                                'bg-success': data.status === 'In Progress',
+                                'bg-danger': data.status === 'Canceled'
+                            }&quot;
+                        &gt;  data.status &lt;/span
+                    &gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;div class=&quot;dropdown w-max&quot;&gt;
+                        &lt;div hlMenu&gt;
+                            &lt;a hlMenuButton href=&quot;javascript:;&quot; class=&quot;align-middle&quot;&gt;
+                                &lt;svg class=&quot;m-auto h-5 w-5 opacity-70&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                    &lt;circle cx=&quot;5&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                                    &lt;circle opacity=&quot;0.5&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                                    &lt;circle cx=&quot;19&quot; cy=&quot;12&quot; r=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                            &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:right-0 rtl:left-0&quot;&gt;
+                                &lt;li&gt;
+                                    &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Download&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Share&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Edit&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                    &lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Delete&lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- table with footer -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Table with Footer</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th class="!text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.position }}</td>
+                                <td>{{ data.office }}</td>
+                                <td class="text-center">
+                                    <ul class="flex items-center justify-center gap-2">
+                                        <li>
+                                            <a href="javascript:;" ngxTippy data-tippy-content="Edit">
+                                                <icon-circle-check class="h-5 w-5 text-primary" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ngxTippy data-tippy-content="Delete">
+                                                <icon-x-circle class="text-danger" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th class="!text-center">Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code9')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th class=&quot;!text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.position &lt;/td&gt;
+                &lt;td&gt; data.office &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;ul class=&quot;flex items-center justify-center gap-2&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;javascript:;&quot; ngxTippy data-tippy-content=&quot;Edit&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-5 w-5 text-primary&quot;
+                                &gt;
+                                    &lt;circle opacity=&quot;0.5&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; /&gt;
+                                    &lt;path
+                                        d=&quot;M8.5 12.5L10.5 14.5L15.5 9.5&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                        stroke-linecap=&quot;round&quot;
+                                        stroke-linejoin=&quot;round&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;javascript:;&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-5 w-5 text-danger&quot;
+                                &gt;
+                                    &lt;circle opacity=&quot;0.5&quot; cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; /&gt;
+                                    &lt;path
+                                        d=&quot;M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                        stroke-linecap=&quot;round&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th class=&quot;!text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+
+        <!-- checkboxes -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Checkboxes</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code10')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code</span
+                    ></a
+                >
+            </div>
+            <div class="mb-5">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="form-checkbox" /></th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Sale</th>
+                                <th class="!text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of tableData;">
+                                <td><input type="checkbox" class="form-checkbox" /></td>
+                                <td class="whitespace-nowrap">{{ data.name }}</td>
+                                <td>{{ data.date }}</td>
+                                <td>{{ data.sale }}</td>
+                                <td class="text-center">
+                                    <ul class="flex items-center justify-center gap-2">
+                                        <li>
+                                            <a href="javascript:;" ngxTippy data-tippy-content="Settings">
+                                                <icon-settings class="h-5 w-5 text-primary" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ngxTippy data-tippy-content="Edit">
+                                                <icon-pencil class="text-success" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" ngxTippy data-tippy-content="Delete">
+                                                <icon-trash-lines class="text-danger" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code10')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;div class=&quot;table-responsive&quot;&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;&lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; /&gt;&lt;/th&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Date&lt;/th&gt;
+                &lt;th&gt;Sale&lt;/th&gt;
+                &lt;th class=&quot;!text-center&quot;&gt;Action&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngFor=&quot;let data of tableData;&quot;&gt;
+                &lt;td&gt;&lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox&quot; /&gt;&lt;/td&gt;
+                &lt;td class=&quot;whitespace-nowrap&quot;&gt; data.name &lt;/td&gt;
+                &lt;td&gt; data.date &lt;/td&gt;
+                &lt;td&gt; data.sale &lt;/td&gt;
+                &lt;td class=&quot;text-center&quot;&gt;
+                    &lt;ul class=&quot;flex items-center justify-center gap-2&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;javascript:;&quot; ngxTippy data-tippy-content=&quot;Settings&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-5 w-5 text-primary&quot;
+                                &gt;
+                                    &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;&gt;&lt;/circle&gt;
+                                    &lt;path
+                                        opacity=&quot;0.5&quot;
+                                        d=&quot;M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    &gt;&lt;/path&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;javascript:;&quot; ngxTippy data-tippy-content=&quot;Edit&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-4.5 w-4.5 text-success&quot;
+                                &gt;
+                                    &lt;path
+                                        d=&quot;M15.2869 3.15178L14.3601 4.07866L5.83882 12.5999L5.83881 12.5999C5.26166 13.1771 4.97308 13.4656 4.7249 13.7838C4.43213 14.1592 4.18114 14.5653 3.97634 14.995C3.80273 15.3593 3.67368 15.7465 3.41556 16.5208L2.32181 19.8021L2.05445 20.6042C1.92743 20.9852 2.0266 21.4053 2.31063 21.6894C2.59466 21.9734 3.01478 22.0726 3.39584 21.9456L4.19792 21.6782L7.47918 20.5844L7.47919 20.5844C8.25353 20.3263 8.6407 20.1973 9.00498 20.0237C9.43469 19.8189 9.84082 19.5679 10.2162 19.2751C10.5344 19.0269 10.8229 18.7383 11.4001 18.1612L11.4001 18.1612L19.9213 9.63993L20.8482 8.71306C22.3839 7.17735 22.3839 4.68748 20.8482 3.15178C19.3125 1.61607 16.8226 1.61607 15.2869 3.15178Z&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                    &lt;path
+                                        opacity=&quot;0.5&quot;
+                                        d=&quot;M14.36 4.07812C14.36 4.07812 14.4759 6.04774 16.2138 7.78564C17.9517 9.52354 19.9213 9.6394 19.9213 9.6394M4.19789 21.6777L2.32178 19.8015&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a href=&quot;javascript:;&quot; ngxTippy data-tippy-content=&quot;Delete&quot;&gt;
+                                &lt;svg
+                                    width=&quot;24&quot;
+                                    height=&quot;24&quot;
+                                    viewBox=&quot;0 0 24 24&quot;
+                                    fill=&quot;none&quot;
+                                    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+                                    class=&quot;h-5 w-5 text-danger&quot;
+                                &gt;
+                                    &lt;path d=&quot;M20.5001 6H3.5&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path
+                                        d=&quot;M18.8334 8.5L18.3735 15.3991C18.1965 18.054 18.108 19.3815 17.243 20.1907C16.378 21 15.0476 21 12.3868 21H11.6134C8.9526 21 7.6222 21 6.75719 20.1907C5.89218 19.3815 5.80368 18.054 5.62669 15.3991L5.16675 8.5&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                        stroke-linecap=&quot;round&quot;
+                                    /&gt;
+                                    &lt;path opacity=&quot;0.5&quot; d=&quot;M9.5 11L10 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path opacity=&quot;0.5&quot; d=&quot;M14.5 11L14 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; /&gt;
+                                    &lt;path
+                                        opacity=&quot;0.5&quot;
+                                        d=&quot;M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6&quot;
+                                        stroke=&quot;currentColor&quot;
+                                        stroke-width=&quot;1.5&quot;
+                                    /&gt;
+                                &lt;/svg&gt;
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+tableData = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@yahoo.com',
+            date: '10/08/2020',
+            sale: 120,
+            status: 'Complete',
+            register: '5 min ago',
+            progress: '40%',
+            position: 'Developer',
+            office: 'London',
+        },
+        ....
+]"></code> </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>

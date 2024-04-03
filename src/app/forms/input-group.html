@@ -1,0 +1,1083 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Forms</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Input Group</span>
+        </li>
+    </ul>
+    <div class="space-y-4 pt-5">
+        <!-- Basic -->
+        <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <!-- default -->
+            <div class="panel lg:row-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Default</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="mb-5">
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    @
+                                </div>
+                                <input type="text" placeholder="Username" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <div class="flex">
+                                <input type="text" placeholder="Recipient's username" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    @example.com
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="url">Your vanity URL</label>
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    https://
+                                </div>
+                                <input id="url" type="text" placeholder="example.com/users/" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    $
+                                </div>
+                                <input type="text" placeholder="" class="form-input rounded-none" />
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    .00
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center whitespace-nowrap border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    With textarea
+                                </div>
+                                <textarea rows="4" class="form-textarea ltr:rounded-l-none rtl:rounded-r-none"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code1')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        @
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Recipient's username&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        @example.com
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;label for=&quot;url&quot;&gt;Your vanity URL&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        https://
+      &lt;/div&gt;
+      &lt;input id=&quot;url&quot; type=&quot;text&quot; placeholder=&quot;example.com/users/&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        $
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input rounded-none&quot; /&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        .00
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b] whitespace-nowrap&quot;
+      &gt;
+        With textarea
+      &lt;/div&gt;
+      &lt;textarea rows=&quot;4&quot; class=&quot;form-textarea ltr:rounded-l-none rtl:rounded-r-none&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- simple icon -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Simple Icon</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="iconLeft">Left</label>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <icon-bell-bing class="text-white-dark" />
+                            </div>
+                            <input id="iconLeft" type="text" placeholder="Notification" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="iconRight">Right</label>
+                        <div class="flex">
+                            <input id="iconRight" type="text" placeholder="Notification" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <icon-bell-bing class="text-white-dark" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code2')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;input id=&quot;iconLeft&quot; type=&quot;text&quot; placeholder=&quot;Notification&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;iconRight&quot; type=&quot;text&quot; placeholder=&quot;Notification&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;svg&gt;... &lt;/svg&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- spinning Icon -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Spinning Icon</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="spiLeft">Left</label>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <icon-loader class="animate-spin text-white-dark" />
+                            </div>
+                            <input id="spiLeft" type="text" placeholder="Spinners" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="spiRight">Right</label>
+                        <div class="flex">
+                            <input id="spiRight" type="text" placeholder="Spinners" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <icon-loader class="animate-spin text-white-dark" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code3')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;svg&gt; ... &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;input id=&quot;spiLeft&quot; type=&quot;text&quot; placeholder=&quot;Spinners&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;spiRight&quot; type=&quot;text&quot; placeholder=&quot;Spinners&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;svg&gt; ...  &lt;/svg&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- dropdown icon -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Dropdown Icon</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code4')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="dropdown mb-5">
+                        <label for="dropdownLeft">Left</label>
+                        <div class="flex">
+                            <div hlMenu>
+                                <a hlMenuButton href="javascript:;" class="input-group-dropodwn h-full align-middle">
+                                    <div
+                                        class="flex h-full cursor-pointer items-center justify-center border border-[#e0e6ed] bg-primary px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c]"
+                                    >
+                                        <icon-settings class="h-5 w-5 text-white" />
+                                    </div>
+                                </a>
+                                <ul *hlMenuItems @toggleAnimation class="ltr:left-0 rtl:right-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                            <input id="dropdownLeft" type="text" placeholder="Dropdown" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <label for="dropdownRight">Right</label>
+                        <div class="flex">
+                            <input id="dropdownRight" type="text" placeholder="Dropdown" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div hlMenu>
+                                <a hlMenuButton href="javascript:;" class="input-group-dropodwn h-full align-middle">
+                                    <div
+                                        class="flex cursor-pointer items-center justify-center border border-[#e0e6ed] bg-success px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c]"
+                                    >
+                                        <icon-settings class="h-5 w-5 text-white" />
+                                    </div>
+                                </a>
+                                <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                    <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code4')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+    &lt;div hlMenu&gt;
+        &lt;a hlMenuButton href=&quot;javascript:;&quot; class=&quot;input-group-dropodwn h-full align-middle&quot;&gt;
+            &lt;div
+                class=&quot;flex h-full cursor-pointer items-center justify-center border border-[#e0e6ed] bg-primary px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c]&quot;
+            &gt;
+                &lt;svg&gt; &lt;/svg&gt;
+            &lt;/div&gt;
+        &lt;/a&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:left-0 rtl:right-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;input id=&quot;dropdownLeft&quot; type=&quot;text&quot; placeholder=&quot;Dropdown&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;dropdownRight&quot; type=&quot;text&quot; placeholder=&quot;Dropdown&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div hlMenu&gt;
+    &lt;a hlMenuButton href=&quot;javascript:;&quot; class=&quot;input-group-dropodwn h-full align-middle&quot;&gt;
+        &lt;div
+            class=&quot;flex cursor-pointer items-center justify-center border border-[#e0e6ed] bg-success px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c]&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:right-0 rtl:left-0&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- checkbox -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Checkboxes</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code5')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="checkLeft">Left</label>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#f1f2f3] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <input type="checkbox" class="form-checkbox border-[#e0e6ed] ltr:mr-0 rtl:ml-0 dark:border-white-dark" checked />
+                            </div>
+                            <input id="checkLeft" type="text" placeholder="Checkbox" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="checkRight">Right</label>
+                        <div class="flex">
+                            <input id="checkRight" type="text" placeholder="Checkbox" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#f1f2f3] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <input type="checkbox" class="form-checkbox border-[#e0e6ed] text-warning ltr:mr-0 rtl:ml-0 dark:border-white-dark" checked />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code5')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div
+    class=&quot;bg-[#f1f2f3] dark:bg-[#1b2e4b] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c]&quot;
+  &gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox border-[#e0e6ed] dark:border-white-dark ltr:mr-0 rtl:ml-0&quot; checked /&gt;
+  &lt;/div&gt;
+  &lt;input id=&quot;checkLeft&quot; type=&quot;text&quot; placeholder=&quot;Checkbox&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;checkRight&quot; type=&quot;text&quot; placeholder=&quot;Checkbox&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div
+    class=&quot;bg-[#f1f2f3] dark:bg-[#1b2e4b] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c]&quot;
+  &gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-checkbox text-warning border-[#e0e6ed] dark:border-white-dark ltr:mr-0 rtl:ml-0&quot; checked /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- radio -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Radios</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code6')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="radioLeft">Left</label>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#f1f2f3] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <input type="radio" class="form-radio border-[#e0e6ed] text-info ltr:mr-0 rtl:ml-0 dark:border-white-dark" checked />
+                            </div>
+                            <input id="radioLeft" type="text" placeholder="Radio" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="radioRight">Right</label>
+                        <div class="flex">
+                            <input id="radioRight" type="text" placeholder="Radio" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#f1f2f3] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <input type="radio" class="form-radio border-[#e0e6ed] text-danger ltr:mr-0 rtl:ml-0 dark:border-white-dark" checked />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code6')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div
+    class=&quot;bg-[#f1f2f3] dark:bg-[#1b2e4b] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c]&quot;
+  &gt;
+    &lt;input type=&quot;radio&quot; class=&quot;form-radio text-info border-[#e0e6ed] dark:border-white-dark ltr:mr-0 rtl:ml-0&quot; checked /&gt;
+  &lt;/div&gt;
+  &lt;input id=&quot;radioLeft&quot; type=&quot;text&quot; placeholder=&quot;Radio&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;radioRight&quot; type=&quot;text&quot; placeholder=&quot;Radio&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div
+    class=&quot;bg-[#f1f2f3] dark:bg-[#1b2e4b] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c]&quot;
+  &gt;
+    &lt;input type=&quot;radio&quot; class=&quot;form-radio text-danger border-[#e0e6ed] dark:border-white-dark ltr:mr-0 rtl:ml-0&quot; checked /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+
+            <!-- switch -->
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Switch</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code7')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <div class="mb-5">
+                        <label for="switchLeft">Left</label>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <label class="relative mb-0 h-4 w-7 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        class="peer absolute z-10 h-full w-full cursor-pointer opacity-0 focus:outline-none focus:ring-0"
+                                        id="custom_switch_checkbox1"
+                                    />
+                                    <span
+                                        class="block h-full rounded-full border border-[#adb5bd] bg-white before:absolute before:bottom-[2px] before:h-3 before:w-3 before:rounded-full before:bg-[#adb5bd] before:transition-all before:duration-300 peer-checked:border-primary peer-checked:bg-primary peer-checked:before:bg-white ltr:before:left-0.5 ltr:peer-checked:before:left-3.5 rtl:before:right-0.5 rtl:peer-checked:before:right-3.5 dark:bg-dark dark:before:bg-white-dark"
+                                    ></span>
+                                </label>
+                            </div>
+                            <input id="switchLeft" type="text" placeholder="Switch" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="switchRight">Right</label>
+                        <div class="flex">
+                            <input id="switchRight" type="text" placeholder="Switch" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                <label class="relative mb-0 h-4 w-7 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        class="peer absolute z-10 h-full w-full cursor-pointer opacity-0 focus:outline-none focus:ring-0"
+                                        id="custom_switch_checkbox2"
+                                    />
+                                    <span
+                                        class="block h-full rounded-full border border-[#adb5bd] bg-white before:absolute before:bottom-[2px] before:h-3 before:w-3 before:rounded-full before:bg-[#adb5bd] before:transition-all before:duration-300 peer-checked:border-primary peer-checked:bg-primary peer-checked:before:bg-white ltr:before:left-0.5 ltr:peer-checked:before:left-3.5 rtl:before:right-0.5 rtl:peer-checked:before:right-3.5 dark:bg-dark dark:before:bg-white-dark"
+                                    ></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code7')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- left --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;label class=&quot;w-7 h-4 relative cursor-pointer mb-0&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; class=&quot;peer absolute w-full h-full opacity-0 z-10 focus:ring-0 focus:outline-none cursor-pointer&quot; id=&quot;custom_switch_checkbox1&quot; /&gt;
+      &lt;span
+        class=&quot;rounded-full border border-[#adb5bd] bg-white peer-checked:bg-primary peer-checked:border-primary dark:bg-dark block h-full before:absolute ltr:before:left-0.5 rtl:before:right-0.5 ltr:peer-checked:before:left-3.5 rtl:peer-checked:before:right-3.5 peer-checked:before:bg-white before:bg-[#adb5bd] dark:before:bg-white-dark before:bottom-[2px] before:w-3 before:h-3 before:rounded-full before:transition-all before:duration-300&quot;
+      &gt;&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;input id=&quot;switchLeft&quot; type=&quot;text&quot; placeholder=&quot;Switch&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+&lt;/div&gt;
+
+&lt;!-- right --&gt;
+&lt;div class=&quot;flex&quot;&gt;
+  &lt;input id=&quot;switchRight&quot; type=&quot;text&quot; placeholder=&quot;Switch&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+  &lt;div
+    class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+  &gt;
+    &lt;label class=&quot;w-7 h-4 relative cursor-pointer mb-0&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; class=&quot;peer absolute w-full h-full opacity-0 z-10 focus:ring-0 focus:outline-none cursor-pointer&quot; id=&quot;custom_switch_checkbox2&quot; /&gt;
+      &lt;span
+        class=&quot;rounded-full border border-[#adb5bd] bg-white peer-checked:bg-primary peer-checked:border-primary dark:bg-dark block h-full before:absolute ltr:before:left-0.5 rtl:before:right-0.5 ltr:peer-checked:before:left-3.5 rtl:peer-checked:before:right-3.5 peer-checked:before:bg-white before:bg-[#adb5bd] dark:before:bg-white-dark before:bottom-[2px] before:w-3 before:h-3 before:rounded-full before:transition-all before:duration-300&quot;
+      &gt;&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+        <!-- Sizes -->
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Sizes</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code8')">
+                    <span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span>
+                </a>
+            </div>
+            <div class="mb-5">
+                <form>
+                    <div class="mb-5">
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                Small
+                            </div>
+                            <input type="text" placeholder="Username" class="form-input py-2.5 text-base ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                Small
+                            </div>
+                            <input type="text" placeholder="Username" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                Small
+                            </div>
+                            <input type="text" placeholder="Username" class="form-input py-1.5 text-xs ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code8')">
+                <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- sizes --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        Small
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none py-2.5 text-base&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        Small
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        Small
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none py-1.5 text-xs&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+            </ng-container>
+        </div>
+        <!-- Multiple -->
+        <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Multiple inputs</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code9')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="flex">
+                            <div
+                                class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                            >
+                                First and last name
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="First Name"
+                                class="form-input flex-1 rounded-none focus:!border-l focus:!border-r ltr:border-r-0 rtl:border-l-0"
+                            />
+                            <input type="text" placeholder="Last Name" class="form-input flex-1 ltr:rounded-l-none rtl:rounded-r-none" />
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code9')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- multiple inputs --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;flex&quot;&gt;
+    &lt;div
+      class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+    &gt;
+      First and last name
+    &lt;/div&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;First Name&quot; class=&quot;form-input ltr:border-r-0 rtl:border-l-0 focus:!border-r focus:!border-l rounded-none flex-1&quot; /&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Last Name&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none flex-1&quot; /&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Multiple addons</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code10')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="mb-5">
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    $
+                                </div>
+                                <div
+                                    class="flex items-center justify-center rounded-none border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:border-r-0 rtl:border-l-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    0.00
+                                </div>
+                                <input type="text" placeholder="" class="form-input flex-1 ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex">
+                                <input
+                                    type="text"
+                                    placeholder=""
+                                    class="form-input flex-1 ltr:rounded-l-md ltr:rounded-r-none rtl:rounded-l-none rtl:rounded-r-md"
+                                />
+                                <div
+                                    class="flex items-center justify-center rounded-none border border-[#e0e6ed] bg-[#eee] px-3 font-semibold dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    0.00
+                                </div>
+                                <div
+                                    class="flex items-center justify-center border border-[#e0e6ed] bg-[#eee] px-3 font-semibold ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c] dark:bg-[#1b2e4b]"
+                                >
+                                    $
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code10')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- basic --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        $
+      &lt;/div&gt;
+      &lt;div class=&quot;bg-[#eee] flex justify-center items-center rounded-none px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;&gt;
+        0.00
+      &lt;/div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none flex-1&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none flex-1 ltr:rounded-l-md rtl:rounded-r-md&quot; /&gt;
+      &lt;div class=&quot;bg-[#eee] flex justify-center items-center rounded-none px-3 font-semibold border border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;&gt;0.00&lt;/div&gt;
+      &lt;div
+        class=&quot;bg-[#eee] flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-[#e0e6ed] dark:border-[#17263c] dark:bg-[#1b2e4b]&quot;
+      &gt;
+        $
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Buttons with dropdowns</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code11')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="dropdown mb-5">
+                            <label for="dropdownLeftButton">Left</label>
+                            <div class="flex">
+                                <div hlMenu>
+                                    <a hlMenuButton href="javascript:;" class="input-group-dropodwn h-full align-middle">
+                                        <div
+                                            class="flex h-full cursor-pointer items-center justify-center border border-[#e0e6ed] bg-primary px-3 font-semibold text-white ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c]"
+                                        >
+                                            Dropdown
+                                        </div>
+                                    </a>
+                                    <ul *hlMenuItems @toggleAnimation class="ltr:left-0 rtl:right-0">
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <input id="dropdownLeftButton" type="text" placeholder="" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <label for="dropdownRightButton">Right</label>
+                            <div class="flex">
+                                <input id="dropdownRightButton" type="text" placeholder="" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                                <div hlMenu>
+                                    <a hlMenuButton href="javascript:;" class="input-group-dropodwn h-full align-middle">
+                                        <div
+                                            class="flex cursor-pointer items-center justify-center border border-[#e0e6ed] bg-danger px-3 font-semibold text-white ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c]"
+                                        >
+                                            Dropdown
+                                        </div>
+                                    </a>
+                                    <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code11')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- buttons with dropdowns --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5 dropdown&quot;&gt;
+    &lt;label for=&quot;dropdownLeftButton&quot;&gt;Left&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div hlMenu&gt;
+        &lt;a hlMenuButton href=&quot;javascript:;&quot; class=&quot;input-group-dropodwn h-full align-middle&quot;&gt;
+            &lt;div
+                class=&quot;flex h-full cursor-pointer items-center justify-center border border-[#e0e6ed] bg-primary px-3 font-semibold text-white ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0 dark:border-[#17263c]&quot;
+            &gt;
+                Dropdown
+            &lt;/div&gt;
+        &lt;/a&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:left-0 rtl:right-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+      &lt;input id=&quot;dropdownLeftButton&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;label for=&quot;dropdownRightButton&quot;&gt;Right&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input id=&quot;dropdownRightButton&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+      &lt;div hlMenu&gt;
+        &lt;a hlMenuButton href=&quot;javascript:;&quot; class=&quot;input-group-dropodwn h-full align-middle&quot;&gt;
+            &lt;div
+                class=&quot;flex cursor-pointer items-center justify-center border border-[#e0e6ed] bg-danger px-3 font-semibold text-white ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0 dark:border-[#17263c]&quot;
+            &gt;
+                Dropdown
+            &lt;/div&gt;
+        &lt;/a&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+            <div class="panel">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Segmented buttons</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code12')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="dropdown mb-5">
+                            <label for="btnLeft">Left</label>
+                            <div class="flex">
+                                <div
+                                    class="flex items-center justify-center border border-info bg-info px-3 font-semibold text-white ltr:rounded-l-md ltr:border-r-0 rtl:rounded-r-md rtl:border-l-0"
+                                >
+                                    Action
+                                </div>
+                                <div hlMenu>
+                                    <div
+                                        hlMenuButton
+                                        class="flex h-full cursor-pointer items-center justify-center rounded-none border border-info bg-white px-3 font-semibold text-info dark:bg-[#1b2e4b]"
+                                    >
+                                        <icon-caret-down class="h-5 w-5" />
+                                    </div>
+                                    <ul *hlMenuItems @toggleAnimation class="ltr:left-0 rtl:right-0">
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <input
+                                    id="btnLeft"
+                                    type="text"
+                                    placeholder=""
+                                    class="form-input ltr:rounded-l-none ltr:border-l-0 rtl:rounded-r-none rtl:border-r-0"
+                                />
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <label for="btnRight">Right</label>
+                            <div class="flex">
+                                <input
+                                    id="btnRight"
+                                    type="text"
+                                    placeholder=""
+                                    class="form-input ltr:rounded-r-none ltr:border-r-0 rtl:rounded-l-none rtl:border-l-0"
+                                />
+                                <div hlMenu>
+                                    <div
+                                        hlMenuButton
+                                        class="flex h-full items-center justify-center rounded-none border border-secondary bg-white px-3 font-semibold text-secondary dark:bg-[#1b2e4b]"
+                                    >
+                                        <icon-caret-down class="h-5 w-5" />
+                                    </div>
+                                    <ul *hlMenuItems @toggleAnimation class="ltr:right-0 rtl:left-0">
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Another action</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Something else here</a></li>
+                                        <li><a href="javascript:;" *hlMenuItem="let menuItem">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div
+                                    class="flex cursor-pointer items-center justify-center border border-secondary bg-secondary px-3 font-semibold text-white ltr:rounded-r-md ltr:border-l-0 rtl:rounded-l-md rtl:border-r-0"
+                                >
+                                    Action
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code12')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- segmented buttons --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5 dropdown&quot;&gt;
+    &lt;label for=&quot;btnLeft&quot;&gt;Left&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;div class=&quot;bg-info text-white flex justify-center items-center ltr:rounded-l-md rtl:rounded-r-md px-3 font-semibold border ltr:border-r-0 rtl:border-l-0 border-info&quot;&gt;Action&lt;/div&gt;
+      &lt;div hlMenu&gt;
+        &lt;div
+            hlMenuButton
+            class=&quot;flex h-full cursor-pointer items-center justify-center rounded-none border border-info bg-white px-3 font-semibold text-info dark:bg-[#1b2e4b]&quot;
+        &gt;
+            &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5&quot;&gt;
+                &lt;path d=&quot;M19 9L12 15L5 9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:left-0 rtl:right-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+      &lt;input id=&quot;btnLeft&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none ltr:border-l-0 rtl:border-r-0&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;label for=&quot;btnRight&quot;&gt;Right&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input id=&quot;btnRight&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none ltr:border-r-0 rtl:border-l-0&quot; /&gt;
+      &lt;div hlMenu&gt;
+        &lt;div
+            hlMenuButton
+            class=&quot;flex h-full items-center justify-center rounded-none border border-secondary bg-white px-3 font-semibold text-secondary dark:bg-[#1b2e4b]&quot;
+        &gt;
+            &lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-5 w-5&quot;&gt;
+                &lt;path d=&quot;M19 9L12 15L5 9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;ul *hlMenuItems @toggleAnimation class=&quot;ltr:right-0 rtl:left-0&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; *hlMenuItem=&quot;let menuItem&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+      &lt;div
+        class=&quot;bg-secondary text-white flex justify-center items-center ltr:rounded-r-md rtl:rounded-l-md px-3 font-semibold border ltr:border-l-0 rtl:border-r-0 border-secondary cursor-pointer&quot;
+      &gt;
+        Action
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+            <div class="panel lg:col-span-2">
+                <div class="mb-5 flex items-center justify-between">
+                    <h5 class="text-lg font-semibold dark:text-white-light">Button addons</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code13')">
+                        <span class="flex items-center">
+                            <icon-code class="me-2" />
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5">
+                    <form>
+                        <div class="mb-5">
+                            <label for="addonsLeft">Left</label>
+                            <div class="flex">
+                                <button type="button" class="btn btn-info ltr:rounded-r-none rtl:rounded-l-none">Button</button>
+                                <input id="addonsLeft" type="text" placeholder="" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="addonsRight">Right</label>
+                            <div class="flex">
+                                <input id="addonsRight" type="text" placeholder="" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                                <button type="button" class="btn btn-secondary ltr:rounded-l-none rtl:rounded-r-none">Button</button>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label for="addonsLeftoutline">Left</label>
+                            <div class="flex">
+                                <button type="button" class="btn btn-outline-info ltr:rounded-r-none rtl:rounded-l-none">Button</button>
+                                <button type="button" class="btn btn-outline-info rounded-none ltr:border-l-0 rtl:border-r-0">Button</button>
+                                <input id="addonsLeftoutline" type="text" placeholder="" class="form-input ltr:rounded-l-none rtl:rounded-r-none" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="addonsRightoutline">Right</label>
+                            <div class="flex">
+                                <input id="addonsRightoutline" type="text" placeholder="" class="form-input ltr:rounded-r-none rtl:rounded-l-none" />
+                                <button type="button" class="btn btn-outline-secondary rounded-none ltr:border-r-0 rtl:border-l-0">Button</button>
+                                <button type="button" class="btn btn-outline-secondary ltr:rounded-l-none rtl:rounded-r-none">Button</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <ng-container *ngIf="codeArr.includes('code13')">
+                    <pre> <code [languages]="['xml','typescript']" highlight="&lt;!-- button addons --&gt;
+&lt;form&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;label for=&quot;addonsLeft&quot;&gt;Left&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-info ltr:rounded-r-none rtl:rounded-l-none&quot;&gt;Button&lt;/button&gt;
+      &lt;input id=&quot;addonsLeft&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;label for=&quot;addonsRight&quot;&gt;Right&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input id=&quot;addonsRight&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary ltr:rounded-l-none rtl:rounded-r-none&quot;&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mb-5&quot;&gt;
+    &lt;label for=&quot;addonsLeftoutline&quot;&gt;Left&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info ltr:rounded-r-none rtl:rounded-l-none&quot;&gt;Button&lt;/button&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info rounded-none ltr:border-l-0 rtl:border-r-0&quot;&gt;Button&lt;/button&gt;
+      &lt;input id=&quot;addonsLeftoutline&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for=&quot;addonsRightoutline&quot;&gt;Right&lt;/label&gt;
+    &lt;div class=&quot;flex&quot;&gt;
+      &lt;input id=&quot;addonsRightoutline&quot; type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary rounded-none ltr:border-r-0 rtl:border-l-0&quot;&gt;Button&lt;/button&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary ltr:rounded-l-none rtl:rounded-r-none&quot;&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;"></code> </pre>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,241 @@
+<div>
+    <ul class="flex space-x-2 rtl:space-x-reverse">
+        <li>
+            <a href="javascript:;" class="text-primary hover:underline">Elements</a>
+        </li>
+        <li class="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+            <span>Search</span>
+        </li>
+    </ul>
+    <div class="grid grid-cols-1 gap-6 pt-5 lg:grid-cols-2">
+        <div class="panel lg:row-span-2">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Live Search</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code1')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5 space-y-5">
+                <div>
+                    <form class="mx-auto mb-5 w-full sm:w-1/2">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                placeholder="Search Attendees..."
+                                class="form-input h-11 rounded-full bg-white shadow-[0_0_4px_2px_rgb(31_45_61_/_10%)] placeholder:tracking-wider ltr:pr-11 rtl:pl-11"
+                                [(ngModel)]="search"
+                                (ngModelChange)="searchResults()"
+                                name="search"
+                            />
+                            <button
+                                type="button"
+                                class="btn btn-primary absolute inset-y-0 m-auto flex h-9 w-9 items-center justify-center rounded-full p-0 ltr:right-1 rtl:left-1"
+                            >
+                                <icon-search class="mx-auto" />
+                            </button>
+                        </div>
+                    </form>
+                    <div class="block w-full space-y-4 overflow-x-auto rounded-lg border border-white-dark/20 p-4">
+                        <ng-container *ngFor="let item of filteredItem; index as i">
+                            <div
+                                class="flex min-w-[625px] items-center justify-between rounded-xl bg-white p-3 font-semibold text-gray-500 shadow-[0_0_4px_2px_rgb(31_45_61_/_10%)] transition-all duration-300 hover:scale-[1.01] hover:text-primary dark:bg-[#1b2e4b]"
+                            >
+                                <div class="user-profile">
+                                    <img [src]="'/assets/images/' +item.thumb" alt="" class="h-8 w-8 rounded-md object-cover" />
+                                </div>
+                                <div>{{ item.name }}</div>
+                                <div>{{ item.email }}</div>
+                                <div class="badge border-2 border-dashed" [ngClass]="item.statusClass">{{ item.status }}</div>
+                                <div class="cursor-pointer">
+                                    <icon-horizontal-dots class="h-6 w-6 opacity-70" />
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code1')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- live search --&gt;
+&lt;div&gt;
+    &lt;form class=&quot;mx-auto mb-5 w-full sm:w-1/2&quot;&gt;
+        &lt;div class=&quot;relative&quot;&gt;
+            &lt;input
+                type=&quot;text&quot;
+                placeholder=&quot;Search Attendees...&quot;
+                class=&quot;form-input h-11 rounded-full bg-white shadow-[0_0_4px_2px_rgb(31_45_61_/_10%)] placeholder:tracking-wider ltr:pr-11 rtl:pl-11&quot;
+                [(ngModel)]=&quot;search&quot;
+                (ngModelChange)=&quot;searchResults()&quot;
+                name=&quot;search&quot;
+            /&gt;
+            &lt;button
+                type=&quot;button&quot;
+                class=&quot;btn btn-primary absolute inset-y-0 m-auto flex h-9 w-9 items-center justify-center rounded-full p-0 ltr:right-1 rtl:left-1&quot;
+            &gt;
+                &lt;svg&gt; &lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;div class=&quot;block w-full space-y-4 overflow-x-auto rounded-lg border border-white-dark/20 p-4&quot;&gt;
+        &lt;ng-container *ngFor=&quot;let item of filteredItem; index as i&quot;&gt;
+            &lt;div
+                class=&quot;flex min-w-[625px] items-center justify-between rounded-xl bg-white p-3 font-semibold text-gray-500 shadow-[0_0_4px_2px_rgb(31_45_61_/_10%)] transition-all duration-300 hover:scale-[1.01] hover:text-primary dark:bg-[#1b2e4b]&quot;
+            &gt;
+                &lt;div class=&quot;user-profile&quot;&gt;
+                    &lt;img [src]=&quot;'/assets/images/' +item.thumb&quot; alt=&quot;&quot; class=&quot;h-8 w-8 rounded-md object-cover&quot; /&gt;
+                &lt;/div&gt;
+                &lt;div&gt; item.name &lt;/div&gt;
+                &lt;div&gt; item.email &lt;/div&gt;
+                &lt;div class=&quot;badge border-2 border-dashed&quot; [ngClass]=&quot;item.statusClass&quot;&gt; item.status &lt;/div&gt;
+                &lt;div class=&quot;cursor-pointer&quot;&gt;
+                    &lt;svg&gt; &lt;/svg&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/ng-container&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- script --&gt;
+    search = '';
+    items: any = [
+        {
+            thumb: 'profile-5.jpeg',
+            name: 'Alan Green',
+            email: 'alan@mail.com',
+            status: 'Active',
+            statusClass: 'badge badge-outline-primary',
+        }, ....
+    ];
+    filteredItem = this.items || [];
+
+    searchResults() {
+        this.filteredItem = this.items.filter((item: any) =&gt; {
+            return (
+                item.name.toLowerCase().includes(this.search.toLowerCase()) ||
+                item.email.toLowerCase().includes(this.search.toLowerCase()) ||
+                item.status.toLowerCase().includes(this.search.toLowerCase())
+            );
+        });
+    }"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Overlay</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code2')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5 space-y-5">
+                <form>
+                    <div
+                        class="search-form-overlay relative h-12 w-full rounded-md border border-white-dark/20"
+                        (click)="focus = true"
+                        [ngClass]="{'input-focused' :focus}"
+                    >
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            class="peer form-input hidden h-full bg-white placeholder:tracking-wider ltr:pl-12 rtl:pr-12"
+                            [ngClass]="{ '!block': focus }"
+                            (blur)="focus = false"
+                        />
+                        <button
+                            type="submit"
+                            class="absolute inset-y-0 my-auto flex h-9 w-9 items-center justify-center p-0 text-dark/70 peer-focus:text-primary ltr:right-1 rtl:left-1"
+                            [ngClass]="{ 'ltr:!right-auto ltr:left-1 rtl:right-1': focus }"
+                        >
+                            <icon-search class="mx-auto h-5 w-5" />
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code2')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- overlay --&gt;
+&lt;form&gt;
+    &lt;div
+        class=&quot;search-form-overlay relative h-12 w-full rounded-md border border-white-dark/20&quot;
+        (click)=&quot;focus = true&quot;
+        [ngClass]=&quot;{'input-focused' :focus}&quot;
+    &gt;
+        &lt;input
+            type=&quot;text&quot;
+            placeholder=&quot;Search...&quot;
+            class=&quot;peer form-input hidden h-full bg-white placeholder:tracking-wider ltr:pl-12 rtl:pr-12&quot;
+            [ngClass]=&quot;{ '!block': focus }&quot;
+            (blur)=&quot;focus = false&quot;
+        /&gt;
+        &lt;button
+            type=&quot;submit&quot;
+            class=&quot;absolute inset-y-0 my-auto flex h-9 w-9 items-center justify-center p-0 text-dark/70 peer-focus:text-primary ltr:right-1 rtl:left-1&quot;
+            [ngClass]=&quot;{ 'ltr:!right-auto ltr:left-1 rtl:right-1': focus }&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+
+        <div class="panel">
+            <div class="mb-5 flex items-center justify-between">
+                <h5 class="text-lg font-semibold dark:text-white-light">Search Box</h5>
+                <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" (click)="toggleCode('code3')"
+                    ><span class="flex items-center">
+                        <icon-code class="me-2" />
+                        Code
+                    </span></a
+                >
+            </div>
+            <div class="mb-5 space-y-5">
+                <form>
+                    <div class="relative flex w-full border border-white-dark/20">
+                        <button
+                            type="submit"
+                            placeholder="Let's find your question in fast way"
+                            class="m-auto flex items-center justify-center p-3 text-primary"
+                        >
+                            <icon-search class="mx-auto h-5 w-5" />
+                        </button>
+                        <input
+                            type="text"
+                            placeholder="Let's find your question in fast way"
+                            class="form-input rounded-none border-0 border-l bg-white py-3 placeholder:tracking-wider focus:shadow-[0_0_5px_2px_rgb(194_213_255_/_62%)] focus:outline-none dark:shadow-[#1b2e4b]"
+                        />
+                    </div>
+                </form>
+            </div>
+            <ng-container *ngIf="codeArr.includes('code3')">
+                <pre>
+                    <code [languages]="['xml','typescript']" highlight="&lt;!-- boxed --&gt;
+&lt;form&gt;
+    &lt;div class=&quot;relative flex w-full border border-white-dark/20&quot;&gt;
+        &lt;button
+            type=&quot;submit&quot;
+            placeholder=&quot;Let's find your question in fast way&quot;
+            class=&quot;m-auto flex items-center justify-center p-3 text-primary&quot;
+        &gt;
+            &lt;svg&gt; &lt;/svg&gt;
+        &lt;/button&gt;
+        &lt;input
+            type=&quot;text&quot;
+            placeholder=&quot;Let's find your question in fast way&quot;
+            class=&quot;form-input rounded-none border-0 border-l bg-white py-3 placeholder:tracking-wider focus:shadow-[0_0_5px_2px_rgb(194_213_255_/_62%)] focus:outline-none dark:shadow-[#1b2e4b]&quot;
+        /&gt;
+    &lt;/div&gt;
+&lt;/form&gt;"></code>
+                </pre>
+            </ng-container>
+        </div>
+    </div>
+</div>
